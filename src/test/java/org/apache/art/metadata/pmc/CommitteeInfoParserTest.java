@@ -44,6 +44,9 @@ public class CommitteeInfoParserTest {
 
         public void member(String name, String address) {
             memberEvents++;
+            if (address.equals("hboutemy@apache.org")) {
+                Assert.assertEquals("Herv\u00E9 Boutemy", name);
+            }
         }
         
         public void validate() {
