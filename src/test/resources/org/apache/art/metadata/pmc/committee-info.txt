@@ -1,0 +1,2231 @@
+﻿INFORMATION ABOUT THE ASF COMMITTEES                         -*-indented-text-*-
+
+                         Last modified:
+                         $Date$
+
+
+This file contains private information and should be treated with
+due respect.
+
+SECTIONS
+
+  1. List of ASF Committees
+  2. Reporting Process and Schedule
+  3. Committee Membership and Change Process
+
+
+NOTE:
+The data in this file appears in other venues.  Board resolutions (as
+recorded in the board's minutes on the public web site) are required
+to constitute these committees.  The PMC mailing lists (as recorded in
+private on ezmlm) are the functional manifestation of these
+committees.  Committee members adopt various handles in those mailing
+lists that often differ from their apache.org handles.  Some PMC
+maintain private and public record of a similar nature.  The
+foundation maintains a private list of members and their project
+associations.  Not all committee members utilize their @apache.org
+email addresses.  Keeping these all in synch is difficult.  A best
+effort is made by volunteers to maintain this file.
+
+PMCs are responsible for keeping their portion of the records up-to-date, see:
+
+http://www.apache.org/dev/pmc.html#newpmc
+
+Change of PMC chair
+===================
+When updating PMC chairs, please ensure that the "chair" marker is changed in both the summary
+and the detail sections. Also please ensure that the 'pmc-chairs' LDAP group is updated if necessary (*).
+
+To list the contents of the 'pmc-chairs' group:
+   ldapsearch cn=pmc-chairs # (this must be run on minotaur/people)
+If the list is incorrect, please contact infrastructure via e-mail and/or JIRA to get it updated.
+
+(*) i.e. unless both the outgoing and incoming chairs are chairs of another PMC.
+
+When changing PMC group membership, please also change the associated LDAP committee group:
+==================================
+
+modify_committee.pl tlp -add=new_pmcmember
+modify_committee.pl tlp -rm=ex_pmcmember
+
+Also, please update the web-site file at:
+
+https://svn.apache.org/repos/asf/infrastructure/site/trunk/xdocs/foundation/index.xml
+
+and regenerate/deploy the site
+
+** Please only use ASF e-mail addresses in section 1 **
+
+Also, when using non-ASF e-mail addresses, please ensure that they are listed in
+https://svn.apache.org/repos/private/committers/MailAlias.txt
+
+=============================================================================
+
+1. APACHE SOFTWARE FOUNDATION COMMITTEES
+
+
+The Apache Software Foundation has the following Project Management
+Committees (PMCs):
+
+    NAME                    CHAIR
+    ----------              ---------------
+    Abdera                  Ant Elder <antelder@apache.org>
+    ActiveMQ                Hiram Chirino <chirino@apache.org>
+    Ant                     Conor MacNeill <conor@apache.org>
+    APR                     Jeff Trawick <trawick@apache.org>
+    Archiva                 Maria Odea Ching <oching@apache.org>
+    Attic                   Gianugo Rabellino <gianugo@apache.org>
+    Avro                    Matt Massie <massie@apache.org>
+    Axis                    Glen Daniels <gdaniels@apache.org>
+    Buildr                  Alex Boisvert <boisvert@apache.org>
+    C++ Standard Library    Martin Sebor <sebor@apache.org>
+    Camel                   Hadrian Zbarcea <hadrian@apache.org>
+    Cassandra               Jonathan Ellis <jbellis@apache.org>
+    Cayenne                 Andrus Adamchik <aadamchik@apache.org>
+    Click                   Malcolm Edgar <medgar@apache.org>
+    Cocoon                  Vadim Gritsenko <vgritsenko@apache.org>
+    Commons                 Phil Steitz <psteitz@apache.org>
+    Community Development   Ross Gardler <rgardler@apache.org>
+    Conference Planning     Noirin Shirley <noirin@apache.org>
+    Continuum               Emmanuel Venisse <evenisse@apache.org>
+    CouchDB                 Damien Katz <damien@apache.org>
+    CXF                     J. Daniel Kulp <dkulp@apache.org>
+    DB                      Rick Hillegas <rhillegas@apache.org>
+    Directory               Alex Karasulu <akarasulu@apache.org>
+    Excalibur               Carsten Ziegeler <cziegeler@apache.org>
+    Felix                   Richard Hall <rickhall@apache.org>
+    Forrest                 David Crossley <crossley@apache.org>
+    Geronimo                Kevan Miller <kevan@apache.org>
+    Gump                    Stefan Bodewig <bodewig@apache.org>
+    Hadoop                  Owen O'Malley <omalley@apache.org>
+    Harmony                 Tim Ellison <tellison@apache.org>
+    HBase                   Michael Stack <stack@apache.org>
+    HttpComponents          Asankha Perera <asankha@apache.org>
+    HTTP Server             William A. Rowe Jr. <wrowe@apache.org>
+    Incubator               Noel J. Bergman <noel@apache.org>
+    Jackrabbit              Jukka Zitting <jukka@apache.org>
+    Jakarta                 Rahul Akolkar <rahul@apache.org>
+    JAMES                   Norman Maurer <norman@apache.org>
+    Karaf                   Guillaume Nodet <gnodet@apache.org>
+    Labs                    Bernd Fondermann <berndf@apache.org>
+    Lenya                   Richard Frovarp <rfrovarp@apache.org>
+    Logging                 Curt Arnold <carnold@apache.org>
+    Lucene                  Grant Ingersoll <gsingers@apache.org>
+    Mahout                  Sean Owen <srowen@apache.org>
+    Maven                   Brian Fox <brianf@apache.org>
+    MINA                    Niklas Gustavsson <ngn@apache.org>
+    MyFaces                 Matthias Wessendorf <matzew@apache.org>
+    Nutch                   Andrzej Bialecki <ab@apache.org>
+    ODE                     Tammo van Lessen <vanto@apache.org>
+    OFBiz                   Jacopo Cappellato <jacopoc@apache.org>
+    OpenEJB                 David Blevins <dblevins@apache.org>
+    OpenJPA                 Craig Russell <clr@apache.org>
+    OpenWebBeans            Gurkan Erdogdu <gerdogdu@apache.org>
+    PDFBox                  Andreas Lehmkühler <lehmi@apache.org>
+    Perl                    Philippe M. Chiasson <gozer@apache.org>
+    Pivot                   Greg Brown <gbrown@apache.org>
+    POI                     Nick Burch <nick@apache.org>
+    Portals                 David Sean Taylor <taylor@apache.org>
+    Qpid                    Carl Trieloff <cctrieloff@apache.org>
+    Roller                  Dave Johnson <snoopdave@apache.org>
+    Santuario               Colm O hEigeartaigh <coheigea@apache.org>
+    ServiceMix              Chris Custine <ccustine@apache.org>
+    Shindig                 Paul Lindner <lindner@apache.org>
+    Sling                   Felix Meschberger <fmeschbe@apache.org>
+    SpamAssassin            Daryl C. W. O'Shea <dos@apache.org>
+    Struts                  Martin Cooper <martinc@apache.org>
+    Subversion              Greg Stein <gstein@apache.org>
+    Synapse                 Paul Fremantle <pzf@apache.org>
+    Tapestry                Howard M. Lewis Ship <hlship@apache.org>
+    Tcl                     David N. Welton <davidw@apache.org>
+    Tika                    Chris A. Mattmann <mattmann@apache.org>
+    Tiles                   Greg Reddin <greddin@apache.org>
+    Tomcat                  Mladen Turk <mturk@apache.org>
+    Traffic Server          Leif Hedstrom <zwoop@apache.org>
+    Turbine                 Scott Eade <seade@apache.org>
+    Tuscany                 Ant Elder <antelder@apache.org>
+    UIMA                    Marshall Schor <schor@apache.org>
+    Velocity                Henning Schmiedehausen <henning@apache.org>
+    Web Services            Glen Daniels <gdaniels@apache.org>
+    Wicket                  Martijn Dashorst <dashorst@apache.org>
+    Xalan                   David Bertoni <dbertoni@apache.org>
+    Xerces                  Michael Glavassevich <mrglavas@apache.org>
+    XML                     Gianugo Rabellino <gianugo@apache.org>
+    XML Graphics            Simon Pepping <spepping@apache.org>
+    XMLBeans                Cezar Andrei <cezar@apache.org>
+
+
+The ASF also has the following Board Committees:
+
+    NAME                      CHAIR
+    ----------                ---------------
+    Legal Affairs             Sam Ruby <rubys@apache.org>
+    Security Team             Mark Cox <mjc@apache.org>
+    Travel Assistance         Gavin McDonald <gmcdonald@apache.org>
+
+
+The ASF also has the following President's Committees:
+
+    NAME                      CHAIR
+    ----------                ---------------
+    Infrastructure            Philip M. Gollucci <pgollucci@apache.org>
+
+
+The ASF also has the following additional Offices:
+
+    NAME                      CHAIR
+    ----------                ---------------
+    Java Community Process    Geir Magnusson Jr. <geirm@apache.org>
+    W3C Relations             Sam Ruby <rubys@apache.org>
+    Fundraising               Serge Knystautas <serge@apache.org>
+    Marketing and Publicity   Sally Khudairi <sk@apache.org>
+    Brand Management          Shane Curcuru <curcuru@apache.org>
+
+The ASF also has the following Officer's Committees:
+
+    NAME                      CHAIR
+    ----------                ---------------
+
+Note that per the bylaws section 6.3, an officer of the corporation
+(generally a VP of PMC 'X') is always the Chair of any PMC.
+As such, we track their official, apache.org mailing address above.
+
+
+=============================================================================
+
+2. REPORTING PROCESS AND SCHEDULE
+
+
+The PMC and Board Committee Chairs are responsible for providing a
+report to the Board on a quarterly basis, or on a as-requested basis
+(new PMCs should send in a report each month for their first three
+months).
+
+Please submit your report with sufficient time to allow the board members
+to review and digest. The very latest you should submit your report is
+two full days prior to the board meeting. See the 'calendar.txt' file in
+this directory for the Board's meeting schedule.
+
+Your report should be sent in plain-text format to <board@apache.org>
+with the word "report" and your project name in the subject so that
+they can easily be searched/found. The content should also be committed
+to the meeting agenda in the board directory in the foundation repository,
+trying to keep a similar format to the others.
+
+The assigned quarterly reporting periods are:
+
+January, April, July, October
+-----------------------------
+    ActiveMQ
+    Attic
+    Avro
+    CXF
+    DB
+    Directory
+    Geronimo
+    Hadoop
+    HBase
+    Jakarta
+    JAMES
+    Mahout
+    Maven
+    MINA
+    MyFaces
+    Nutch
+    ODE
+    OpenEJB
+    OpenJPA
+    PDFBox
+    Shindig
+    Struts
+    Tapestry
+    Tcl
+    Tika
+    Traffic Server
+    Web Services
+
+
+February, May, August, November
+-------------------------------
+    Abdera
+    Ant
+    Buildr
+    C++ Standard Library
+    Cassandra
+    Click
+    Cocoon
+    Community Development
+    Continuum
+    CouchDB
+    Forrest
+    HTTP Server
+    HttpComponents
+    Lenya
+    Logging
+    Perl
+    POI
+    Qpid
+    Roller
+    Santuario
+    Subversion
+    Turbine
+    Tuscany
+    Velocity
+    Xalan
+    Xerces
+    XML
+    XML Graphics
+
+
+March, June, September, December
+--------------------------------
+    APR
+    Archiva
+    Axis
+    Camel
+    Cayenne
+    Commons
+    Excalibur
+    Felix
+    Gump
+    Harmony
+    Jackrabbit
+    Labs
+    Lucene
+    OFBiz
+    OpenWebBeans
+    Pivot
+    Portals
+    ServiceMix
+    Sling
+    SpamAssassin
+    Synapse
+    Tiles
+    Tomcat
+    UIMA
+    Wicket
+    XMLBeans
+
+
+The following lists those projects who need to report at the next meeting,
+along with a comment as to how long this is expected to be the case. No comment
+implies that they are expected to report every month.
+
+Next month
+----------
+    Brand Management
+    Conference Planning
+    Fundraising
+    Incubator
+    Infrastructure
+    Java Community Process
+    Legal Affairs
+    Marketing and Publicity
+    Security Team
+    Travel Assistance
+    Mahout                  # New, qrtly starts July
+    Nutch                   # New, qrtly starts July
+    Tika                    # New, qrtly starts July
+    Traffic Server          # New, qrtly starts July
+    Avro                    # New, qrtly starts July
+    HBase                   # New, qrtly starts July
+    Karaf                   # New, qrtly starts Sept
+    HttpComponents          # Missed May, June
+
+
+=============================================================================
+
+3. COMMITTEE MEMBERSHIP AND CHANGE PROCESS
+
+
+The members of each PMC and Board Committee are detailed below.
+
+NOTE:
+    There is a required process which must be followed, in order to
+    change the composition of a PMC. In summary, that process is:
+
+    1) send mail to <board@apache.org> describing the change
+    2) one of the Directors must acknowledge receipt of the change
+    3) 72 hours after acknowledgement, the change is effective and
+       this file may be updated to reflect the changes
+
+    The resolution establishing this process was passed in December
+    2002, and can be found in that meeting's minutes:
+
+      http://www.apache.org/foundation/records/minutes/2002/board_minutes_2002_12_18.txt
+
+    Note that Board and President's Committees cannot be changed
+    by this method, but instead must be changed by Board Resolution
+    or appropriate action by the President respectively, instead.
+
+
+NOTE:
+  The (chair) should also be noted here, after the person's full name.
+  ** Please ensure that this agrees with the summary listing above **
+
+  The (*) after a member's name indicates ASF membership.
+  The date in [] indicates effective starting date as PMC member.
+  Hint: see normalize-committee-info.py for formatting tips.
+
+
+
+* Abdera  (est. 11/2008)
+    Jim Ancona                 <jancona@apache.org>             [2008-11-19]
+    David Calavera             <calavera@apache.org>            [2008-11-19]
+    Ugo Cei                    <ugo@apache.org>                 [2008-11-19] (*)
+    Dan Diephouse              <dandiep@apache.org>             [2008-11-19]
+    Stephen Duncan Jr.         <jrduncans@apache.org>           [2008-11-19]
+    Ant Elder (chair)          <antelder@apache.org>            [2009-10-21] (*)
+    Christine Koppelt          <ckoppelt@apache.org>            [2010-06-13]
+    Garrett Rooney             <rooneg@apache.org>              [2008-11-19] (*)
+    James M. Snell             <jmsnell@apache.org>             [2008-11-19]
+
+* ActiveMQ  (est. 01/2007)
+    Aaron Mulder               <ammulder@alumni.princeton.edu>
+    Alan Cabrera               <adc@toolazydogs.com>                         (*)
+    Brian McCallister          <brianm@apache.org>                           (*)
+    Bruce Snyder               <bruce.snyder@gmail.com>                      (*)
+    Dain Sundstrom             <dain@iq80.com>                               (*)
+    David Jencks               <david_jencks@yahoo.com>                      (*)
+    Guillaume Nodet            <gnodet@apache.org>                           (*)
+    Hiram Chirino (chair)      <hiram@hiramchirino.com>                      (*)
+    James Strachan             <james.strachan@gmail.com>                    (*)
+    John Sisson                <jrsisson@gmail.com>
+    Matt Hogstrom              <matt@hogstrom.org>                           (*)
+    Rob Davies                 <rajdavies@gmail.com>
+    Claus Ibsen                <davsclaus@apache.org>          
+    Hadrian Zbarcea            <hadrian@apache.org>                          (*)
+    Gary Tully                 <gtully@apache.org>
+    Jim Gomes                  <jgomes@apache.org>
+    Roman Kalukiewicz          <romkal@apache.org>
+    Gert Vanthienen            <gertv@apache.org>
+    Tim Bish                   <tabish@apache.org>              [2010-01-04]
+
+* Ant  (est. 11/2002)
+    Antoine Lévy-Lambert       <antoine@apache.org>                          (*)
+    Bruce Atherton             <bruce@apache.org>
+    Christoph Wilhelms         <chrisw@apache.org>
+    Conor MacNeill (chair)     <conor@apache.org>                            (*)
+    Dominique Devienne         <ddevienne@apache.org>
+    Erik Hatcher               <ehatcher@apache.org>                         (*)
+    Gilles Scokart             <gscokart@apache.org>            [2007-10-22]
+    Jan Materne                <jhm@apache.org>
+    Jon Schneider              <jschneider@apache.org>          [2010-06-24]
+    Kev Jackson                <kevj@apache.org>                [2006-08-13] (*)
+    Maarten Coene              <maartenc@apache.org>            [2007-10-23]
+    Magesh Umasankar           <umagesh@apache.org>
+    Martijn Kruithof           <jkf@apache.org>
+    Matt Benson                <mbenson@apache.org>                          (*)
+    Nicolas Lalevée            <hibou@apache.org>               [2008-08-19]
+    Peter Reilly               <peterreilly@apache.org>
+    Sam Ruby                   <rubys@apache.org>                            (*)
+    Stefan Bodewig             <bodewig@apache.org>                          (*)
+    Stephane Bailliez          <sbailliez@apache.org>                        (*)
+    Steve Loughran             <stevel@apache.org>                           (*)
+    Xavier Hanin               <xavier@apache.org>              [2007-10-22]
+
+
+* APR  (est. 12/2000)
+    Aaron Bannert              <aaron@apache.org>                            (*)
+    Ben Collins-Sussman        <sussman@apache.org>
+    Bill Rowe                  <wrowe@apache.org>                            (*)
+    Bill Stoddard              <stoddard@apache.org>                         (*)
+    Bojan Smojver              <bojan@apache.org>               [2007-11-15] (*)
+    Brad Nicholes              <bnicholes@apache.org>                        (*)
+    Branko Čibej               <brane@apache.org>                            (*)
+    Brian Fitzpatrick          <fitz@apache.org>                             (*)
+    Brian Havard               <bjh@apache.org>                              (*)
+    Cliff Woolley              <jwoolley@apache.org>                         (*)
+    Colm MacCárthaigh          <colm@stdlib.net>                [2005-11-28] (*)
+    Davi Arnaut                <davi@apache.org>                [2007-11-04]
+    Dirk-Willem van Gulik      <dirkx@covalent.net>                          (*)
+    Garrett Rooney             <rooneg@apache.org>              [2005-08-11] (*)
+    Guenter Knauf              <fuankg@apache.org>              [2007-11-15] (*)
+    Graham Leggett             <minfrin@sharp.fm>               [2009-09-26] (*)
+    Greg Ames                  <gregames@apache.org>                         (*)
+    Greg Stein                 <gstein@apache.org>                           (*)
+    Jean-Frederic Clere        <jfclere@apache.org>             [2007-11-04] (*)
+    Jeff Trawick (chair)       <trawick@apache.org>                          (*)
+    Jim Jagielski              <jim@apache.org>                              (*)
+    Joe Orton                  <joe@manyfish.co.uk>                          (*)
+    Justin Erenkrantz          <jerenkrantz@apache.org>                      (*)
+    Karl Fogel                 <kfogel@apache.org>
+    Martin Kraemer             <martin@apache.org>              [2007-11-04] (*)
+    Max Bowsher                <maxb@apache.org>
+    Mladen Turk                <mturk@apache.org>               [2007-11-04] (*)
+    Nick Kew                   <niq@apache.org>                 [2006-03-24] (*)
+    Paul Querna                <pquerna@apache.org>                          (*)
+    Rüdiger Plüm               <rpluem@apache.org>              [2007-11-04] (*)
+    Sander Striker             <striker@apache.org>                          (*)
+    Sascha Schumann            <sascha@apache.org>                           (*)
+    Thom May                   <thommay@apache.org>                          (*)
+    Wilfredo Sanchez           <wsanchez@apache.org>                         (*)
+
+
+* Archiva (est. 03/2008)
+    Fabrice Bellingard         <bellingard@apache.org>
+    Maria Odea Ching (chair)   <oching@apache.org>                           (*)
+    James William Dumay        <jdumay@apache.org>              [2008-09-17]
+    Nicolas de Loof            <nicolas@apache.org>
+    Arnaud Heritier            <aheritier@apache.org>
+    Jesse McConnell            <jmcconnell@apache.org>
+    Brett Porter               <brett@apache.org>                            (*)
+    Edwin Punzalan             <epunzalan@apache.org>
+    Carlos Sanchez             <carlos@apache.org>                           (*)
+    Wendy Smoak                <wsmoak@apache.org>                           (*)
+    John Tolentino             <jtolentino@apache.org>
+    Emmanuel Venisse           <evenisse@apache.org>                         (*)
+
+
+* Avro  (est. 04/2010)
+    Doug Cutting               <cutting@apache.org>             [2010-04-21] (*)
+    Jeff Hammerbacher          <hammer@apache.org>              [2010-04-21]
+    Jeff Hodges                <jmhodges@apache.org>            [2010-04-21]
+    Matt Massie (chair)        <massie@apache.org>              [2010-04-21]
+    Philip Zeyliger            <philz@apache.org>               [2010-04-21]
+    Scott Banachowski          <sbanacho@apache.org>            [2010-04-21]
+    Scott Carey                <scottcarey@apache.org>          [2010-04-21]
+    Sharad Agarwal             <sharad@apache.org>              [2010-04-21]
+    Thiruvalluvan M. G.        <thiru@apache.org>               [2010-04-21]
+
+
+* Attic  (est. 11/2008)
+    Rahul Akolkar              <rahul@apache.org>               [2008-11-19] (*)
+    Rich Bowen                 <rbowen@apache.org>              [2008-11-19] (*)
+    J Aaron Farr               <farra@apache.org>               [2008-11-19] (*)
+    Ralph Goers                <rgoers@apache.org>              [2008-11-19] (*)
+    Vadim Gritsenko            <vgritsenko@apache.org>          [2008-11-19] (*)
+    Niclas Hedhman             <niclas@apache.org>              [2008-11-19] (*)
+    Jim Jagielski              <jim@apache.org>                 [2008-11-19] (*)
+    Sally Khudairi             <sk@apache.org>                  [2008-11-19] (*)
+    Craig L Russell            <clr@apache.org>                 [2008-11-19] (*)
+    Jeremias Maerki            <jeremias@apache.org>            [2008-11-19] (*)
+    Brett Porter               <brett@apache.org>               [2008-11-19] (*)
+    Gianugo Rabellino (chair)  <gianugo@apache.org>             [2008-11-19] (*)
+    Scott Sanders              <sanders@apache.org>             [2008-11-19] (*)
+    Henning Schmiedehausen     <henning@apache.org>             [2008-11-19] (*)
+    Noirin Shirley             <noirin@apache.org>              [2008-11-19] (*)
+    Davanum Srinivas           <dims@apache.org>                [2008-11-19] (*)
+    Mads Toftum                <mads@apache.org>                [2008-11-19] (*)
+    Thomas Vandahl             <tv@apache.org>                  [2008-11-19] (*)
+    Upayavira                  <upayavira@apache.org>           [2008-11-19] (*)
+    Henri Yandell              <bayard@apache.org>              [2008-11-19] (*)
+
+
+* Axis (est. 12/2009)
+    Afkham Azeez               <afkham@gmail.com>               [2009-12-16] (*)
+    Ajith Ranabahu             <ajith.ranabahu@gmail.com>       [2009-12-16] (*)
+    Aleksander Slominski       <aslom@cs.indiana.edu>           [2009-12-16] (*)
+    Amila Suriarachchi         <amilaSuriarachchi@gmail.com>    [2009-12-16]
+    Andreas Veithen            <andreas.veithen@gmail.com>      [2009-12-16]
+    Andrew Gatford             <gatfora@apache.org>             [2010-03-06]
+    Bill Nagy                  <nagy@watson.ibm.com>            [2009-12-16]
+    Damitha Kumarage           <damitha@apache.org>             [2009-12-16]
+    Danushka Menikkumbura      <danushka@apache.org>            [2010-03-06]
+    David Illsley              <davidillsley@apache.org>        [2009-12-16]
+    David Parsons              <parsonsd@apache.org>            [2010-03-06]
+    Deepal Jayasinghe          <deepal@apache.org>              [2009-12-16] (*)
+    Dennis Sosnoski            <dms@sosnoski.com>               [2010-03-06]
+    Dimuthu Gamage             <dimuthu@apache.org>             [2009-12-16]
+    Dimuthu Leelarathne        <muthulee@apache.org>            [2009-12-16]
+    Dinesh Premalal            <dinesh@apache.org>              [2009-12-16]
+    Dobri Kitipov              <kdobrik@gmail.com>              [2010-03-06]
+    Dumindu Pallewela          <dumindu@apache.org>             [2010-03-06]
+    Eran Chinthaka             <chinthaka@apache.org>           [2009-12-16] (*)
+    Glen Daniels (chair)       <gdaniels@apache.org>            [2009-12-16] (*)
+    Hannes Erven               <herven@apache.org>              [2010-03-06]
+    Jarek Gawor                <jgawor@gmail.com>               [2009-12-16] (*)
+    Jeff Barrett               <barrettj@us.ibm.com>            [2009-12-16]
+    Keith Chapman              <keithgchapman@gmail.com>        [2009-12-16]
+    Lahiru Sandakith           <sandakith@apache.org>           [2009-12-16]
+    Milinda Pathirage          <milinda@apache.org>             [2009-12-16]
+    Mike Rheinheimer           <rott@apache.org>                [2010-03-06]
+    Nadir Amra                 <nadiramra@apache.org>           [2010-03-06]
+    Nandana Mihindukulasooriya <nandana@apache.org>             [2009-12-16]
+    Nandika Jayawardana        <nandika@apache.org>             [2009-12-16]
+    Nikhil Thaker              <nthaker@apache.org>             [2010-03-06]
+    Paul Fremantle             <pzf@apache.org>                 [2009-12-16] (*)
+    Prabath Siriwardena        <prabath@apache.org>             [2009-12-16]
+    Richard Scheuerle          <scheu@us.ibm.com>               [2009-12-16]
+    Robert Lazarski            <robertlazarski@gmail.com>       [2010-03-06]
+    Ruchith Fernando           <ruchithf@apache.org>            [2009-12-16] (*)
+    Ruwan Linton               <ruwan@apache.org>               [2009-12-16]
+    Sagara Gunathunga          <sagara@apache.org>              [2010-03-06]
+    Saminda Abeyruwan          <samindaa@gmail.com>             [2009-12-16]
+    Samisa Abeysinghe          <samisa@apache.org>              [2009-12-16] (*)
+    Sanjaya Ratnaweera         <pini@apache.org>                [2010-03-06]
+    Sanjiva Weerawarana        <sanjiva@opensource.lk>          [2009-12-16] (*)
+    Sara Mitchell              <saram@apache.org>               [2010-03-06]
+    Selvaratnam Uthaiyashankar <shankar@apache.org>             [2009-12-16] (*)
+    Senaka Fernando            <senakafdo@gmail.com>            [2009-12-16] (*)
+    Srinath Perera             <hemapani@apache.org>            [2009-12-16] (*)
+    Sumedha Rubasinghe         <sumedha@apache.org>             [2009-12-16]
+    Supun Kamburugamuva        <supun@apache.org>               [2009-12-16]
+    Thilina Gunarathne         <thilina@apache.org>             [2009-12-16]
+    Tom Jordahl                <tomj@apache.org>                [2009-12-16] (*)
+    Upul Godage                <upul@apache.org>                [2009-12-16]
+
+
+* Buildr  (est. 11/2008)
+    Assaf Arkin                <assaf@apache.org>               [2008-11-16] (*)
+    Alex Boisvert (chair)      <boisvert@apache.org>            [2008-11-16] (*)
+    Victor Hugo Borja          <vborja@apache.org>              [2008-11-16]
+    Antoine Contal             <lacton@apache.org>              [2008-11-16]
+    Matthieu Riou              <mriou@apache.org>               [2008-11-16] (*)
+
+
+* Brand Management  (est. 11/2009)
+    Shane Curcuru (chair)        <curcuru@apache.org>           [2008-11-16] (*)
+    Doug Cutting                 <cutting@apache.org>           [2009-11-20] (*)
+    Grant Ingersoll              <gsingers@apache.org>          [2009-11-20] (*)
+    Jim Jagielski                <jim@apache.org>               [2009-11-20] (*)
+    Lawrence Rosen               <lrosen@apache.org>            [2009-11-20] (*)
+    Craig L Russell              <clr@apache.org>               [2009-11-20] (*)
+    Noirin Shirley               <noirin@apache.org>            [2009-11-20] (*)
+    Upayavira                    <upayavira@apache.org>         [2009-11-20] (*)
+    Jukka Zitting                <jukka@apache.org>             [2009-11-20] (*)
+
+
+* C++ Standard Library  (est. 11/2007)
+    Amit Jindal                <ajindal@apache.org>             [2007-11-14]
+    Andrew Black               <ablack@apache.org>              [2007-11-14]
+    Anton Pevtsov              <antonp@apache.org>              [2007-11-14]
+    Eric Lemings               <elemings@apache.org>            [2007-11-14]
+    Farid Zaripov              <faridz@apache.org>              [2007-11-14]
+    Heidi Buelow               <hbuelow@apache.org>             [2007-11-14]
+    Justin Erenkrantz          <jerenkrantz@apache.org>         [2007-11-14] (*)
+    Liviu Nicoara              <lnicoara@apache.org>            [2007-11-14]
+    Mark Brown                 <mbrown@apache.org>              [2007-11-14]
+    Martin Sebor (chair)       <sebor@apache.org>               [2007-11-14] (*)
+    Tim Triemstra              <ttriemstra@apache.org>          [2007-11-14]
+    William A. Rowe, Jr.       <wrowe@apache.org>               [2007-11-14] (*)
+
+* Camel (est. 12/2008)
+    Jonathan Anstey            <janstey@apache.org>             [2008-12-17]
+    Hiram Chirino              <chirino@apache.org>             [2008-12-17] (*)
+    Rob Davies                 <rajdavies@apache.org>           [2008-12-17]
+    Claus Ibsen                <davsclaus@apache.org>           [2008-12-17]
+    David Jencks               <djencks@apache.org>             [2008-12-17] (*)
+    Willem Jiang               <ningjiang@apache.org>           [2008-12-17]
+    Roman Kalukiewicz          <romkal@apache.org>              [2008-12-17]
+    Jacek Laskowski            <jlaskowski@apache.org>          [2008-12-17]
+    Aaron Mulder               <ammulder@apache.org>            [2008-12-17]
+    Guillaume Nodet            <gnodet@apache.org>              [2008-12-17] (*)
+    Nicky Sandhu               <nsandhu@apache.org>             [2008-12-17]
+    Bruce Snyder               <bsnyder@apache.org>             [2008-12-17] (*)
+    James Strachan             <jstrachan@apache.org>           [2008-12-17] (*)
+    William Tam                <wtam@apache.org>                [2008-12-17]
+    Gary Tully                 <gtully@apache.org>              [2008-12-17]
+    Gert Vanthienen            <gertv@apache.org>               [2008-12-17]
+    Hadrian Zbarcea (chair)    <hadrian@apache.org>             [2008-12-17] (*)
+
+* Cassandra (est 02/2010)
+    Ant Elder                  <antelder@apache.org>                         (*)
+    Jonathan Ellis (chair)     <jbellis@apache.org>                          (*)
+    Eric Evans                 <eevans@apache.org>
+    Chris Goffinet             <goffinet@apache.org>
+    Ian Holsman                <ianh@apache.org>                             (*)
+    Jun Rao                    <junrao@apache.org>
+    Matthieu Riou              <mriou@apache.org>                            (*)
+    Gary Dusbabek              <gdusbabek@apache.org>
+
+    
+* Cayenne  (est. 12/2006)
+    Andrus Adamchik (chair)    <aadamchik@apache.org>                        (*)
+    Bill Dudney                <bdudney@apache.org>
+    Andrey Razumovsky          <andrey@apache.org>
+    Aristedes Maniatis         <amaniatis@apache.org>                        (*)
+    Kevin Menard               <kmenard@apache.org>                          (*)
+    Michael Gentry             <mgentry@apache.org>
+    Mike Kienenberger          <mkienenb@apache.org>
+    Tore Halset                <torehalset@apache.org>
+
+
+* Click (est. 11/2009)
+    Henning Schmiedehausen     <henning@apache.org>                          (*)
+    Will Glass-Husain          <wglass@apache.org>                           (*)
+    Malcolm Edgar (chair)      <medgar@apache.org>
+    Bob Schellink              <sabob@apache.org>                            (*)
+    Naoki Takezoe              <takezoe@apache.org>
+
+
+* Cocoon  (est. 2003-01-22)
+    Alfred Nathaniel           <anathaniel@apache.org>
+    Andreas Hartmann           <andreas@apache.org>             [2008-08-25] (*)
+    Andreas Hochsteger         <ahochsteger@apache.org>
+    Andrew Savory              <asavory@apache.org>                          (*)
+    Antonio Gallardo           <antonio@apache.org>                          (*)
+    Ard Schrijvers             <ard@apache.org>
+    Arje Cahn                  <arje@apache.org>                             (*)
+    Bernhard Huber             <huber@apache.org>               [2003-01-22]
+    Bertrand Delacrétaz        <bdelacretaz@apache.org>         [2003-01-22] (*)
+    Bruno Dumon                <bruno@apache.org>                            (*)
+    Carsten Ziegeler           <cziegeler@apache.org>           [2003-01-22] (*)
+    Christian Haul             <haul@apache.org>                [2003-01-22]
+    Daniel Fagerstrom          <danielf@apache.org>                          (*)
+    David Crossley             <crossley@apache.org>            [2003-01-22] (*)
+    David Legg                 <dlegg@apache.org>               [2008-09-16]
+    Felix Knecht               <felixk@apache.org>              [2007-03-27]
+    Geoff Howard               <ghoward@apache.org>
+    Giacomo Pati               <giacomo@apache.org>             [2003-01-22] (*)
+    Grzegorz Kossakowski       <gkossakowski@apache.org>                     (*)
+    Helma van der Linden       <hepabolu@apache.org>
+    Jasha Joachimsthal         <jasha@apache.org>               [2008-08-28]
+    Jean-Baptiste Quenot       <jbq@apache.org>
+    Jeremy Quinn               <jeremy@apache.org>              [2003-01-22] (*)
+    Jeroen Reijn               <jreijn@apache.org>              [2007-03-27]
+    Joerg Heinicke             <joerg@apache.org>
+    Jorg Heymans               <jheymans@apache.org>
+    Lars Trieloff              <ltrieloff@apache.org>
+    Leszek Gawron              <lgawron@apache.org>
+    Luca Morandini             <lmorandini@apache.org>          [2008-08-28]
+    Marc Portier               <mpo@apache.org>
+    Marcus Crafter             <crafterm@apache.org>            [2003-01-22]
+    Max Pfingsthorn            <mpfingsthorn@apache.org>
+    Michael Melhem             <michaelm@apache.org>            [2003-01-22]
+    Michael Wechner            <michi@apache.org>                            (*)
+    Peter Hunsberger           <phunsberger@apache.org>
+    Ralph Goers                <rgoers@apache.org>                           (*)
+    Reinhard Poetz             <reinhard@apache.org>                         (*)
+    Ross Gardler               <rgardler@apache.org>                         (*)
+    Simone Gianni              <simoneg@apache.org>                          (*)
+    Simone Tripodi             <simonetripodi@apache.org>       [2009-01-05]
+    Steven Dolg                <stevendolg@apache.org>          [2008-10-03]
+    Steven Noels               <stevenn@apache.org>             [2003-01-22] (*)
+    Sylvain Wallez             <sylvain@apache.org>             [2003-01-22] (*)
+    Thorsten Scherler          <thorsten@apache.org>            [2008-08-10] (*)
+    Timothy Larson             <tim@apache.org>
+    Torsten Curdt              <tcurdt@apache.org>              [2003-01-22] (*)
+    Ugo Cei                    <ugo@apache.org>                              (*)
+    Unico Hommes               <unico@apache.org>
+    Upayavira                  <upayavira@apache.org>                        (*)
+    Vadim Gritsenko (chair)    <vgritsenko@apache.org>          [2003-01-22] (*)
+
+
+* Commons (est. 06/2007)
+    Ben Speakmon                 <bspeakmon@apache.org>
+    Bill Barker                  <billbarker@apache.org>                     (*)
+    Brent Worden                 <brentworden@apache.org>
+    Daniel Savarese              <dfs@apache.org>
+    Dennis Lundberg              <dennisl@apache.org>                        (*)
+    Emmanuel Bourg               <ebourg@apache.org>
+    Gary Gregory                 <ggregory@apache.org>                       (*)
+    Henri Biestro                <henrib@apache.org>
+    Henri Yandell                <bayard@apache.org>                         (*)
+    James Carman                 <jcarman@apache.org>                        (*)
+    Jochen Wiedmann              <jochen@apache.org>
+    Joerg Pietschmann            <pietsch@apache.org>                        (*)
+    Joerg Schaible               <joehni@apache.org>
+    Luc Maisonobe                <luc@apache.org>                            (*)
+    Mario Ivankovits             <imario@apache.org>
+    Mark Thomas                  <markt@apache.org>                          (*)
+    Martin Cooper                <martinc@apache.org>                        (*)
+    Martin van den Bemt          <mvdb@apache.org>                           (*)
+    Matt Benson                  <mbenson@apache.org>                        (*)
+    Mladen Turk                  <mturk@apache.org>                          (*)
+    Niall Pemberton              <niallp@apache.org>                         (*)
+    Oliver Heger                 <oheger@apache.org>
+    Phil Steitz (chair)          <psteitz@apache.org>                        (*)
+    Rahul Akolkar                <rahul@apache.org>                          (*)
+    Ralph Goers                  <rgoers@apache.org>                         (*)
+    Rory Winston                 <rwinston@apache.org>
+    Sebastian Bazley             <sebb@apache.org>                           (*)
+    Siegfried Goeschl            <sgoeschl@apache.org>                       (*)
+    Simon Kitching               <skitching@apache.org>                      (*)
+    Stefan Bodewig               <bodewig@apache.org>                        (*)
+    Stephen Colebourne           <scolebourne@apache.org>                    (*)
+    Torsten Curdt                <tcurdt@apache.org>                         (*)
+
+* Community Development (est. 11/2009)
+    Ross Gardler (chair)         <rgardler@apache.org>                       (*)
+    Kathey Marsden               <kmarsden@apache.org>          [2009-19-12] (*)
+    Nick Burch                   <nick@apache.org>              [2009-19-12] (*)
+    Noel J. Bergman              <noel@apache.org>              [2009-19-12] (*)
+    Bertrand Delacrétaz          <bdelacretaz@apache.org>                    (*)
+    Isabel Drost                 <isabel@apache.org>            [2009-19-12] (*)
+    Ted Dunning                  <tdunning@apache.org>          
+    Santiago Gala                <sgala@apache.org>                          (*)
+    Luciano Resende              <lresende@apache.org>                       (*)
+    Noirin Shirley               <noirin@apache.org>                         (*)
+
+
+* Conference Planning  (est. 06/1999)
+    Ben Laurie                 <ben@apache.org>                 [1999-04-13] (*)
+    Cliff Skolnick             <cliff@apache.org>               [2003-11-24] (*)
+    Danese Cooper              <danese@opensource.org>          [2005-07-29] (*)
+    J Aaron Farr               <farra@apache.org>               [2007-10-10] (*)
+    Jean-Frederic Clere        <jfclere@apache.org>             [2009-03-24] (*)
+    Justin Erenkrantz          <jerenkrantz@apache.org>         [2006-09-05] (*)
+    Ken Coar                   <coar@apache.org>                [1999-04-13] (*)
+    Lars Eilebrecht            <lars@apache.org>                [1999-04-13] (*)
+    Martin van den Bemt        <mvdb@apache.org>                [2007-11-17] (*)
+    Noel J. Bergman            <noel@apache.org>                [2005-06-07] (*)
+    Noirin Shirley (chair)     <noirin@apache.org>              [2006-07-01] (*)
+    Rich Bowen                 <rbowen@apache.org>              [2003-09-05] (*)
+    Ross Gardler               <rgardler@apache.org>            [2009-03-24] (*)
+    Sally Khudairi             <sk@apache.org>                  [2008-04-15] (*)
+    Shane Curcuru              <curcuru@apache.org>             [2003-11-14] (*)
+    William A. Rowe, Jr.       <wrowe@apache.org>               [2007-10-10] (*)
+
+
+* Continuum (est. 02/2008)
+    Maria Odea Ching           <oching@apache.org>              [2008-02-20] (*)
+    Olivier Lamy               <olamy@apache.org>               [2008-02-20]
+    Trygve Laugstol            <trygvis@apache.org>             [2008-02-20]
+    Jesse McConnell            <jmcconnell@apache.org>          [2008-02-20]
+    Brett Porter               <brett@apache.org>               [2008-02-20] (*)
+    Edwin Punzalan             <epunzalan@apache.org>           [2008-02-20]
+    Carlos Sanchez             <carlos@apache.org>              [2008-02-20] (*)
+    Wendy Smoak                <wsmoak@apache.org>              [2008-02-20] (*)
+    Marica Tan                 <ctan@apache.org>                [2009-03-17]
+    Rahul Thakur               <rinku@apache.org>               [2008-02-20]
+    Emmanuel Venisse (chair)   <evenisse@apache.org>            [2008-02-20] (*)
+    Kenney Westerhof           <kenney@apache.org>              [2008-02-20]
+    Andrew Williams            <handyande@apache.org>           [2008-02-20]
+
+* CouchDB  (est. 11/2008)
+    J Chris Anderson           <jchris@apache.org>              [2008-11-19]
+    Damien Katz (chair)        <damien@apache.org>              [2008-11-19] (*)
+    Jan Lehnardt               <jan@apache.org>                 [2008-11-19]
+    Christopher Lenz           <cmlenz@web.de>                  [2008-11-19]
+    Ted Leung                  <twleung@sauria.com>             [2008-11-19] (*)
+    Noah Slater                <nslater@apache.org>             [2008-11-19]
+
+
+* CXF (est. 04/2008)
+    Ulhas Bhole                <ulhasbhole@apache.org>          [2008-04-16]
+    Sean O'Callaghan           <seanoc@apache.org>              [2008-04-16]
+    Dan Diephouse              <dandiep@apache.org>             [2008-04-16]
+    Freeman Yue Fang           <ffang@apache.org>               [2008-04-16]
+    Jarek Gawor                <gawor@apache.org>               [2008-04-16] (*)
+    Jeff Genender              <jgenender@apache.org>           [2008-04-16] (*)
+    Eoghan Glynn               <eglynn@apache.org>              [2008-04-16]
+    Jim Jagielski              <jim@apache.org>                 [2008-04-16] (*)
+    Willem Ning Jiang          <ningjiang@apache.org>           [2008-04-16]
+    Eric Johnson               <ericjohnson@apache.org>         [2008-04-16]
+    Peter Jones                <peterjones@apache.org>          [2008-04-16]
+    J. Daniel Kulp (chair)     <dkulp@apache.org>               [2008-04-16] (*)
+    Bozhong Lin                <blin@apache.org>                [2008-04-16]
+    Jervis Liu                 <jliu@apache.org>                [2008-04-16]
+    Jim Ma                     <ema@apache.org>                 [2008-04-16]
+    James Maode Mao            <mmao@apache.org>                [2008-04-16]
+    Benson Margulies           <bimargulies@apache.org>         [2008-04-16] (*)
+    Glen Mazza                 <gmazza@apache.org>              [2008-04-16]
+    Guillaume Nodet            <gnodet@apache.org>              [2008-04-16] (*)
+    Ajay Paibir                <ajaypaibir@apache.org>          [2008-04-16]
+    Sergey Beryozkin           <sergey.beryozkin@iona.com>      [2008-09-26]
+    Christian Schneider        <chris@die-schneider.net>        [2009-10-05]
+    A. J. David Bosschaert     <david.bosschaert@gmail.com>     [2010-03-13]
+
+* DB  (est. 07/2002)
+    Andrew McIntyre            <fuzzylogic@apache.org>          [2006-05-13]
+    Andy Jefferson             <andyj@apache.org>               [2008-09-05]
+    Armin Waibel               <arminw@apache.org>              [xxxx-xx-xx]
+    Army Brown                 <abrown@apache.org>              [2007-10-02]
+    Bernt Johnsen              <bernt@apache.org>               [2006-06-06]
+    Brian McCallister          <brianm@apache.org>              [xxxx-xx-xx] (*)
+    Bryan Pendleton            <bpendleton@apache.org>          [2006-06-07]
+    Camilla B. Haase           <chaase3@apache.org>             [2008-10-13]
+    Craig Russell              <clr@apache.org>                 [2006-01-11] (*)
+    Dag H. Wanvik              <dag@apache.org>                 [2007-10-02]
+    Daniel John Debrunner      <djd@apache.org>                 [2005-08-02] (*)
+    Daniel Rall                <dlr@apache.org>                 [xxxx-xx-xx] (*)
+    David Van Couvering        <davidvc@apache.org>             [2005-10-27]
+    Dyre Tjeldvoll             <dyre@apache.org>                [2008-04-17]
+    Geir Magnusson Jr.         <geirm@apache.org>               [xxxx-xx-xx] (*)
+    Jason van Zyl              <jvanzyl@apache.org>             [xxxx-xx-xx] (*)
+    Jean T. Anderson           <jta@apache.org>                 [2005-08-02] (*)
+    John McNally               <jmcnally@apache.org>            [xxxx-xx-xx] (*)
+    Kathey Marsden             <kmarsden@apache.org>            [2006-06-07] (*)
+    Knut Anders Hatlen         <kahatlen@apache.org>            [2006-06-07]
+    Kristian Waagan            <kristwaa@apache.org>            [2007-10-02]
+    Mamta Satoor               <mamta@apache.org>               [2007-10-02]
+    Matthew Baird              <mattbaird@gmail.com>            [xxxx-xx-xx]
+    Michael Bouschen           <mbo@apache.org>                 [2006-02-01]
+    Michelle Caisse            <mcaisse@apache.org>             [2006-02-01]
+    Mike Matrigali             <mikem@apache.org>               [2006-06-06]
+    Myrna van Lunteren         <myrnavl@apache.org>             [2007-10-02]
+    Oystein Grovlen            <oysteing@apache.org>            [2008-04-17]
+    Rick Hillegas (chair)      <rhillegas@apache.org>           [2006-06-07] (*)
+    Rodney Waldhoff            <rwaldhoff@apache.org>           [xxxx-xx-xx] (*)
+    Satheesh Bandaram          <bandaram@apache.org>            [2006-06-06]
+    Scott Eade                 <seade@apache.org>               [2004-02-27] (*)
+    Suresh Thalamati           <suresht@apache.org>             [2007-10-02]
+    Thomas Dudziak             <tomdz@apache.org>               [xxxx-xx-xx] (*)
+    Thomas Fischer             <tfischer@apache.org>            [xxxx-xx-xx] (*)
+    Thomas Mahler              <thomas.mahler@itellium.com>     [xxxx-xx-xx]
+    Thomas Vandahl             <tv@apache.org>                  [2006-06-26] (*)
+    Tomohito Nakayama          <tmnk@apache.org>                [xxxx-xx-xx]
+
+
+* Directory  (est. 05/2005)
+    Alex Karasulu (chair)      <akarasulu@apache.org>           [2005-02-23] (*)
+    Chris Custine              <ccustine@apache.org>            [2007-08-24] (*)
+    Christine Koppelt          <ckoppelt@apache.org>            [2007-04-17]
+    Emmanuel Lecharny          <elecharny@apache.org>           [2005-09-19] (*)
+    Ersin Er                   <ersiner@apache.org>             [2006-01-05]
+    Felix Knecht               <felixk@apache.org>              [2008-09-12]
+    Kiran Ayyagari             <kayyagari@apache.org>           [2008-10-07]
+    Noel J. Bergman            <noel@apache.org>                [2005-02-23] (*)
+    Phil Steitz                <psteitz@apache.org>             [2005-02-23] (*)
+    Pierre-Arnaud Marcelot     <pamarcelot@apache.org>          [2007-02-22]
+    Stefan Seelmann            <seelmann@apache.org>            [2007-04-17]
+    Stefan Zoerner             <szoerner@apache.org>            [2006-01-05]
+
+* Excalibur  (est. 2004-05-26)
+    Alex Karasulu              <aok123@bellsouth.net>           [2004-05-26] (*)
+    Berin Loritsch             <bloritsch@d-haven.org>          [2004-05-26] (*)
+    Carsten Ziegeler (chair)   <cziegeler@apache.org>           [2004-05-26] (*)
+    Hamilton Verissimo de Oliveira  <hammett@uol.com.br>        [2004-05-26]
+    J Aaron Farr               <farra@apache.org>               [2004-05-26] (*)
+    Leif Mortenson             <leif@tanukisoftware.com>        [2006-06-28]
+    Leo Simons                 <mail@leosimons.com>             [2004-05-26] (*)
+    Michael Nash               <mnash@jglobal.com>              [2004-05-26]
+    Peter Donald               <donaldp@apache.org>             [2004-05-26]
+    Shash Chatterjee           <shash@badfw.org>                [2004-05-26]
+    Jorg Heymans               <jheymans@apache.org>            [2007-04-21]
+    Ralph Goers                <rgoers@apache.org>              [2007-08-28] (*)
+    Stefano Bagnara            <bago@apache.org>                [2007-08-28]
+    Thomas Vandahl             <tv@apache.org>                  [2007-10-23] (*)
+    Robert Burrell Donkin      <rdonkin@apache.org>             [2009-06-15] (*)
+
+* Felix  (est. 2007-03-28)
+    Alex Karasulu              <akarasulu@apache.org>           [2007-03-28] (*)
+    Berin Loritsch             <bloritsch@apache.org>           [2007-03-28] (*)
+    Carsten Ziegeler           <cziegeler@apache.org>           [2007-03-28] (*)
+    Matteo Demuru              <demuru@apache.org>              [2007-03-28]
+    Francesco Furfari          <furfari@apache.org>             [2007-03-28]
+    Stefano Lenzi              <lenzi@apache.org>               [2007-03-28]
+    Marcel Offermans           <marrs@apache.org>               [2007-03-28] (*)
+    Noel J. Bergman            <noel@apache.org>                [2007-03-28] (*)
+    Karl Pauls                 <pauls@apache.org>               [2007-03-28] (*)
+    Richard Hall (chair)       <rickhall@apache.org>            [2007-03-28] (*)
+    Sylvain Wallez             <sylvain@apache.org>             [2007-03-28] (*)
+    Timothy Bennett            <tbennett@apache.org>            [2007-03-28]
+    Rob Walker                 <walkerr@apache.org>             [2007-03-28]
+    Felix Meschberger          <fmeschbe@apache.org>            [2007-09-18] (*)
+    Stuart McCulloch           <mcculls@apache.org>             [2008-01-06]
+    Guillaume Nodet            <gnodet@apache.org>              [2009-04-19] (*)
+    Clement Escoffier          <clement@apache.org>             [2009-04-19]
+    Chris Custine              <ccustine@apache.org>            [2010-05-07] (*)
+
+
+* Forrest  (est. 2004-05-26)
+    Antonio Gallardo           <antonio@apache.org>             [2004-05-26] (*)
+    Brian Dube                 <bdube@apache.org>               [2007-05-31] (*)
+    Cyriaque Dupoirieux        <cdupoirieux@apache.org>         [2005-08-25]
+    Dave Brondsema             <brondsem@apache.org>            [2004-05-26]
+    David Crossley (chair)     <crossley@apache.org>            [2004-05-26] (*)
+    Diwaker Gupta              <diwaker@apache.org>             [2005-07-19]
+    Sina Heshmati              <sina@apache.org>                [2009-06-08]
+    Ferdinand Soethe           <ferdinand@apache.org>           [2005-04-24]
+    Gavin McDonald             <gmcdonald@apache.org>           [2006-07-23] (*)
+    Jeremias Maerki            <jeremias@apache.org>            [2008-03-14] (*)
+    Johannes Schaefer          <josch@apache.org>               [2005-04-02]
+    Juan Jose Pablos           <cheche@apache.org>              [2004-05-26]
+    Rick Tessner               <rick@apache.org>                [2004-11-11]
+    Sjur Moshagen              <sjur@apache.org>                [2006-11-13]
+    Thorsten Scherler          <thorsten@apache.org>            [2004-10-15] (*)
+    Tim Williams               <twilliams@apache.org>           [2005-07-20] (*)
+
+
+* Geronimo  (est. 05/2004)
+    Alan Cabrera               <adc@apache.org>                 [2006-08-10] (*)
+    Anita Kulshreshtha         <akulshreshtha@apache.org>       [2007-01-09]
+    Bruce Snyder               <bsnyder@apache.org>             [2006-10-03] (*)
+    Dain Sundstrom             <dain@apache.org>                [2007-03-30] (*)
+    David Blevins              <dblevins@apache.org>            [2006-08-17] (*)
+    David Jencks               <djencks@apache.org>             [2006-07-31] (*)
+    Davanum Srinivas           <dims@apache.org>                [2007-01-23] (*)
+    Donald Woods               <dwoods@apache.org>              [2007-08-24] (*)
+    Geir Magnusson Jr.         <geirm@apache.org>               [2004-05-26] (*)
+    Gianny Damour              <gdamour@apache.org>             [2004-05-26]
+    Guillaume Nodet            <gnodet@apache.org>              [2006-08-15] (*)
+    Haihong Xu (Ivan)          <xuhaihong@apache.org>           [2009-08-28]
+    Hernan Cunico              <hcunico@apache.org>             [2006-09-05]
+    Hiram (Remigio) Chirino    <chirino@apache.org>             [2006-10-16] (*)
+    Jacek Laskowski            <jlaskowski@apache.org>          [2004-05-26]
+    James Strachan             <jstrachan@apache.org>           [2006-09-26] (*)
+    Jan Bartel                 <janb@apache.org>                [2004-05-26]
+    Jarek Gawor                <gawor@apache.org>               [2007-08-22] (*)
+    Jason Dillon               <jdillon@apache.org>             [2006-10-16]
+    Jason Warner               <jawarner@apache.org>            [2008-10-21]
+    Jay D McHugh               <jaydm@apache.org>               [2007-12-04]
+    Jeffrey Genender           <jgenender@apache.org>           [2006-07-01] (*)
+    Joe Bohn                   <jbohn@apache.org>               [2006-08-26]
+    John Sisson                <jsisson@apache.org>             [2005-11-29]
+    Jules Gosnell              <jules@apache.org>               [2004-05-26]
+    Ken Coar                   <coar@apache.org>                [2005-10-26] (*)
+    Kevan Miller (chair)       <kevan@apache.org>               [2006-08-07] (*)
+    Lin Sun                    <linsun@apache.org>              [2008-06-26]
+    Matt Hogstrom              <hogstrom@apache.org>            [2006-07-01] (*)
+    Paul McMahan               <pmcmahan@apache.org>            [2006-09-15]
+    Prasad Kashyap             <prasad@apache.org>              [2007-03-18]
+    Rick McGuire               <rickmcguire@apache.org>         [2006-08-28]
+    Sachin Patel               <sppatel@apache.org>             [2005-11-29]
+    Shiva Kumar                <shivahr@apache.org>             [2008-06-26]
+    Tim McConnell              <mcconne@apache.org>             [2007-08-28]
+    Vamsavardhana Reddy        <vamsic007@apache.org>           [2007-01-12]
+
+
+* Gump  (est. 2004-02-18)
+    Adam Jack                  <ajack@apache.org>               [2004-02-18] (*)
+    Bill Barker                <billbarker@apache.org>          [2005-11-24] (*)
+    Brett Porter               <brett@apache.org>               [2005-09-22] (*)
+    Davanum Srinivas           <dims@apache.org>                [2004-02-18] (*)
+    Leo Simons                 <leosimons@apache.org>           [2004-02-18] (*)
+    Martin van den Bemt        <mvdb@apache.org>                [2004-02-18] (*)
+    Sam Ruby                   <rubys@apache.org>               [2004-04-13] (*)
+    Sander Temme               <sctemme@apache.org>             [2006-12-01] (*)
+    Scott Sanders              <sanders@apache.org>             [2004-02-18] (*)
+    Stefan Bodewig (chair)     <bodewig@apache.org>             [2004-02-18] (*)
+
+
+* Hadoop  (est. 01/2008)
+    Arun Murthy                <acmurthy@apache.org>            [2008-08-26]
+    Ashish Thusoo              <athusoo@apache.org>             [2009-03-06]
+    Chris Douglas              <cdouglas@apache.org>            [2009-03-06] (*)
+    Doug Cutting               <cutting@apache.org>             [2008-01-16] (*)
+    Daniel Dai                 <daijy@apache.org>               [2010-02-05]
+    Devaraj Das                <ddas@apache.org>                [2009-03-06]
+    Dhruba Borthakur           <dhruba@apache.org>              [2008-05-12]
+    Enis Soztutar              <enis@apache.org>                [2008-01-16]
+    Alan Gates                 <gates@apache.org>               [2009-03-06]
+    Hairong Kuang              <hairong@apache.org>             [2009-03-06]
+    Jim Kellerman              <jimk@apache.org>                [2008-01-16]
+    Mahadev Konar              <mahadev@apache.org>             [2009-03-06]
+    Nigel Daley                <nigel@apache.org>               [2008-01-16] (*)
+    Olga Natkovich             <olga@apache.org>                [2008-10-32]
+    Owen O'Malley (chair)      <omalley@apache.org>             [2008-01-16] (*)
+    Patrick Hunt               <phunt@apache.org>               [2008-08-06]
+    Pradeep Kamath             <pradeepkth@apache.org>          [2010-02-05]
+    Raghu Angadi               <rangadi@apache.org>             [2009-03-06]
+    Konstantin Shvachko        <shv@apache.org>                 [2009-03-06]
+    Michael Stack              <stack@apache.org>               [2008-01-16] (*)
+    Nicholas Tsz Wo            <szetszwo@apache.org>            [2010-02-05]
+    Tom White                  <tomwhite@apache.org>            [2008-01-16] (*)
+    Hemanth Yamijala           <yhemanth@apache.org>            [2010-04-30]
+    Zheng Shao                 <zshao@apache.org>               [2009-11-18]
+
+
+* Harmony  (est. 10/2006)
+    Alexey Petrenko            <apetrenko@apache.org>           [2007-02-17]
+    Geir Magnusson Jr.         <geirm@apache.org>               [2006-10-25] (*)
+    Jimmy Lv                   <lvjing@apache.org>              [2008-05-15]
+    Mark Hindess               <hindessm@apache.org>            [2006-10-25] (*)
+    Nathan Beyer               <ndbeyer@apache.org>             [2006-10-25] (*)
+    Oliver Deakin              <odeakin@apache.org>             [2007-02-17]
+    Pavel Pervov               <mcfirst@apache.org>             [2008-05-15]
+    Sian January               <sjanuary@apache.org>            [2008-05-15]
+    Tim Ellison (chair)        <tellison@apache.org>            [2006-10-25] (*)
+    Tony Wu                    <tonywu@apache.org>              [2008-05-15] (*)
+    Xiao-Feng Li               <xiaofeng.li@gmail.com>          [2007-10-15] (*)
+
+
+* HBase (est. 04/2010)
+    Michael Stack              <stack@apache.org>               [2010-04-21] (*)
+    Jonathan Gray              <jgray@apache.org>               [2010-04-21]
+    Andrew Purtell             <apurtell@apache.org>            [2010-04-21]
+    John-Daniel Cryans         <jdcryans@apache.org>            [2010-04-21]
+    Ryan Rawson                <rawson@apache.org>              [2010-04-21]
+    Lars George                <larsgeorge@apache.org>          [2010-04-21]
+
+
+* HttpComponents  (est. 11/2007)
+    Ant Elder                  <antelder@apache.org>            [2007-11-14] (*)
+    Asankha Perera (chair)     <asankha@apache.org>             [2007-11-14] (*)
+    Erik Abele                 <erikabele@apache.org>           [2007-11-14] (*)
+    Oleg Kalnichevski          <olegk@apache.org>               [2007-11-14] (*)
+    Ortwin Glück               <oglueck@apache.org>             [2007-11-14]
+    Paul Fremantle             <pzf@apache.org>                 [2007-11-14] (*)
+    Sebastian Bazley           <sebb@apache.org>                [2007-11-14] (*)
+
+
+* HTTP Server  (est. 02/1995)
+    Aaron Bannert              <aaron@clove.org>                [2002-02-12] (*)
+    André Malo                 <nd@perlig.de>                   [2002-12-11] (*)
+    Astrid Stolper             <kess@kess-net.de>               [2003-05-30] (*)
+    Ben Laurie                 <ben@algroup.co.uk>              [1995-09-09] (*)
+    Bojan Smojver              <bojan@apache.org>               [2008-11-21] (*)
+    Brad Nicholes              <bnicholes@novell.com>           [2003-10-26] (*)
+    Brian Havard               <brianh@kheldar.apana.org.au>    [1999-10-10] (*)
+    Brian McCallister          <brianm@skife.org>               [2009-01-26] (*)
+    Chris Darroch              <chrisd@pearsoncmg.com>          [2009-01-30]
+    Chuck Murcko               <chuck@topsail.org>              [1999-01-19] (*)
+    Colm MacCárthaigh          <colm@stdlib.net>                [2005-11-22] (*)
+    Dirk-Willem van Gulik      <dirkx@webweaving.org>           [1997-09-08] (*)
+    Doug MacEachern            <dougm@pobox.com>                [1997-08-12] (*)
+    Eric Covener               <covener@gmail.com>              [2008-05-02] (*)
+    Erik Abele                 <erikabele@apache.org>           [2003-05-30] (*)
+    Graham Dumpleton           <grahamd@dscpl.com.au>           [2006-10-19] (*)
+    Graham Leggett             <minfrin@sharp.fm>               [2006-01-08] (*)
+    Greg Ames                  <gregames@apache.org>            [2000-08-22] (*)
+    Greg Stein                 <gstein@apache.org>              [1999-10-10] (*)
+    Gregory Trubetskoy         <grisha@ispol.com>               [2003-01-27] (*)
+    Guenter Knauf              <fuankg@apache.org>              [2008-01-07] (*)
+    Issac Goldstand            <margol@beamartyr.net>           [2008-05-11]
+    Jeff Trawick               <trawick@attglobal.net>          [2000-11-02] (*)
+    Jim Gallacher              <jgallacher@apache.org>          [2006-03-01] (*)
+    Jim Jagielski              <jim@jagunet.com>                [1995-08-08] (*)
+    Joe Orton                  <jorton@apache.org>              [2003-07-06] (*)
+    Joe Schaefer               <joes@apache.org>                [2003-01-26] (*)
+    Joshua Slive               <joshua@slive.ca>                [2001-08-10] (*)
+    Justin Erenkrantz          <jerenkrantz@apache.org>         [2001-10-16] (*)
+    Ken Coar                   <Ken.Coar@Golux.Com>             [1997-08-12] (*)
+    Lars Eilebrecht            <lars@hyperreal.org>             [1998-06-26] (*)
+    Manoj Kasichainula         <manoj@apache.org>               [1999-10-10] (*)
+    Marc Slemko                <marcs@znep.com>                 [1997-08-12] (*)
+    Mark J. Cox                <mark@awe.com>                   [1996-11-19] (*)
+    Martin Kraemer        <Martin.Kraemer@Fujitsu-Siemens.com>  [1997-11-08] (*)
+    Maxime Petazzoni           <maxime.petazzoni@bulix.org>     [2005-12-23]
+    Nick Kew                   <nick@webthing.com>              [2005-08-18] (*)
+    Nicolas Lehuen             <nicolas@lehuen.com>             [2006-04-05] (*)
+    Noirin Shirley             <noirin@apache.org>              [2007-06-14] (*)
+    Paul Querna                <pquerna@apache.org>             [2005-03-06] (*)
+    Philip M. Gollucci         <pgollucci@p6m7g8.com>           [2006-06-10] (*)
+    Ralf S. Engelschall        <rse@en.muc.de>                  [1997-09-08] (*)
+    Randy Kobes                <randyk@apache.org>              [2004-06-27] (*)
+    Rasmus Lerdorf             <rasmus@apache.org>              [1999-10-10] (*)
+    Rich Bowen                 <rbowen@rcbowen.com>             [2002-02-15] (*)
+    Roy T. Fielding            <fielding@gbiv.com>              [1995-02-27] (*)
+    Rüdiger Plüm               <rpluem@apache.org>              [2006-01-04] (*)
+    Sander Striker             <striker@apache.org>             [2002-06-30] (*)
+    Sander Temme               <sander@temme.net>               [2004-02-16] (*)
+    Tony Stevenson             <tony@pc-tony.com>               [2008-02-02] (*)
+    Victor J. Orlikowski  <victor.j.orlikowski@alumni.duke.edu> [2002-02-14] (*)
+    Wilfredo Sanchez           <wsanchez@mit.edu>               [1999-10-10] (*)
+    William A. Rowe Jr.(chair) <wrowe@rowe-clan.net>            [2000-07-28] (*)
+    Yoshiki Hayashi            <yoshiki@xemacs.org>             [2003-05-30] (*)
+
+
+* Incubator  (est. 10/2002)
+    Aaron Bannert              <aaron@apache.org>                            (*)
+    Alan Cabrera               <adc@apache.org>                 [2008-05-21] (*)
+    Alex Karasulu              <akarasulu@apache.org>           [2005-07-25] (*)
+    Andrus Adamchik            <aadamchik@apache.org>           [2008-07-19] (*)
+    Ant Elder                  <antelder@apache.org>            [2007-07-01] (*)
+    Antoine Lévy-Lambert       <antoine@apache.org>             [2006-10-31] (*)
+    Ate Douma                  <ate@apache.org>                 [2009-07-11] (*)
+    Ben Laurie                 <ben@apache.org>                 [2005-06-04] (*)
+    Berin Lautenbach           <blautenb@apache.org>                         (*)
+    Berin Loritsch             <bloritsch@apache.org>           [2005-07-27] (*)
+    Bernd Fondermann           <berndf@apache.org>              [2008-07-10] (*)
+    Bertrand Delacrétaz        <bdelacretaz@apache.org>         [2006-10-28] (*)
+    Bill Stoddard              <stoddard@apache.org>            [2006-01-29] (*)
+    Brett Porter               <brett@apache.org>               [2006-07-10] (*)
+    Brian Fitzpatrick          <fitz@apache.org>                [2009-02-01] (*)
+    Brian McCallister          <brianm@apache.org>              [2006-04-19] (*)
+    Bruce Snyder               <bsnyder@apache.org>             [2008-01-20] (*)
+    Carsten Ziegeler           <cziegeler@apache.org>           [2005-07-25] (*)
+    Chris Hostetter            <hossman@apache.org>             [2010-07-18] (*)
+    Chris Mattmann             <mattmann@apache.org>            [2010-04-29] (*)
+    Christian Grobmeier        <grobmeier@apache.org>           [2010-05-18] (*)
+    Cliff Schmidt              <cliffs@apache.org>                           (*)
+    Craig McClanahan           <craigmcc@apache.org>                         (*)
+    Craig Russell              <clr@apache.org>                 [2007-04-26] (*)
+    Curt Arnold                <carnold@apache.org>             [2006-07-10] (*)
+    Danese Cooper              <danese@apache.org>              [2008-12-20] (*)
+    J. Daniel Kulp             <dkulp@apache.org>               [2008-09-26] (*)
+    Daniel Rall                <dlr@apache.org>                 [2009-11-13] (*)
+    Davanum Srinivas           <dims@apache.org>                             (*)
+    Dave Johnson               <snoopdave@apache.org>           [2007-09-13] (*)
+    David Crossley             <crossley@apache.org>            [2006-07-27] (*)
+    David Jencks               <djencks@apache.org>             [2010-05-13] (*)
+    David N. Welton            <davidw@apache.org>              [2006-02-03] (*)
+    Deepal Jayasinghe          <deepal@apache.org>              [2008-07-28] (*)
+    Dirk-Willem van Gulik      <dirkx@apache.org>               [2005-06-04] (*)
+    Don Brown                  <mrdon@apache.org>               [2006-04-19] (*)
+    Donald Woods               <dwoods@apache.org>              [2010-05-18] (*)
+    Doug Cutting               <cutting@apache.org>             [2006-01-29] (*)
+    Eddie O'Neil               <ekoneil@apache.org>             [2006-11-30] (*)
+    Emmanuel Lecharny          <elecharny@apache.org>           [2008-01-23] (*)
+    Eran Chinthaka             <chinthaka@apache.org>           [2009-05-14] (*)
+    Erik Abele                 <erikabele@apache.org>           [2006-01-22] (*)
+    Felix Meschberger          <Felix.Meschberger@day.com>      [2009-04-23] (*)
+    Garrett Rooney             <rooneg@apache.org>              [2006-06-09] (*)
+    Gavin McDonald             <gmcdonald@apache.org>           [2009-04-29] (*)
+    Geir Magnusson Jr.         <geirm@apache.org>                            (*)
+    Gianugo Rabellino          <gianugo@apache.org>             [2006-12-25] (*)
+    Glen Daniels               <gdaniels@apache.org>            [2010-02-18] (*)
+    Grant Ingersoll            <gsingers@apache.org>            [2008-10-06] (*)
+    Greg Stein                 <gstein@apache.org>                           (*)
+    Guillaume Nodet            <gnodet@apache.org>              [2008-03-12] (*)
+    Gurkan Erdogdu             <gerdogdu@apache.org>            [2010-05-14] (*)
+    Henning Schmiedehausen     <henning@apache.org>             [2007-04-12] (*)
+    Ian Holsman                <ianh@apache.org>                [2008-05-25] (*)
+    J. Aaron Farr              <farra@apache.org>               [2006-02-21] (*)
+    James Holmes               <jholmes@apache.org>
+    James Strachan             <jstrachan@apache.org>                        (*)
+    Jarek Gawor                <jgawor@gmail.com>               [2010-01-18] (*)
+    Jean-Frederic Clere        <jfclere@apache.org>             [2010-05-14] (*)
+    Jeffrey Genender           <jgenender@apache.org>           [2007-08-20] (*)
+    Jeremias Maerki            <jeremias@apache.org>            [2008-03-12] (*)
+    Jim Jagielski              <jim@apache.org>                              (*)
+    Joe Schaefer               <joes@apache.org>                [2009-08-19] (*)
+    Jukka Zitting              <jukka@apache.org>               [2006-08-09] (*)
+    Julien Vermillard          <jvermillard@apache.org>         [2010-05-16] (*)
+    Justin Erenkrantz          <jerenkrantz@apache.org>         [2005-05-15] (*)
+    Karl Pauls                 <pauls@apache.org>               [2010-02-19] (*)
+    Ken Coar                   <coar@apache.org>                             (*)
+    Kevan Miller               <kevan@apache.org>               [2007-10-25] (*)
+    Leo Simons                 <leosimons@apache.org>                        (*)
+    Luciano Resende            <lresende@apache.org>            [2009-01-22] (*)
+    Mark Womack                <mwomack@apache.org>             [2005-06-05] (*)
+    Martin Cooper              <martinc@apache.org>             [2006-04-19] (*)
+    Martijn Dashorst           <dashorst@apache.org>            [2007-10-22] (*)
+    Martin van den Bemt        <mvdb@apache.org>                [2006-10-26] (*)
+    Matt Hogstrom              <hogstrom@apache.org>            [2007-08-24] (*)
+    Matthias Wessendorf        <matzew@apache.org>              [2008-11-22] (*)
+    Matthieu Riou              <mriou@apache.org>               [2007-09-07] (*)
+    Mladen Turk                <mturk@apache.org>               [2009-11-16] (*)
+    Morgan Delegrange          <morgand@apache.org>                          (*)
+    Niall Pemberton            <niallp@apache.org>              [2007-11-25] (*)
+    Nick Burch                 <nick@apache.org>                [2009-12-17] (*)
+    Niclas Hedhman             <niclas@apache.org>              [2007-02-22] (*)
+    Noel J. Bergman (chair)    <noel@apache.org>                             (*)
+    Noirin Shirley             <noirin@apache.org>              [2009-11-05] (*)
+    Norman Maurer              <norman@apache.org>              [2010-07-01  (*)
+    Owen O'Malley              <omalley@apache.org>             [2010-06-20] (*)
+    Paul Fremantle             <pzf@apache.org>                 [2006-01-20] (*)
+    Paul Hammant               <hammant@apache.org>                          (*)
+    Paul Querna                <pquerna@apache.org>             [2006-06-09] (*)
+    Peter Royal                <proyal@apache.org>              [2006-07-10] (*)
+    Phil Steitz                <psteitz@apache.org>             [2007-01-04] (*)
+    Philip M. Gollucci         <pgollucci@apache.org>           [2009-11-05] (*)
+    Ralph Goers                <rgoers@apache.org>              [2009-06-18] (*)
+    Reinhard Poetz             <reinhard@apache.org>            [2009-06-03] (*)
+    Rick Hillegas              <rhillegas@apache.org>           [2008-06-15] (*)
+    Robert Burrell Donkin      <rdonkin@apache.org>             [2006-05-07] (*)
+    Ross Gardler               <rgardler@apache.org>            [2007-11-15] (*)
+    Sam Ruby                   <rubys@apache.org>                            (*)
+    Sander Striker             <striker@apache.org>             [2009-11-13] (*)
+    Sanjiva Weerawarana        <sanjiva@apache.org>             [2005-06-04] (*)
+    Senaka Fernando            <senaka@apache.org>              [2010-07-01] (*)
+    Stefan Bodewig             <bodewig@apache.org>             [2006-10-31] (*)
+    Stephane Bailliez          <sbailliez@apache.org>           [2006-11-17] (*)
+    Susan Wu                   <susie@apache.org>               [2006-07-10] (*)
+    Sylvain Wallez             <sylvain@apache.org>             [2005-07-25] (*)
+    Ted Husted                 <husted@apache.org>                           (*)
+    Ted Leung                  <twl@apache.org>                              (*)
+    Thomas Fischer             <tfischer@apache.org>            [2008-07-24] (*)
+    Tony Stevenson             <pctony@apache.org>              [2009-11-16] (*)
+    Tom White                  <tomwhite@apache.org>            [2010-05-14] (*)
+    Torsten Curdt              <tcurdt@apache.org>              [2008-12-19] (*)
+    Upayavira                  <upayavira@apache.org>           [2005-07-25] (*)
+    Wendy Smoak                <wsmoak@apache.org>              [2007-12-15] (*)
+    William Rowe               <wrowe@apache.org>               [2005-06-07] (*)
+    Yoav Shapira               <yoavs@apache.org>               [2005-12-25] (*)
+
+
+* Infrastructure  (est. ??)  (President's Committee)
+    Justin Erenkrantz          <jerenkrantz@apache.org>                      (*)
+    Sander Striker             <striker@apache.org>                          (*)
+    Noel J. Bergman            <noel@apache.org>                             (*)
+    Geir Magnusson Jr.         <geirm@apache.org>                            (*)
+    Joe Schaefer               <joes@apache.org>                             (*)
+    Paul Querna                <pquerna@apache.org>                          (*)
+    Philip M. Gollucci (chair) <pgollucci@apache.org>                        (*)
+    Tony Stevenson             <pctony@apache.org>                           (*)
+    Gavin McDonald             <gmcdonald@apache.org>                        (*)
+    Norman Maurer              <norman@apache.org>                           (*)
+    Mark Thomas                <markt@apache.org>                            (*)
+
+* Jackrabbit  (est. 03/2006)
+    Alexander Klimetschek      <alexkli@apache.org>             [2008-05-10]
+    Angela Schreiber           <angela@apache.org>              [2005-11-01] (*)
+    Ard Schrijvers             <ard@apache.org>                 [2007-11-16]
+    Christoph Kiehl            <ckiehl@apache.org>              [2007-07-26]
+    Christophe Lombart         <clombart@apache.org>            [2007-04-23]
+    Claus Köll                 <ckoell@apache.org>              [2008-10-15]
+    David Nuescheler           <uncled@apache.org>              [2004-08-31] (*)
+    Dominique Pfister          <dpfister@apache.org>            [2004-08-31]
+    Edgar Poce                 <edgarpoce@apache.org>           [2005-05-30]
+    Esteban Franqueiro         <eaf@apache.org>                 [2008-04-06]
+    Felix Meschberger          <fmeschbe@apache.org>            [2005-11-01] (*)
+    Jukka Zitting (chair)      <jukka@apache.org>               [2005-02-11] (*)
+    Julian Reschke             <reschke@apache.org>             [2006-09-19] (*)
+    Marcel Reutegger           <mreutegg@apache.org>            [2004-08-31] (*)
+    Martijn Hendriks           <martijnh@apache.org>            [2007-11-04]
+    Michael Dürig              <mduerig@apache.org>             [2009-01-24]
+    Peeter Piegaze             <ppiegaze@apache.org>            [2004-08-31]
+    Przemyslaw Pakulski        <ppakulski@apache.org>           [2007-01-15]
+    Roy T. Fielding            <fielding@apache.org>            [2004-08-31] (*)
+    Sébastien Launay           <sebastien@apache.org>           [2009-08-26]
+    Serge Huber                <shuber@apache.org>              [2005-11-01]
+    Stefan Guggisberg          <stefan@apache.org>              [2004-08-31] (*)
+    Sylvain Wallez             <sylvain@apache.org>             [2004-08-31] (*)
+    Thomas Mueller             <thomasm@apache.org>             [2007-08-16]
+    Tobias Bocanegra           <tripod@apache.org>              [2004-08-31] (*)
+
+
+* Jakarta  (est. 09/1999)
+    Aaron Smuts                <asmuts@apache.org>              [2006-06-14]
+    Adrian Sutton              <adrian@apache.org>
+    Andrew Oliver              <acoliver@apache.org>
+    Ant Elder                  <antelder@apache.org>            [2007-05-01] (*)
+    Bill Barker                <billbarker@apache.org>                       (*)
+    Brett Porter               <brett@apache.org>                            (*)
+    Christopher Lenz           <cmlenz@apache.org>
+    Costin Manolache           <costin@apache.org>                           (*)
+    Daniel Rall                <dlr@apache.org>                              (*)
+    Daniel Savarese            <dfs@apache.org>
+    Davanum Srinivas           <dims@apache.org>                             (*)
+    Dave Brosius               <dbrosius@apache.org>
+    David Sean Taylor          <taylor@apache.org>                           (*)
+    Dirk Verbeeck              <dirkv@apache.org>
+    Dmitri Plotnikov           <dmitri@apache.org>
+    Don Brown                  <mrdon@apache.org>                            (*)
+    Emmanuel Bourg             <ebourg@apache.org>              [2006-03-27]
+    Felipe Leme                <felipeal@apache.org>            [2005-09-26]
+    Gary Gregory               <ggregory@apache.org>                         (*)
+    Geir Magnusson Jr.         <geirm@apache.org>                            (*)
+    Glen Stampoultzis          <glens@apache.org>                            (*)
+    Harish Krishnaswamy        <harishkswamy@apache.org>
+    Henri Gomez                <hgomez@apache.org>                           (*)
+    Ingo Brunberg              <ib@apache.org>
+    Jacob Lund                 <jlund@apache.org>
+    James Holmes               <jholmes@apache.org>
+    James Mason                <masonjm@apache.org>
+    James Mitchell             <jmitchell@apache.org>
+    James Taylor               <jtaylor@apache.org>
+    James Turner               <turner@apache.org>
+    Jean-Francois Arcand       <jfarcand@apache.org>
+    Jean-Frederic Clere        <jfclere@apache.org>                          (*)
+    Jeff Dever                 <jsdever@apache.org>
+    Jeffrey Brekke             <brekke@apache.org>
+    John Keyes                 <jkeyes@apache.org>
+    Justyna Horwat             <horwat@apache.org>                           (*)
+    Knut Wannheden             <knut@apache.org>
+    Larry Isaacs               <larryi@apache.org>
+    Mark Diggory               <mdiggory@apache.org>
+    Mark Womack                <mwomack@apache.org>                          (*)
+    Martin Cooper              <martinc@apache.org>                          (*)
+    Martin Holz                <mholz@apache.org>
+    Martin van den Bemt        <mvdb@apache.org>                             (*)
+    Michael Becke              <mbecke@apache.org>
+    Michael Stover             <mstover1@apache.org>
+    Mladen Turk                <mturk@apache.org>                            (*)
+    Morgan Delagrange          <morgand@apache.org>                          (*)
+    Niall Pemberton            <niallp@apache.org>              [2005-09-15] (*)
+    Nick Burch                 <nick@apache.org>                [2006-15-12] (*)
+    Noel J. Bergman            <noel@apache.org>                             (*)
+    Oleg Kalnichevski          <olegk@apache.org>                            (*)
+    Otis Gospodnetic           <otis@apache.org>                             (*)
+    Paul Smith                 <psmith@apache.org>                           (*)
+    Petar Tahchiev             <ptahchiev@apache.org>           [2008-02-27]
+    Peter Carlson              <carlson@apache.org>
+    Peter Lin                  <woolfel@apache.org>
+    Peter Nevermann            <pnever@apache.org>
+    Peter Royal                <proyal@apache.org>                           (*)
+    Phil Steitz                <psteitz@apache.org>                          (*)
+    Rahul Akolkar (chair)      <rahul@apache.org>                            (*)
+    Remy Maucherat             <remm@apache.org>                             (*)
+    Rob Oxspring               <roxspring@apache.org>
+    Robert Burrell Donkin      <rdonkin@apache.org>                          (*)
+    Robert Leland              <rleland@apache.org>
+    Rodney Waldhoff            <rwaldhoff@apache.org>                        (*)
+    Rony Flatscher             <rony@apache.org>                             (*)
+    Rory Winston               <rwinston@apache.org>            [2006-09-10]
+    Sam Ruby                   <rubys@apache.org>                            (*)
+    Sanjiva Weerawarana        <sanjiva@apache.org>                          (*)
+    Santiago Gala              <sgala@apache.org>                            (*)
+    Scott Eade                 <seade@apache.org>               [2004-04-32] (*)
+    Scott Sanders              <sanders@apache.org>                          (*)
+    Sebastian Bazley           <sebb@apache.org>                             (*)
+    Siegfried Goeschl          <sgoeschl@apache.org>            [2005-02-10] (*)
+    Simon Kitching             <skitching@apache.org>                        (*)
+    Stefan Bodewig             <bodewig@apache.org>                          (*)
+    Stefan Lützkendorf         <luetzkendorf@apache.org>
+    Stephen Colebourne         <scolebourne@apache.org>                      (*)
+    Steve Cohen                <scohen@apache.org>
+    Steve Raeburn              <sraeburn@apache.org>
+    Ted Husted                 <husted@apache.org>                           (*)
+    Thomas Vandahl             <tv@apache.org>                  [2007-07-04] (*)
+    Torsten Curdt              <tcurdt@apache.org>                           (*)
+    Vadim Gritsenko            <vgritsenko@apache.org>                       (*)
+    Vincent Massol             <vmassol@apache.org>                          (*)
+    William A. McArthur Jr.    <sandymac@apache.org>            [2006-07-03]
+
+
+* JAMES  (est. 01/2003)
+    Danny Angus                <danny@apache.org>                            (*)
+    Noel J. Bergman            <noel@apache.org>                             (*)
+    Norman Maurer (chair)      <norman@apache.org>              [2006-07-31] (*)
+    Stefano Bagnara            <bago@apache.org>                [2006-04-02]
+    Steve Brewin               <sbrewin@apache.org>             [2004-01-07]
+    Vincenzo Gianferrari Pini  <vincenzo@apache.org>            [2004-01-07]
+    Soren Hilmer               <hilmer@apache.org>              [2005-04-13]
+    Robert Burrell Donkin      <rdonkin@apache.org>             [2007-04-23] (*)
+    Niklas Therning            <niklas@apache.org>              [2008-08-31]
+    Manuel Carrasco Monino     <manolo@apache.org>              [2010-05-24]
+    
+
+* Karaf (est. 06/2010)
+    Chris Custine              <ccustine@apache.org>                         (*)
+    Freeman Fang               <ffang@apache.org>
+    Jarek Gawor                <gawor@apache.org>                            (*)
+    Jamie Goodyear             <jgoodyear@apache.org>
+    David Jencks               <djencks@apache.org>                          (*)
+    Alex Karasulu              <akarasulu@apache.org>                        (*)
+    Charles Moulliard          <cmoulliard@apache.org>
+    Guillaume Nodet (chair)    <gnodet@apache.org>                           (*)
+    Jean-Baptiste Onofré       <jbonofre@apache.org>
+    Gert Vanthienen            <gertv@apache.org>
+
+* Labs  (est. 11/2006)
+    Bertrand Delacretaz        <bdelacretaz@apache.org>                      (*)
+    Brett Porter               <brett@apache.org>                            (*)
+    Danny Angus                <danny@apache.org>                            (*)
+    Eric Abele                 <erikabele@apache.org>                        (*)
+    Garrett Rooney             <rooneg@apache.org>                           (*)
+    Geir Magnusson Jr          <geirm@apache.org>                            (*)
+    Graham Leggett             <minfrin@apache.org>                          (*)
+    Gregor Rothfuss            <gregor@apache.org>                           (*)
+    Henri Yandell              <bayard@apache.org>                           (*)
+    J Aaron Farr               <farra@apache.org>                            (*)
+    Jukka Zitting              <jukka@apache.org>                            (*)
+    Leo Simons                 <leosimons@apache.org>                        (*)
+    Martin Cooper              <martinc@apache.org>                          (*)
+    Niall Pemberton            <niallp@apache.org>                           (*)
+    Noel J. Bergman            <noel@apache.org>                             (*)
+    Reinhard Poetz             <reinhard@apache.org>                         (*)
+    Sander Temme               <sctemme@apache.org>                          (*)
+    Santiago Gala              <sgala@apache.org>                            (*)
+    Scott Sanders              <sanders@apache.org>                          (*)
+    Ted Leung                  <twl@apache.org>                              (*)
+    Yoav Shapira               <yoavs@apache.org>                            (*)
+    Bernd Fondermann (chair)   <berndf@apache.org>                           (*)
+    Simone Gianni              <simoneg@apache.org>             [2008-08-05] (*)
+    Timothy Wayne Williams     <twilliams@apache.org>           [2010-07-01] (*)
+
+
+* Legal Affairs (est. 03/2007)  (Board Committee)
+    Sam Ruby                   <rubys@apache.org>               [2007-07-18] (*)
+    Cliff Schmidt              <cliffs@apache.org>              [2007-03-28] (*)
+    Craig Russell              <clr@apache.org>                 [2008-04-16] (*)
+    Davanum Srinivas           <dims@apache.org>                [2007-03-28] (*)
+    Garrett Rooney             <rooneg@apache.org>              [2007-03-28] (*)
+    Geir Magnusson Jr.         <geirm@apache.org>               [2007-03-28] (*)
+    Henri Yandell              <bayard@apache.org>              [2008-02-20] (*)
+    Jim Jagielski              <jim@apache.org>                 [2007-03-28] (*)
+    Justin Erenkrantz          <jerenkrantz@apache.org>         [2007-03-28] (*)
+    Noel J. Bergman            <noel@apache.org>                [2007-03-28] (*)
+    Lawrence Rosen             <lrosen@rosenlaw.com>            [2009-06-17] (*)
+
+
+* Lenya  (est. 09/2004)
+    Andreas Hartmann           <andreas@apache.org>                          (*)
+    Antonio Gallardo           <antonio@apache.org>                          (*)
+    Christian Egli             <egli@apache.org>
+    Dale Christ                <bigdog@apache.org>
+    Doug Chestnut              <chestnut@apache.org>
+    Edith Chevier              <edith@apache.org>
+    Gregor J. Rothfuss         <gregor@apache.org>                           (*)
+    J. Wolfgang Kaltz          <kaltz@interactivesystems.info>
+    Jann Forrer                <jann@apache.org>
+    Jörn Nettingsmeier         <nettings@apache.org>
+    Michael Wechner            <michi@apache.org>                            (*)
+    Rolf Kulemann              <roku@apache.org>
+    Rudolf Korhummel           <rudolf@apache.org>
+    Stefano Mazzocchi          <stefano@apache.org>                          (*)
+    Steven Noels               <stevenn@apache.org>                          (*)
+    Thorsten Scherler          <thorsten@apache.org>                         (*)
+    Torsten Schlabach          <tschlabach@apache.org>
+    Richard Frovarp (chair)    <rfrovarp@apache.org>
+    Jürgen Ragaller            <ragaller@apache.org>
+
+
+* Logging  (est. 12/2003)
+    Ceki Gülcü                 <ceki@apache.org>                             (*)
+    Curt Arnold (chair)        <carnold@apache.org>                          (*)
+    Jacob Kjome                <hoju@apache.org>
+    Mark Womack                <mwomack@apache.org>                          (*)
+    Nicko Cadell               <nicko@apache.org>
+    Paul Smith                 <psmith@apache.org>                           (*)
+    Scott Deboy                <sdeboy@apache.org>                           (*)
+    Ron Grabowski              <rgrabowski@apache.org>
+    Christian Grobmeier        <grobmeier@apache.org>           [2009-12-22] (*)
+    Ralph Goers                <rgoers@apache.org>              [2010-06-06] (*)
+
+
+* Lucene  (est. 01/2005)
+    George Aroush              <aroush@apache.org>              [2009-11-29]
+    Andrzej Bialecki           <ab@apache.org>                               (*)
+    Michael Busch              <buschmi@apache.org>             [2008-11-25]
+    Scott Ganyo                <scottganyo@apache.org>
+    Otis Gospodnetic           <otis@apache.org>                             (*)
+    Mark Harwood               <mharwood@apache.org>
+    Erik Hatcher               <ehatcher@apache.org>                         (*)
+    Chris Hostetter            <hossman@apache.org>             [2007-06-13] (*)
+    Grant Ingersoll (chair)    <gsingers@apache.org>                         (*)
+    Michael McCandless         <mikemccand@apache.org>          [2007-11-29] (*)
+    Ryan McKinley              <ryan@apache.org>                [2008-04-26]
+    Mark Miller                <markrmiller@apache.org>         [2010-1-14]
+    Robert Muir		       <rmuir@apache.org>		[2010-7-7]
+    Daniel Naber               <dnaber@apache.org>
+    Uwe Schindler              <uschindler@apache.org>          [2010-03-31]
+    Yonik Seeley               <yonik@apache.org>                            (*)
+    Andi Vajda                 <vajda@apache.org>               [2009-04-06]
+
+
+* Mahout (est. 04/2010)
+    Abdelhakim Deneche         <adeneche@apache.org>            [2010-04-21]
+    Isabel Drost               <isabel@apache.org>              [2010-04-21] (*)
+    Ted Dunning                <tdunning@apache.org>            [2010-04-21]
+    Jeff Eastman               <jeastman@apache.org>            [2010-04-21]
+    Drew Farris                <drew@apache.org>                [2010-04-21]
+    Grant Ingersoll            <gsingers@apache.org>            [2010-04-21] (*)
+    Benson Margulies           <bimargulies@apache.org>         [2010-04-21] (*)
+    Sean Owen                  <srowen@apache.org>              [2010-04-21]
+    Robin Anil                 <robinanil@apache.org>           [2010-04-21]
+    Jake Mannix                <jmannix@apache.org>             [2010-04-21]
+
+
+* Maven  (est. 03/2003)
+    Arnaud Heritier            <aheritier@gmail.com>            [2005-06-03]
+    Barrie Treloar             <baerrach@apache.org>            [2009-06-25]
+    Benjamin Bentmann          <bentmann@apache.org>            [2009-01-23]
+    Brett Porter               <brett@apache.org>                            (*)
+    Brian Fox  (chair)         <brianf@apache.org>              [2007-03-29] (*)
+    Carlos Sanchez             <carlos@apache.org>              [2005-03-01] (*)
+    Dan Fabulich               <dfabulich@apache.org>           [2008-01-25]
+    Dennis Lundberg            <dennisl@apache.org>             [2006-08-20] (*)
+    Emmanuel Venisse           <emmanuel@venisse.net>                        (*)
+    Hervé Boutemy              <hboutemy@apache.org>            [2008-09-15]
+    J. Daniel Kulp             <dkulp@apache.org>               [2008-05-14] (*)
+    Jason van Zyl              <jvanzyl@maven.org>                           (*)
+    John Casey                 <jdcasey@codehaus.org>           [2005-03-01] (*)
+    Kenney Westerhof           <forge@neonics.com>              [2005-09-21]
+    Lukas Theussl              <ltheussl@apache.org>            [2005-12-22]
+    Maria Odea Ching           <oching@apache.org>              [2007-08-21] (*)
+    Milos Kleint               <mkleint@apache.org>             [2007-03-03]
+    Olivier Lamy               <olamy@apache.org>               [2008-02-13]
+    Paul Gier                  <pgier@apache.org>               [2010-05-14]
+    Ralph Goers                <Ralph.Goers@dslextreme.com>     [2008-10-14] (*)
+    Stephane Nicoll            <snicoll@apache.org>             [2006-03-01]
+    Trygve Laugstol            <trygvis@codehaus.org>           [2005-03-01]
+    Vincent Massol             <vmassol@pivolis.com>                         (*)
+    Vincent Siveton            <vsiveton@apache.org>            [2006-08-13] (*)
+    Wendy Smoak                <wsmoak@apache.org>              [2007-05-27] (*)
+
+* MINA  (est. 10/2006)
+    Alex Karasulu              <akarasulu@apache.org>                        (*)
+    Bernd Fondermann           <berndf@apache.org>              [2009-06-02] (*)
+    Emmanuel Lecharny          <elecharny@apache.org>                        (*)
+    Guillaume Nodet            <gnodet@apache.org>              [2009-06-02] (*)
+    Julien Vermillard          <jvermillard@apache.org>                      (*)
+    Maarten Bosteels           <mbosteels.dns@gmail.com>        [2008-07-01]
+    Mark Webb                  <elihusmails@gmail.com>          [2008-07-01]
+    Niklas Gustavsson (chair)  <ngn@protocol7.com>              [2008-01-25] (*)
+    Ashish Paliwal             <apaliwal@apache.org>            [2010-01-17]
+
+
+* MyFaces  (est. 02/2005)
+    Adam Winer                 <awiner@gmail.com>               [2007-05-15]
+    Anton Koinov               <koinov@apache.org>
+    Bernd Bohmann              <bernd.bohmann@atanion.com>      [2007-01-15]
+    Bill Dudney                <bdudney@apache.org>
+    Blake Sullivan             <bsullivan@apache.org>           [2010-07-04] 
+    Bruno Aranda               <baranda@apache.org>             [2006-02-09]
+    Cagatay Civici             <cagatay@apache.org>             [2007-06-28]
+    Dennis Byrne               <dennis@dbyrne.net>              [2006-06-27]
+    Gabrielle Crawford         <gcrawford@apache.org>           [2007-05-15]
+    Gerald Muellan             <bierbrauen@gmail.com>           [2007-01-15]
+    Gerhard Petracek           <gpetracek@apache.org>           [2008-12-22]
+    Grant Smith                <grantsmith@apache.org>
+    Jakob Korherr              <jakobk@apache.org>              [2010-07-05]
+    Jan-Kees van Andel         <jankeesvanandel@apache.org>     [2010-07-04]
+    Jeanne Waldman             <jeanne.waldman@oracle.com>      [2007-05-15]
+    Leonard Uribe              <lu4242@gmail.com>               [2008-10-10]
+    Manfred Geiler             <manolito@apache.org>                         (*)
+    Mario Ivankovits           <mario@ops.co.at>                [2006-08-01]
+    Martin Marinschek          <mmarinschek@apache.org>                      (*)
+    Matt Cooper                <mcooper@apache.org>             [2008-06-06]
+    Matthias Wessendorf (chair) <matzew@apache.org>                          (*)
+    Max Starets                <mstarets@apache.org>            [2010-07-04]
+    Mike Kienenberger          <mkienenb@apache.org>            [2006-02-09]
+    Oliver Rossmueller         <oros@apache.org>                [2005-04-19]
+    Scott O'Bryan              <sobryan@apache.org>             [2008-03-23]
+    Sean Schofield             <schof@apache.org>               [2005-05-02] (*)
+    Simon Lessard              <slessard@apache.org>            [2007-05-15]
+    Simon Kitching             <skitching@apache.org>           [2008-03-23] (*)
+    Sylvain Vieujot            <svieujot@apache.org>
+    Ted Husted                 <husted@apache.org>                           (*)
+    Thomas Spiegl              <tomsp@apache.org>
+    Travis Reeder              <prophecy@apache.org>
+    Udo Schnurpfeil            <lofwyr@apache.org>              [2007-05-15]
+    Volker Weber               <volker@weber-oldenburg.de>      [2007-01-15]
+    Werner Punz                <werner.punz@gmail.com>          [2006-06-27]
+
+
+* Nutch (est. 04/2010)
+    Andrzej Bialecki           <ab@apache.org>                  [2010-04-21] (*)
+    Otis Gospodnetic           <otis@apache.org>                [2010-04-21] (*)
+    Dogacan Guney              <dogacan@apache.org>             [2010-04-21]
+    Dennis Kubes               <kubes@apache.org>               [2010-04-21]
+    Chris Mattmann             <mattmann@apache.org>            [2010-04-21] (*)
+    Julien Nioche              <jnioche@apache.org>             [2010-04-21]
+    Sami Siren                 <siren@apache.org>               [2010-04-21]
+
+
+* ODE  (est. 07/2007)
+    Alan Cabrera               <adc@apache.org>                              (*)
+    Alexis Midon               <midon@apache.org>
+    Assaf Arkin                <assaf@apache.org>                            (*)
+    Alex Boisvert              <boisvert@apache.org>                         (*)
+    Cory Harper                <charper@apache.org>
+    Guillaume Nodet            <gnodet@apache.org>                           (*)
+    Jeff Yu                    <jeffyu@apache.org>
+    Lance Waterman             <lwaterman@apache.org>
+    Maciej Szefler             <mszefler@apache.org>
+    Matthieu Riou              <mriou@apache.org>                            (*)
+    Paul R. Brown              <paulrbrown@apache.org>
+    Rafal Rusin                <rr@apache.org>
+    Tammo van Lessen (chair)   <vanto@apache.org>
+
+
+* OFBiz  (est. 12/2006)
+    Adam Heath                 <doogie@apache.org>             [2009-12-14]
+    Adrian Crum                <adrianc@apache.org>            [2007-12-09]
+    Al Byers                   <byersa@apache.org>
+    Andy Zeneski               <jaz@apache.org>
+    Anil Patel                 <apatel@apache.org>             [2008-11-19]
+    Ashish Vijaywargiya        <ashish@apache.org>             [2009-12-14]
+    Bilgin Ibryam              <bibryam@apache.org>            [2008-10-18]
+    Bruno Busco                <buscob@apache.org>             [2009-11-20]
+    David E. Jones             <jonesde@apache.org>                          (*)
+    David Welton               <davidw@apache.org>                           (*)
+    Hans Bakker                <hansbak@apache.org>
+    Jacques Le Roux            <jleroux@apache.org>            [2007-05-24]
+    Jacopo Cappellato (chair)  <jacopoc@apache.org>                          (*)
+    Scott Gray                 <lektran@apache.org>            [2007-05-24]
+    Yoav Shapira               <yoavs@apache.org>                            (*)
+
+
+* OpenEJB  (est. 05/2007)
+    David Blevins (chair)      <dblevins@apache.org>                         (*)
+    Alan Cabrera               <adc@apache.org>                              (*)
+    David Jencks               <djencks@apache.org>                          (*)
+    Jacek Laskowski            <jlaskowski@apache.org>
+    Dain Sundstrom             <dain@apache.org>                             (*)
+    Jonathan Gallimore         <jgallimore@apache.org>         [2009-07-21]
+
+
+* OpenJPA  (est. 05/2007)
+    Geir Magnusson Jr.          <geirm@apache.org>             [2007-05-16]  (*)
+    Patrick Linskey             <pcl@apache.org>               [2007-05-16]
+    Craig Russell (chair)       <clr@apache.org>               [2007-05-16]  (*)
+    Kevin Sutter                <kwsutter@apache.org>          [2007-05-16]
+    Abe White                   <awhite@apache.org>            [2007-05-16]
+    Michel D. Dick              <mikedd@apache.org>            [2007-06-02]
+    Albert Lee                  <allee8285@apache.org>         [2008-07-01]
+    Pinaki Poddar               <ppoddar@apache.org>           [2008-07-01]
+    Jeremy Bauer                <jrbauer@apache.org>           [2009-01-12]
+    Donald Woods                <dwoods@apache.org>            [2009-08-13]  (*)
+    Milosz Tylenda              <mtylenda@apache.org>          [2009-08-16]
+    David Ezzio                 <dezzio@apache.org>            [2009-08-24]
+    Rick Curtis                 <curtisr7@apache.org>          [2010-03-20]
+
+
+* OpenWebBeans  (est. 12/2009)
+    Gurkan Erdogdu (chair)      <gerdogdu@apache.org>          [2009-12-16]  (*)
+    Kevan Miller                <kevan@apache.org>             [2009-12-16]  (*)
+    Mark Struberg               <struberg@apache.org>          [2009-12-16]  (*)
+    David Blevins               <dblevins@apache.org>          [2009-12-16]  (*)
+    Joe Bergmark                <bergmark@gmail.com>           [2009-12-16]
+    Eric Covener                <covener@gmail.com>            [2009-12-16]  (*)
+
+
+* PDFBox  (est. 10/2009)
+    Andreas Lehmkühler (chair)  <lehmi@apache.org>                [2009-10-21] (*)
+    Ben Litchfield              <blitchfield@apache.org>          [2009-10-21]
+    Brian Carrier               <carrier@apache.org>              [2009-10-21]
+    Daniel Wilson               <danielwilson@apache.org>         [2009-10-21]
+    Jeremias Maerki             <jeremias@apache.org>             [2009-10-21] (*)
+    Jukka Zitting               <jukka@apache.org>                [2009-10-21] (*)
+    Philipp Koch                <pkoch@apache.org>                [2009-10-21]
+    Villu Ruusmann              <vfed@apache.org>                 [2010-02-18]
+    Johannes Koch               <koch@apache.org>                 [2010-03-08]
+    Adam Nichols                <adam@apache.org>                 [2010-06-22]
+
+
+* Perl  (est. 03/2000)
+    Adam Prime                   <adam.prime@utoronto.ca>         [2009-04-01]
+    Ask Bjørn Hansen             <ask@apache.org>                 (charter pmc member) (*)
+    Doug MacEachern              <dougm@pobox.com>                (charter pmc member) (*)
+    Eric Cholet                  <cholet@logilune.com>            [Emeritus] (charter pmc member - 03/03/2004) (*)
+    Fred Moyer                   <phred@apache.org>               [2007-03-26] (*)
+    Geoffrey Young               <geoff@modperlcookbook.org>      [2003-07-25] (*)
+    Joe Schaefer                 <joes@apache.org>                [2005-01-03] (*)
+    Perrin Harkins               <perrin@apache.org>              [2005-03-22] (*)
+    Philip M. Gollucci           <pgollucci@apache.org>           [2006-01-03] (*)
+    Philippe M. Chiasson (chair) <gozer@apache.org>               [2003-10-13] (*)
+    Randy Kobes                  <randy@theoryx5.uwinnipeg.ca>    [2003-07-25] (*)
+    Stas Bekman                  <stas@stason.org>                [Emeritus] (charter pmc member - 01/11/2005) (*)
+    Torsten F"ortsch             <torsten@apache.org>             [2010-04-08]
+
+
+* Pivot  (est. 1/2009)
+    Christopher Brind            <brindy@apache.org>            [2009-12-16]
+    Greg Brown (chair)           <gbrown@apache.org>            [2009-12-16]
+    Martijn Dashorst             <dashorst@apache.org>          [2009-12-16] (*)
+    Niclas Hedhman               <niclas@apache.org>            [2009-12-16] (*)
+    Noel Grandin                 <noelgrandin@apache.org>       [2009-12-16]
+    Sandro Martini               <smartini@apache.org>          [2009-12-16]
+    Todd Volkert                 <tvolkert@apache.org>          [2009-12-16]
+
+
+* Portals  (est. 02/2004)
+    Ate Douma                  <ate@apache.org>                 [2005-03-01] (*)
+    Carsten Ziegeler           <cziegeler@apache.org>                        (*)
+    Craig Doremus              <cdoremus@apache.org>            [2007-05-05]
+    Davanum Srinivas           <dims@apache.org>                             (*)
+    David DeWolf               <ddewolf@apache.org>
+    David Jencks               <djencks@apache.org>             [2007-05-05] (*)
+    David Sean Taylor (chair)  <taylor@apache.org>                           (*)
+    Elliot Metsger             <emetsger@jhu.edu>               [2007-03-12]
+    Jeremy Ford                <jford@apache.org>
+    Julie MacNaught            <jmacna@apache.org>
+    Nick Lothian               <nlothian@apache.org>            [2005-02-18]
+    Ralph Goers                <rgoers@apache.org>              [2007-05-05] (*)
+    Roger Ruttimann            <rogerrut@apache.org>            [2007-05-05]
+    Santiago Gala              <sgala@apache.org>                            (*)
+    Scott Weaver               <weaver@apache.org>
+    Shinsuke Sugaya            <shinsuke@apache.org>            [2007-05-05]
+    Stefan Hepper              <sthepper@apache.org>
+    Steve Milek                <smilek@apache.org>              [2007-05-05]
+
+
+* POI  (est. 05/2007)
+    Amol S. Deshmukh           <amol@apache.org>
+    Avik Sengupta              <avik@apache.org>
+    Danny Muid                 <dmui@apache.org>
+    David Fisher               <wave@apache.org>               [2008-03-21]
+    Glen Stampoultzis          <glens@apache.org>                            (*)
+    Jason Height               <jheight@apache.org>
+    Josh Micich                <josh@apache.org>               [2008-03-21]
+    Marc Johnson               <mjohnson@apache.org>
+    Mark Beardsley             <msb@apache.org>                [2009-05-22]
+    Maxim Valyanskiy           <maxcom@apache.org>             [2010-01-11]
+    Nick Burch (chair)         <nick@apache.org>                             (*)
+    Rainer Klute               <klute@apache.org>
+    Paolo Mottadelli           <paolo@apache.org>              [2008-03-21]
+    Sean Sullivan              <sullis@apache.org>
+    Ugo Cei                    <ugo@apache.org>                [2008-03-13]  (*)
+    Yegor Kozlov               <yegor@apache.org>
+
+
+* Qpid  (est. 11/2008)
+    Rajith Attapattu           <rattapat@redhat.com>           [2008-11-19]
+    Alan Conway                <aconway@redhat.com>            [2008-11-19]
+    Paul Fremantle             <paul@wso2.com>                 [2008-11-19] (*)
+    Robert Godfrey             <rob.j.godfrey@gmail.com>       [2008-11-19]
+    Robert Greig               <robert.j.greig@gmail.com>      [2008-11-19]
+    Robbie Gremmell            <robbie.gemmell@gmail.com>      [2009-09-11]
+    Steve Huston               <shuston@riverace.com>          [2008-11-19]
+    Marnie McCormack           <marnie.mccormack@googlemail.com> [2008-11-19]
+    John O'Hara                <john.r.ohara@gmail.com>        [2008-11-19]
+    Martin Ritchie             <ritchiem@apache.org>           [2008-11-19]
+    Jonathan Robie             <jonathan.robie@redhat.com>     [2008-11-19]
+    Ted Ross                   <tross@redhat.com>              [2008-11-19]
+    Craig Russell              <clr@apache.org>                [2008-11-19] (*)
+    Nuno Santos                <nsantos@redhat.com>            [2008-11-19]
+    Rafael Schloming           <rafaels@redhat.com>            [2008-11-19]
+    Yoav Shapira               <yoavs@apache.org>              [2008-11-19] (*)
+    Gordon Sim                 <gsim@redhat.com>               [2008-11-19]
+    Arnaud Simon               <asimon@redhat.com>             [2008-11-19]
+    Aidan Skinner              <aidan.skinner@gmail.com>       [2008-11-19]
+    Manuel Teira               <mteira@tid.es>                 [2008-11-19]
+    Carl Trieloff (chair)      <cctrieloff@redhat.com>         [2008-11-19] (*)
+    Kim van der Riet           <kim.vdriet@redhat.com>         [2008-11-19]
+    Lahiru Gunathilake         <lahiru@apache.org>             [2009-01-22]
+
+
+* Roller (est. 01/2007)
+    Anil Gangolli               <gangolli@apache.org>
+    Allen Gilliland             <agilliland@apache.org>
+    Greg Huber                  <ghuber@apache.org>
+    Dave Johnson (chair)        <snoopdave@apache.org>                       (*)
+    Matt Raible                 <mraible@apache.org>
+    Craig Russell               <clr@apache.org>                             (*)
+    Matthew Schmidt             <mattschmidt@apache.org>
+    Elias Torres                <eliast@apache.org>
+
+* Santuario  (est. 06/2006)
+    Axl Mattheus                 <amattheu@apache.org>
+    Colm O hEigeartaigh (chair)  <coheigea@apache.org>
+    Berin Lautenbach             <blautenb@apache.org>                        (*)
+    Davanum Srinivas             <dims@apache.org>                            (*)
+    Raul Benito                  <raul@apache.org>
+    Scott Cantor                 <scantor@apache.org>
+    Sean Mullan                  <mullan@apache.org>
+    Werner Dittman               <werner@apache.org>
+
+
+* Security Team  (re-est. 09/2006)  (Board Committee)
+    Mark Cox (chair)           <mjc@apache.org>                              (*)
+    Lars Eilebrecht            <lars@apache.org>                             (*)
+    Ben Laurie                 <ben@apache.org>                              (*)
+    Joe Orton                  <jorton@apache.org>                           (*)
+    William A. Rowe            <wrowe@apache.org>                            (*)
+    Sander Striker             <striker@apache.org>                          (*)
+    Mark Thomas                <markt@apache.org>                            (*)
+
+
+* ServiceMix (est. 09/2007)
+    Hiram Chirino              <chirino@apache.org>                          (*)
+    Adrian Co                  <aco@apache.org>
+    Rob Davies                 <rajdavies@apache.org>
+    Philip Dodds               <pdodds@apache.org>
+    Jeff Genender              <jgenender@apache.org>                        (*)
+    Matt Hogstrom              <hogstrom@apache.org>                         (*)
+    David Jencks               <djencks@apache.org>                          (*)
+    Jacek Laskowski            <jlaskowski@apache.org>
+    Jonas Lim                  <jlim@apache.org>
+    Aaron Mulder               <ammulder@apache.org>
+    Guillaume Nodet            <gnodet@apache.org>                           (*)
+    Bruce Snyder               <bsnyder@apache.org>                          (*)
+    James Strachan             <jstrachan@apache.org>                        (*)
+    Thomas Termin              <tterm@apache.org>
+    Gert Vanthienen            <gertv@apache.org>
+    Lars Heinemann             <lhein@apache.org>
+    Freeman Fang               <ffang@apache.org>
+    Chris Custine (chair)      <ccustine@apache.org>            [2009-01-27] (*)
+    Jean-Baptiste Onofré       <jbonofre@apache.org>            [2009-10-07]
+
+* Shindig  (est. 01/2010) 
+    Adam Winer                 <awiner@apache.org>            
+    Cassie Doll                <doll@apache.org>              
+    Chico Charlesworth         <chico@apache.org>             
+    Chirag Shah                <chirag@apache.org>              [2010-02-20]
+    Chris Chabot               <chabotc@apache.org>           
+    Daniel Peterson            <dpeterson@apache.org>         
+    Evan Gilbert               <evan@apache.org>              
+    Henning Schmiedehausen     <henning@apache.org>             [2009-12-07] (*)
+    Henry Saputra              <hsaputra@apache.org>            [2010-06-25]
+    Ian Boston                 <ieb@apache.org>                              (*)
+    Jacky Wang                 <chaowang@apache.org>            [2010-03-14]
+    John Hjelmstad             <johnh@apache.org>             
+    Kevin Brown                <etnu@apache.org>              
+    Louis Ryan                 <lryan@apache.org>             
+    Paul Lindner (chair)       <lindner@apache.org>           
+    Santiago Gala              <sgala@apache.org>                            (*)
+    Upayavira                  <upayavira@apache.org>                        (*)
+    Vincent Siveton            <vsiveton@apache.org>                         (*)
+    Ziv Horesh                 <zhoresh@apache.org>             [2010-04-18]
+
+* Sling (est. 06/2009)
+    Alexandru Popescu          <apopescu@apache.org>
+    Bertrand Delacretaz        <bdelacretaz@apache.org>                      (*)
+    Christophe Lombart         <clombart@apache.org>
+    Carsten Ziegeler           <cziegeler@apache.org>                        (*)
+    Felix Meschberger (chair)  <fmeschbe@apache.org>                         (*)
+    Gianugo Rabellino          <gianugo@apache.org>                          (*)
+    Padraic Hannon             <hannonpi@apache.org>
+    Juan José Vázquez Delgado  <jvazquez@apache.org>
+    Karl Pauls                 <pauls@apache.org>                            (*)
+    Vidar Ramdal               <vramdal@apache.org>
+    Ian Boston                 <ieb@apache.org>                 [2009-07-25] (*)
+
+
+* SpamAssassin  (est. 06/2004)
+    Daniel Quinlan             <quinlan@apache.org>                          (*)
+    Duncan Findlay             <duncf@apache.org>
+    Justin Mason               <jm@apache.org>                               (*)
+    Malte S. Stretz            <mss@apache.org>
+    Michael Parker             <parker@apache.org>
+    Sidney Markowitz           <sidney@apache.org>
+    Theo van Dinter            <felicity@apache.org>                         (*)
+    Dale 'Doc' Schneider       <maddoc@apache.org>              [2007-04-11]
+    Daryl C. W. O'Shea (chair) <spamassassin@dostech.ca>        [2006-08-10] (*)
+    Matt Kettler               <mkettler_sa@verizon.net>        [2007-04-30]
+    Mark Martinec              <Mark.Martinec+sa@ijs.si>        [2008-01-13]
+    Karsten Braeckelmann       <guenther@rudersport.de>         [2008-10-24]
+
+
+* Struts  (est. 03/2004)
+    Alexandru Popescu          <apopescu@apache.org>            [2006-09-10]
+    Dave Newton                <davenewton@apache.org>          [2008-08-12]
+    Don Brown                  <mrdon@apache.org>                            (*)
+    James Holmes               <jholmes@apache.org>
+    Laurie Harper              <laurieh@apache.org>             [2006-07-21]
+    Lukasz Lenart              <lukaszlenart@apache.org>        [2010-06-21]
+    Martin Cooper (chair)      <martinc@apache.org>                          (*)
+    Musachy Barroso            <musachy@apache.org>             [2007-10-19]
+    Niall Pemberton            <niallp@apache.org>              [2004-08-16] (*)
+    Paul Benedict              <pbenedict@apache.org>           [2007-01-21]
+    Rainer Hermanns            <hermanns@apache.org>            [2006-09-10]
+    Rene Gielen                <rgielen@apache.org>             [2006-09-10]
+    Toby Jee                   <tmjee@apache.org>               [2006-09-10]
+    Wendy Smoak                <wsmoak@apache.org>              [2005-12-20] (*)
+    Nils-Helge Garli           <nilsga@apache.org>              [2008-10-27]
+    Wes Wannemacher            <wesw@apache.org>                [2009-01-08]
+
+
+* Subversion  (est. 02/2010)
+    Max Bowsher                <maxb@apache.org>
+    Paul Burba                 <pburba@apache.org>                           (*)
+    Stephen Butler             <sbutler@apache.org>
+    Branko Čibej               <brane@apache.org>                            (*)
+    Ben Collins-Sussman        <sussman@apache.org>
+    Justin Erenkrantz          <jerenkrantz@apache.org>                      (*)
+    Brian W. Fitzpatrick       <fitz@apache.org>                             (*)
+    Julian Foad                <julianfoad@apache.org>
+    Karl Fogel                 <kfogel@apache.org>
+    David Glasser              <glasser@apache.org>
+    Lieven Govaerts            <lgo@apache.org>
+    Neels J. Hofmeyr           <neels@apache.org>
+    Greg Hudson                <ghudson@apache.org>
+    Bert Huijben               <rhuijben@apache.org>
+    Erik Hülsmann              <ehu@apache.org>
+    Kamesh Jayachandran        <kameshj@apache.org>
+    Mark Benedetto King        <mbk@apache.org>
+    Senthil Kumaran S          <stylesen@apache.org>
+    Stefan Küng                <steveking@apache.org>
+    Philip Martin              <philip@apache.org>
+    Joe Orton                  <jorton@apache.org>                           (*)
+    Mark Phippard              <markphip@apache.org>
+    C. Michael Pilato          <cmpilato@apache.org>                         (*)
+    Daniel Rall                <dlr@apache.org>                              (*)
+    Garrett Rooney             <rooneg@apache.org>                           (*)
+    Peter Samuelson            <peters@apache.org>
+    Daniel Shahaf              <danielsh@apache.org>                         (*)
+    Stefan Sperling            <stsp@apache.org>
+    Greg Stein (chair)         <gstein@apache.org>                           (*)
+    Sander Striker             <striker@apache.org>                          (*)
+    Kouhei Sutou               <kou@apache.org>
+    Arfrever Frehtes Taifersar Arahesis <arfrever@apache.org>
+    Jeremy Whitlock            <jwhitlock@apache.org>
+    Hyrum Wright               <hwright@apache.org>                          (*)
+    Blair Zajac                <blair@apache.org>                            (*)
+    Ivan Zhakov                <ivan@apache.org>                             (*)
+
+    
+* Synapse  (est. 12/2007)
+    Rajith Attapattu           <rajith@apache.org>
+    Eran Chinthaka             <chinthaka@apache.org>                        (*)
+    Glen Daniels               <gdaniels@apache.org>                         (*)
+    Ant Elder                  <antelder@apache.org>                         (*)
+    Paul Fremantle (chair)     <pzf@apache.org>                              (*)
+    Deepal Jayasinghe          <deepal@apache.org>                           (*)
+    Oleg Kalnichevski          <olegk@apache.org>                            (*)
+    Ruwan Linton               <ruwan@apache.org>
+    Asankha Perera             <asankha@apache.org>                          (*)
+    Tijs Rademakers            <tijs@apache.org>
+    Andreas Veithen            <veithen@apache.org>             [2008-12-04]
+    Indika Kumara              <indika@apache.org>              [2008-12-04]
+
+
+* Tapestry  (est. 02/2006)
+    Howard M. Lewis Ship (chair) <hlship@apache.org>                         (*)
+    Jesse Kuhnert              <jkuhnert@gmail.com>
+    Richard Lewis-Shell        <rlewisshell@gmail.com>
+    Andreas Andreou            <andyhot@apache.org>             [2007-12-20]
+    Marcus Schulte             <marcus.schulte@bmw.ch>          [2007-12-20]
+    Thiago H. de Paula Figueiredo <thiagohp@apache.org>         [2009-10-22]
+    Igor Drobiazko             <drobiazko@apache.org>           [2010-05-17]
+
+
+* Tcl  (est. 07/2000)
+    Damon Courtney             <damonc@apache.org>                           (*)
+    Daniel Lopez Ridruejo      <ridruejo@apache.org>                         (*)
+    David N. Welton (chair)    <davidw@apache.org>                           (*)
+    Dirk-Willem van Gulik      <dirkx@apache.org>                            (*)
+    Michael Link               <mlink@apache.org>
+    Ronnie Brunner             <ronnie@apache.org>
+
+
+* Tika  (est. 04/2010)
+    Chris Mattmann             <mattmann@apache.org>            [2010-04-21] (*)
+    Jukka Zitting              <jukka@apache.org>               [2010-04-21] (*)
+    Ken Krugler                <kkrugler@apache.org>            [2010-04-21]
+    Keith Bennett              <kbennett@apache.org>            [2010-04-21]
+    Mark Harwood               <mharwood@apache.org>            [2010-04-21]
+    Dave Meikle                <dmeikle@apache.org>             [2010-04-21]
+    Sami Siren                 <siren@apache.org>               [2010-04-21]
+    Rida Benjelloun            <ridabenjelloun@apache.org>      [2010-04-21]
+    Julien Nioche              <jnioche@apache.org>             [2010-06-05]
+    Nick Burch                 <nick@apache.org>                [2010-06-23] (*)
+
+
+* Tiles  (est. 12/2006)
+    Antonio Petrelli           <apetrelli@apache.org>
+    Craig McClanahan           <craigmcc@apache.org>                         (*)
+    David H. DeWolf            <ddewolf@apache.org>
+    Greg Reddin (chair)        <greddin@apache.org>                          (*)
+    Joe Germuska               <germuska@apache.org>            [2007-01-20]
+    Nathan Bubna               <nbubna@apache.org>                           (*)
+    Wendy Smoak                <wsmoak@apache.org>                           (*)
+
+
+* Tomcat  (est. 05/2005)
+    Bill Barker                <billbarker@apache.org>                       (*)
+    Costin Manolache           <costin@apache.org>                           (*)
+    Filip Hanik                <fhanik@apache.org>                           (*)
+    Henri Gomez                <hgomez@apache.org>                           (*)
+    Ian Darwin                 <idarwin@apache.org>
+    Jean-Francois Arcand       <jfarcand@apache.org>
+    Jean-Frederic Clere        <jfclere@apache.org>                          (*)
+    Jim Jagielski              <jim@apache.org>                              (*)
+    Keith Wannamaker           <keith@apache.org>                            (*)
+    Larry Isaacs               <larryi@apache.org>
+    Mark Thomas                <markt@apache.org>                            (*)
+    Mladen Turk (chair)        <mturk@apache.org>                            (*)
+    Peter Rossbach             <pero@apache.org>                             (*)
+    Rainer Jung                <rjung@apache.org>                            (*)
+    Remy Maucherat             <remm@apache.org>                             (*)
+    Tim Funk                   <funkman@apache.org>
+    Yoav Shapira               <yoavs@apache.org>                            (*)
+    Jabob Hookom               <jhook@apache.org>               [2006-04-22]
+    Konstantin Kolinko         <kkolinko@apache.org>            [2010-03-12]
+
+
+* Traffic Server (est. 04/2010)
+    Andrew Hsu                 <andrewhsu@apache.org>           [2010-04-21]
+    Anirban Kundu              <akundu@apache.org>              [2010-04-21]
+    Bryan Call                 <bcall@apache.org>               [2010-04-21]
+    Diane Smith                <dianes@apache.org>              [2010-04-21]
+    Eric Balsa                 <ericb@apache.org>               [2010-04-21]
+    George Paul                <georgep@apache.org>             [2010-04-21]
+    Jean-Frederic Clere        <jfclere@apache.org>             [2010-04-21] (*)
+    Jim Jagielski              <jim@apache.org>                 [2010-04-21] (*)
+    John Plevyak               <jplevyak@apache.org>            [2010-04-21]
+    Leif Hedstrom              <zwoop@apache.org>               [2010-04-21] (*)
+    Manjesh Nilange            <manjesh@apache.org>             [2010-04-21]
+    Miles Libbey               <mlibbey@apache.org>             [2010-04-21]
+    Mladen Turk                <mturk@apache.org>               [2010-04-21] (*)
+    Paul Querna                <pquerna@apache.org>             [2010-04-21] (*)
+    Ray Rivera                 <rayray@apache.org>              [2010-04-21]
+    Steve Jiang                <sjiang@apache.org>              [2010-04-21]
+    Vijaya Bhaskar Mamidi      <vmamidi@apache.org>             [2010-04-21]
+    Jason Giedymin             <jasong@apache.org>              [2010-05-15]
+    Alan M. Carroll            <amc@apache.org>                 [2010-06-28]
+    Theo Schlossnagle          <jesus@apache.org>               [2010-07-19]
+
+
+* Travel Assistance  (est. 01/2007; terminated 12/2007; re-est. 09/2008)  (Board Committee)
+    Ross Gardler               <rgardler@apache.org>            [2008-09-17] (*)
+    Noirin Shirley             <noirin@apache.org>              [2008-09-17] (*)
+    Nick Burch                 <nick@apache.org>                [2008-09-17] (*)
+    Matt Benson                <mbenson@apache.org>             [2008-09-17] (*)
+    William A. Rowe, Jr.       <wrowe@apache.org>               [2008-09-17] (*)
+    Upayavira                  <upayavira@apache.org>           [2008-09-17] (*)
+    Gavin McDonald (chair)     <gmcdonald@apache.org>           [2008-09-17] (*)
+    Tony Stevenson             <pctony@apache.org>              [2009-01-21] (*)
+
+
+
+* Turbine  (est. 05/2007)
+    Jeffrey D. Brekke       <brekke@apache.org>
+    Peter Courcoux          <pcourcoux@apache.org>
+    Scott Eade (chair)      <seade@apache.org>                               (*)
+    Juergen Hoffmann        <hoffmann@apache.org>
+    Will Glass-Husain       <wglass@apache.org>                              (*)
+    Siegfried Goeschl       <sgoeschl@apache.org>                            (*)
+    Henning Schmiedehausen  <henning@apache.org>                             (*)
+    Thomas Vandahl          <tv@apache.org>                                  (*)
+
+
+* Tuscany  (est. 05/2008)
+    Adriano Crestani           <adrianocrestani@apache.org>     [2008-05-21]
+    Ant Elder (chair)          <antelder@apache.org>            [2008-05-21] (*)
+    Brady Johnson              <bjohnson@apache.org>            [2008-05-21]
+    Daniel Becker              <beckerdo@apache.org>            [2008-11-11]
+    Frank Budinsky             <frankb@apache.org>              [2008-05-21]
+    Haleh Mahbod               <hmahbod@apache.org>             [2009-02-25]
+    Ignacio Silva-Lepe         <isilval@apache.org>             [2008-05-21]
+    Jean-Sebastien Delfino     <jsdelfino@apache.org>           [2008-05-21]
+    Kelvin Goodson             <kelvingoodson@apache.org>       [2008-05-21]
+    Luciano Resende            <lresende@apache.org>            [2008-05-21] (*)
+    Mark Combellack            <mcombellack@apache.org>         [2008-05-21]
+    Matthieu Riou              <mriou@apache.org>               [2008-05-21] (*)
+    Mike Edwards               <edwardsmj@apache.org>           [2008-05-21]
+    Paul Fremantle             <pzf@apache.org>                 [2008-05-21] (*)
+    Pete Robbins               <robbinspg@apache.org>           [2008-05-21]
+    Ramkumar Ramalingam        <ramkumar@apache.org>            [2008-12-19]
+    Raymond Feng               <rfeng@apache.org>               [2008-05-21]
+    Simon Laws                 <slaws@apache.org>               [2008-05-21]
+    Simon Nash                 <nash@apache.org>                [2008-05-21] (*)
+    Venkata Krishnan           <svkrish@apache.org>             [2008-05-21]
+
+* UIMA (est. 03/2010)
+    Adam Lally                <alally@apache.org>
+    Bhavani Iyer              <bhavani@apache.org>
+    Burn Lewis                <burn@apache.org>
+    Edward Epstein            <eae@apache.org>
+    Jaroslaw Cwiklik          <cwiklik@apache.org>
+    Joern Kottmann            <joern@apache.org>
+    Jukka Zitting             <jukka@apache.org>                                   (*)
+    Ken Coar                  <coar@apache.org>                                    (*)
+    Marshall Schor            <schor@apache.org>
+    Michael Baessler          <mbaessler@apache.org>
+    Sam Ruby                  <rubys@apache.org>                                   (*)
+    Thilo Goetz               <twgoetz@apache.org>
+    Tommaso Teofili           <tommaso@apache.org>
+    Tong Fin                  <tongfin@apache.org>
+
+* Velocity  (est. 10/2006)
+    Daniel Rall                      <dlr@apache.org>                              (*)
+    Geir Magnusson Jr.               <geirm@apache.org>                            (*)
+    Henning Schmiedehausen (chair)   <henning@apache.org>                          (*)
+    Marino A. Jonsson                <marino@apache.org>
+    Nathan Bubna                     <nbubna@apache.org>                           (*)
+    Will Glass-Husain                <wglass@apache.org>                           (*)
+    Claude Brisson                   <cbrisson@apache.org> [2007-04-17]
+
+
+* Web Services  (est. 01/2003)
+    Afkham Azeez               <afkham@gmail.com>               [2008-01-29] (*)
+    Ajith Ranabahu             <ajith.ranabahu@gmail.com>                    (*)
+    Aleksander Slominski       <aslom@cs.indiana.edu>                        (*)
+    Amila Suriarachchi         <amilaSuriarachchi@gmail.com>    [2008-05-13]
+    Andreas Veithen            <andreas.veithen@gmail.com>      [2009-01-06]
+    Anil Saldana               <anil@apache.org>
+    Anthony Elder              <ant.elder@uk.ibm.com>                        (*)
+    Benson Margulies           <bimargulies@gmail.com>          [2009-04-20] (*)
+    Bill Nagy                  <nagy@watson.ibm.com>            [2008-05-13]
+    Changshin Lee              <ias@apache.org>
+    Chathura Herath            <chathurah@gmail.com>            [2007-12-01]
+    Damitha Kumarage           <damitha@apache.org>
+    Daniel Rall                <dlr@apache.org>                              (*)
+    David Chappell             <chappell@sonicsoftware.com>
+    David Illsley              <davidillsley@gmail.com>         [2007-09-24]
+    Dinesh Premalal            <dinesh.premalal@gmail.com>      [2008-01-21]
+    Deepal Jayasinghe          <deepal@opensource.lk>                        (*)
+    Eran Chinthaka             <chinthaka@apache.org>                        (*)
+    Fred Dushin                <fadushin@apache.org>            [2008-07-15]
+    Glen Daniels (chair)       <gdaniels@apache.org>                         (*)
+    Ian Springer               <ips@apache.org>
+    Jaliya Ekanayake           <jaliya@opensource.lk>
+    Jarek Gawor                <jgawor@gmail.com>               [2008-05-13] (*)
+    Jeff Barrett               <barrettj@us.ibm.com>            [2008-05-13]
+    Jeremy Hughes              <hughesj@hursley.ibm.com>
+    Jochen Wiedmann            <joe@ispsoft.de>
+    John Hawkins               <HAWKINSJ@uk.ibm.com>
+    Jongjin Choi               <jongjinchoi@apache.org>
+    Julie MacNaught            <jmacna@us.ibm.com>
+    Kaushalye Kapuruge         <kaushalye@gmail.com>            [2008-01-21]
+    Keith Chapman              <keithgchapman@gmail.com>        [2008-02-10]
+    Kurt Stam                  <kurt.stam@gmail.com>            [2009-04-30]
+    Nandana Mihindukulasooriya <nandana.cse@gmail.com>          [2008-11-29]
+    Nandika Jayawardane        <nandika@apache.org>             [2007-11-06]
+    Nirmal Mukhi               <nmukhi@us.ibm.com>
+    Paul Fremantle             <pzfreo@gmail.com>                            (*)
+    Rich Scheuerle             <scheu@us.ibm.com>               [2008-05-13]
+    Ruchith Fernando           <ruchithf@apache.org>                         (*)
+    Ryan Hoegg                 <rhoegg@issnetworks.net>
+    Sal Campana                <scamp@apache.org>
+    Sam Meder                  <meder@apache.org>
+    Sam Ruby                   <rubys@apache.org>                            (*)
+    Saminda Abeyruwan          <samindaa@gmail.com>             [2007-05-15]
+    Samisa Abeysinghe          <samisa@apache.org>                           (*)
+    Sanjiva Weerawarana        <sanjiva@opensource.lk>                       (*)
+    Sanka Samaranayake         <ssanka@gmail.com>               [2007-10-23]
+    Scott Nichol               <snichol@computer.org>
+    Srinath Perera             <hemapani@apache.org>                         (*)
+    Steve Loughran             <stevel@apache.org>                           (*)
+    Steve Viens                <steve@viens.net>
+    Susantha Kumara            <susantha@opensource.lk>
+    Ted Leung                  <twl@apache.org>                              (*)
+    Thilina Gunarathne         <csethil@gmail.com>
+    Tom Jordahl                <tomj@apache.org>                             (*)
+
+
+* Wicket (est. 06/2007)
+    Upayavira                       <upayavira@apache.org>                   (*)
+    Alex Karasulu                   <akarasulu@apache.org>                   (*)
+    Martijn Dashorst (chair)        <dashorst@apache.org>                    (*)
+    Ate Douma                       <ate@apache.org>                         (*)
+    Eelco Hillenius                 <ehillenius@apache.org>
+    Gwyn Evans                      <gwynevans@apache.org>
+    Jonathan Locke                  <jonl@apache.org>
+    Johan Compagner                 <jcompagner@apache.org>
+    Juergen Donnerstag              <jdonnerstag@apache.org>
+    Igor Vaynberg                   <ivaynberg@apache.org>
+    Matej Knopp                     <knopp@apache.org>
+    Janne Hietamäki                 <janne@apache.org>
+    Frank Bille Jensen              <frankbille@apache.org>
+    Al Maw                          <almaw@apache.org>
+    Jean-Baptiste Quenot            <jbq@apache.org>
+    Gerolf Seitz                    <gseitz@apache.org>
+    Timo Rantalaiho                 <thrantal@apache.org>
+    Jeremy Thomerson                <jrthomerson@apache.org>                 (*)
+
+
+* Xalan  (est. 10/2004)
+    Arun Yadav                 <Arun.Yadav@Sun.COM>
+    Berin Lautenbach           <berin@wingsofhermes.org>                     (*)
+    Brian Minchau              <minchau@ca.ibm.com>                          (*)
+    David Bertoni (chair)      <dbertoni@apache.org>                         (*)
+    Dmitry Hayes               <dmitryh@ca.ibm.com>
+    Henry Zongaro              <zongaro@ca.ibm.com>
+    John Gentilin              <Johnglinux@eyecatching.com>
+    Matthew Hoyt               <mhoyt@ca.ibm.com>
+    Ramesh Mandava             <Ramesh.Mandava@Sun.COM>
+    Santiago Pericas-Geertsen  <Santiago.Pericasgeertsen@Sun.COM>
+
+
+* Xerces  (est. 02/2005)
+    Alberto Massari                <amassari@progress.com>
+    Andy Clark                     <andyc@apache.org>                            (*)
+    Berin Lautenbach               <berin@wingsofhermes.org>                     (*)
+    Boris Kolpackov                <boris@codesynthesis.com>
+    David Cargill                  <cargilld@ca.ibm.com>
+    Gareth Reakes                  <gareth@apache.org>                           (*)
+    Jason Stewart                  <jason@openinformatics.com>
+    Khaled Noaman                  <knoaman@ca.ibm.com>
+    Michael Glavassevich (chair)   <mrglavas@ca.ibm.com>                         (*)
+    Mukul Gandhi                   <mukulg@apache.org>
+    Neil Graham                    <neilg@ca.ibm.com>                            (*)
+
+
+* XML  (est. 09/1999)
+    Berin Lautenbach           <berin@wingsofhermes.org>                     (*)
+    Brian Minchau              <minchau@ca.ibm.com>                          (*)
+    Erwin van der Koogh        <erwin@koogh.com>
+    Gareth Reakes              <gareth@apache.org>                           (*)
+    Gianugo Rabellino (chair)  <gianugo@apache.org>                          (*)
+    Jason Stewart              <jason@openinformatics.com>
+    Jeff Turner                <jefft@apache.org>                            (*)
+    Jeremias Maerki            <jeremias@apache.org>                         (*)
+    Joerg Pietschmann          <j3322ptm@yahoo.de>                           (*)
+    Kip Hampton                <khampton@totalcinema.com>
+    Matt Sergeant              <matt@sergeant.org>
+    Neil Graham                <neilg@ca.ibm.com>                            (*)
+    PeiYong Zhang              <peiyongz@ca.ibm.com>
+    Sam Ruby                   <rubys@apache.org>                            (*)
+    Santiago Pericas-Geertsen  <santiagopg@apache.org>
+    Scott Boag                 <sboag@apache.org>                            (*)
+    Shane Curcuru              <asf@shanecurcuru.org>                        (*)
+    Vadim Gritsenko            <vadim@reverycodes.com>                       (*)
+    Vincent Hardy              <vincent.hardy@sun.com>                       (*)
+
+
+* XML Graphics  (est. 10/2004)
+    Adrian Cumiskey            <acumiskey@apache.org>           [2008-07-22]
+    Cameron McCormack          <cam@apache.org>                 [2006-05-15]
+    Chris Bowditch             <cbowditch@apache.org>           [2004-10-20]
+    Christian Geisert          <chrisg@apache.org>              [2004-10-20] (*)
+    Vincent Hennebert          <vhennebert@apache.org>          [2007-05-16]
+    Clay Leeds                 <clay@apache.org>                [2004-10-20]
+    Jeremias Maerki            <jeremias@apache.org>            [2004-10-20] (*)
+    Joerg Pietschmann          <pietsch@apache.org>             [2004-10-20] (*)
+    Simon Pepping (chair)      <spepping@apache.org>            [2004-10-20] (*)
+    Thomas DeWeese             <deweese@apache.org>             [2004-10-20]
+
+
+* XMLBeans  (est. 06/2004)
+    Cezar Andrei (chair)       <cezar@apache.org>               [2004-06-23] (*)
+    Cliff Schmidt              <cliffs@apache.org>              [2004-06-23] (*)
+    Davanum Srinivas           <dims@apache.org>                [2004-06-23] (*)
+    David Waite                <dwaite@apache.org>              [2004-06-23]
+    Dutta Satadip              <dutta@apache.org>               [2004-06-23]
+    Eric Vasilik               <ericvas@apache.org>             [2004-06-23]
+    Jacob Danner               <jacobd@apache.org>              [2009-09-01]
+    Ken Kress                  <kkress@apache.org>              [2004-06-23]
+    Radu Preotiuc-Pietro       <radup@apache.org>               [2005-09-02]
+    Ted Leung                  <twl@apache.org>                 [2004-06-23] (*)
+    Wing Yew Poon              <wypoon@apache.org>              [2009-09-01]
+
+
+=============================================================================

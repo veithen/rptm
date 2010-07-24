@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:org.apache.art:vote" xmlns="urn:org.apache.art:vote" elementFormDefault="qualified">
+    <xsd:element name="voteThread">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="voter" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="name" type="xsd:string"/>
+                            <xsd:element name="address" type="emailAddress" minOccurs="0" maxOccurs="unbounded"/>
+                            <xsd:element name="vote" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="messageId" type="messageId"/>
+                                        <xsd:element name="opinion" type="opinion"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="pmcMember" type="xsd:boolean" default="false"/>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ignore" type="messageId" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:simpleType name="messageId">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value=""/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="emailAddress">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value=""/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="opinion">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="+1"/>
+            <xsd:enumeration value="0"/>
+            <xsd:enumeration value="-1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
