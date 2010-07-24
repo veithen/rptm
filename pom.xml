@@ -44,6 +44,11 @@
             <version>${maven.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>${maven.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.maven.wagon</groupId>
             <artifactId>wagon-provider-api</artifactId>
             <version>1.0-beta-6</version>
@@ -57,6 +62,17 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>mstor</groupId>
+            <artifactId>mstor</artifactId>
+            <version>0.9.9</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -113,7 +129,8 @@
                 </executions>
                 <configuration>
                     <extension>true</extension>
-                    <schemaDirectory>src/schema</schemaDirectory>
+                    <schemaDirectory>src/main/schemas</schemaDirectory>
+                    <bindingDirectory>src/main/bindings</bindingDirectory>
                 </configuration>
             </plugin>
             <plugin>
