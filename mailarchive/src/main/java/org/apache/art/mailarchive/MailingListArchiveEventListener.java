@@ -18,6 +18,6 @@
  */
 package org.apache.art.mailarchive;
 
-public interface MailingListArchive {
-    void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor, MailingListArchiveEventListener eventListener) throws MailingListArchiveException;
+public interface MailingListArchiveEventListener {
+    void mboxLoaded(String mailingList, YearMonth month);
 }

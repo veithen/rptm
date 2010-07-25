@@ -94,4 +94,21 @@ public class YearMonth {
     public String toSimpleFormat() {
         return year + StringUtils.leftPad(String.valueOf(month), 2, '0');
     }
+
+    @Override
+    public int hashCode() {
+        return year*31 + month;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof YearMonth) {
+            YearMonth other = (YearMonth)obj;
+            return year == other.year && month == other.month;
+        } else {
+            return false;
+        }
+    }
 }

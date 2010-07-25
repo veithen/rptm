@@ -22,5 +22,16 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 public interface MimeMessageProcessor {
-    void processMessage(MimeMessage msg) throws MessagingException;
+    /**
+     * Process a MIME message.
+     * 
+     * @param msg
+     *            the MIME message to process
+     * @return <code>true</code> if the caller should continue to submit messages,
+     *         <code>false</code> if the processor has finished its work and doesn't wish to receive
+     *         further messages
+     * @throws MessagingException
+     *             if one of the methods in {@link MimeMessage} throws a {@link MessagingException}
+     */
+    boolean processMessage(MimeMessage msg) throws MessagingException;
 }

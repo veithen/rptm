@@ -16,8 +16,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.mailarchive;
+package org.apache.art.vote;
 
-public interface MailingListArchive {
-    void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor, MailingListArchiveEventListener eventListener) throws MailingListArchiveException;
+import org.apache.art.mailarchive.MailingListArchiveEventListener;
+import org.apache.art.mailarchive.YearMonth;
+import org.apache.maven.plugin.logging.Log;
+
+public class LoggingMailingListArchiveEventListener implements MailingListArchiveEventListener {
+    private final Log log;
+    
+    public LoggingMailingListArchiveEventListener(Log log) {
+        this.log = log;
+    }
+
+    public void mboxLoaded(String mailingList, YearMonth month) {
+        log.info("Loaded mbox for mailing list " + mailingList + ", month " + month.toSimpleFormat());
+    }
 }

@@ -16,8 +16,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.mailarchive;
+package org.apache.art.vote;
 
-public interface MailingListArchive {
-    void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor, MailingListArchiveEventListener eventListener) throws MailingListArchiveException;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
+import org.apache.art.mailarchive.MimeMessageProcessor;
+
+public class MessageIdMatcher implements MimeMessageProcessor {
+    private final String messageId;
+    private boolean found;
+
+    public MessageIdMatcher(String messageId) {
+        this.messageId = "<" + messageId + ">";
+    }
+
+    public boolean processMessage(MimeMessage msg) throws MessagingException {
+        if (messageId.equals(msg.getMessageID())) {
+            found = true;
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isFound() {
+        return found;
+    }
 }

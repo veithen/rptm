@@ -18,6 +18,29 @@
  */
 package org.apache.art.mailarchive;
 
-public interface MailingListArchive {
-    void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor, MailingListArchiveEventListener eventListener) throws MailingListArchiveException;
+class MboxKey {
+    private final String mailingList;
+    private final YearMonth month;
+    
+    public MboxKey(String mailingList, YearMonth month) {
+        this.mailingList = mailingList;
+        this.month = month;
+    }
+
+    @Override
+    public int hashCode() {
+        return mailingList.hashCode()*31 + month.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof MboxKey) {
+            MboxKey other = (MboxKey)obj;
+            return mailingList.equals(other.mailingList) && month.equals(other.month);
+        } else {
+            return false;
+        }
+    }
 }

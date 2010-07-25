@@ -41,10 +41,11 @@ public class CountMojo extends AbstractVoteMojo {
         try {
             mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth(),
                     new MimeMessageProcessor() {
-                        public void processMessage(MimeMessage msg) throws MessagingException {
+                        public boolean processMessage(MimeMessage msg) throws MessagingException {
                             CountMojo.processMessage(thread, msg);
+                            return true;
                         }
-                    });
+                    }, new LoggingMailingListArchiveEventListener(getLog()));
         } catch (MailingListArchiveException ex) {
             throw new MojoExecutionException("Failed to crawl mailing list archive: " + ex.getMessage(), ex);
         }

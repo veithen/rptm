@@ -20,6 +20,8 @@ package org.apache.art.vote;
 
 import java.util.List;
 
+import org.apache.art.mailarchive.MailingListArchive;
+import org.apache.art.mailarchive.MailingListArchiveException;
 import org.apache.art.mailarchive.YearMonth;
 import org.apache.maven.model.MailingList;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -41,15 +43,15 @@ public class TrackMojo extends AbstractVoteMojo {
     private String mailingList;
     
     /**
-     * @parameter expression="${month}"
-     */
-    private String month;
-    
-    /**
      * @parameter expression="${project.mailingLists}"
      * @readonly
      */
     private List<MailingList> mailingLists;
+    
+    /**
+     * @component
+     */
+    private MailingListArchive mailingListArchive;
 
     public void execute() throws MojoExecutionException, MojoFailureException {
         VoteThread thread = new VoteThread();
@@ -67,18 +69,23 @@ public class TrackMojo extends AbstractVoteMojo {
             throw new MojoFailureException("Unable to identify mailing list; please specify one");
         }
         thread.setMailingList(mailingList);
-        YearMonth monthValue;
-        if (month == null) {
-            monthValue = new YearMonth();
-        } else {
-            if (month.length() == 6) {
-                monthValue = new YearMonth(Integer.parseInt(month.substring(0, 4)),
-                                           Integer.parseInt(month.substring(4, 6)));
-            } else {
-                throw new MojoFailureException("Invalid format for parameter 'month'. Use YYYYMM.");
+        MessageIdMatcher matcher = new MessageIdMatcher(messageId);
+        LoggingMailingListArchiveEventListener listener = new LoggingMailingListArchiveEventListener(getLog());
+        YearMonth month = new YearMonth();
+        try {
+            while (true) {
+                mailingListArchive.retrieveMessages(mailingList, month, matcher, listener);
+                if (matcher.isFound()) {
+                    break;
+                } else {
+                    month = month.previous();
+                }
             }
+            getLog().info("Message found; creating vote file");
+            thread.setMonth(month);
+            persistVoteThread(thread);
+        } catch (MailingListArchiveException ex) {
+            throw new MojoExecutionException(ex.getMessage(), ex);
         }
-        thread.setMonth(monthValue);
-        persistVoteThread(thread);
     }
 }

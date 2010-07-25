@@ -18,6 +18,23 @@
  */
 package org.apache.art.mailarchive;
 
-public interface MailingListArchive {
-    void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor, MailingListArchiveEventListener eventListener) throws MailingListArchiveException;
+import junit.framework.Assert;
+
+import org.junit.Test;
+
+public class YearMonthTest {
+    @Test
+    public void testEqualsNull() {
+        Assert.assertFalse(new YearMonth(2010, 7).equals(null));
+    }
+    
+    @Test
+    public void testPrevious() {
+        Assert.assertEquals(new YearMonth(1999, 12), new YearMonth(2000, 1).previous());
+    }
+    
+    @Test
+    public void testNext() {
+        Assert.assertEquals(new YearMonth(2000, 1), new YearMonth(1999, 12).next());
+    }
 }
