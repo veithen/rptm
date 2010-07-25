@@ -18,6 +18,9 @@
  */
 package org.apache.art.mailarchive;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -38,6 +41,15 @@ public class YearMonth {
         this.month = month;
     }
 
+    /**
+     * Construct a new instance with the year and month given by the current data.
+     */
+    public YearMonth() {
+        GregorianCalendar cal = new GregorianCalendar();
+        year  = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH) + 1;
+    }
+    
     /**
      * Get the year.
      * 

@@ -18,12 +18,9 @@
  */
 package org.apache.art.vote;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
+import org.apache.art.mailarchive.YearMonth;
 import org.apache.maven.model.MailingList;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -70,15 +67,13 @@ public class TrackMojo extends AbstractVoteMojo {
             throw new MojoFailureException("Unable to identify mailing list; please specify one");
         }
         thread.setMailingList(mailingList);
-        XMLGregorianCalendar monthValue = DATATYPE_FACTORY.newXMLGregorianCalendar();
+        YearMonth monthValue;
         if (month == null) {
-            GregorianCalendar cal = new GregorianCalendar();
-            monthValue.setYear(cal.get(Calendar.YEAR));
-            monthValue.setMonth(cal.get(Calendar.MONTH) + 1);
+            monthValue = new YearMonth();
         } else {
             if (month.length() == 6) {
-                monthValue.setYear(Integer.parseInt(month.substring(0, 4)));
-                monthValue.setMonth(Integer.parseInt(month.substring(4, 6)));
+                monthValue = new YearMonth(Integer.parseInt(month.substring(0, 4)),
+                                           Integer.parseInt(month.substring(4, 6)));
             } else {
                 throw new MojoFailureException("Invalid format for parameter 'month'. Use YYYYMM.");
             }

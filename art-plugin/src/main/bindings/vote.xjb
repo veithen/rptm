@@ -17,8 +17,13 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <bindings scd="x-schema::vote" xmlns:vote="urn:art.apache.org:vote">
+        <globalBindings>
+            <javaType name="org.apache.art.mailarchive.YearMonth" xmlType="xsd:gYearMonth"
+                      parseMethod="org.apache.art.vote.DatatypeConverter.parseYearMonth"
+                      printMethod="org.apache.art.vote.DatatypeConverter.printYearMonth"/>
+        </globalBindings>
         <bindings scd="vote:voteThread//vote:voter">
             <property name="voters"/>
         </bindings>
