@@ -74,6 +74,7 @@
     <modules>
         <module>art-plugin</module>
         <module>asf-metadata</module>
+        <module>jira-client</module>
         <module>mailarchive</module>
     </modules>
     <build>
