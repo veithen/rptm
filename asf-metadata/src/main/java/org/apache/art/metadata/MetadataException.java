@@ -16,10 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.metadata.pmc;
+package org.apache.art.metadata;
 
-import java.util.List;
+public class MetadataException extends Exception {
+    private static final long serialVersionUID = 7922473055463578967L;
 
-public interface MetadataProvider {
-    List<PmcMember> getPmcMembers(ProjectMatcher matcher) throws MetadataException;
+    public MetadataException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public MetadataException(String message) {
+        super(message);
+    }
 }

@@ -20,8 +20,8 @@ package org.apache.art;
 
 import java.util.List;
 
-import org.apache.art.metadata.pmc.MetadataException;
-import org.apache.art.metadata.pmc.MetadataProvider;
+import org.apache.art.metadata.MetadataException;
+import org.apache.art.metadata.MetadataProvider;
 import org.apache.art.metadata.pmc.PmcMember;
 import org.apache.art.metadata.pmc.PmcUtil;
 import org.apache.art.metadata.pmc.ProjectByIdMatcher;

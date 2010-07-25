@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.metadata.pmc;
+package org.apache.art.metadata;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,6 +24,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import org.apache.art.metadata.pmc.PmcMember;
+import org.apache.art.metadata.pmc.PmcUtil;
+import org.apache.art.metadata.pmc.ProjectMatcher;
 import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.wagon.Wagon;
 import org.apache.maven.wagon.WagonException;
