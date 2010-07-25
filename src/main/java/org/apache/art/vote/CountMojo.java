@@ -18,25 +18,11 @@
  */
 package org.apache.art.vote;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Properties;
-
-import javax.mail.Folder;
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Store;
-import javax.mail.URLName;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.wagon.Wagon;
-import org.apache.maven.wagon.WagonException;
-import org.apache.maven.wagon.repository.Repository;
 
 /**
  * @goal vote-count
@@ -45,51 +31,16 @@ public class CountMojo extends AbstractVoteMojo {
     /**
      * @component
      */
-    private WagonManager wagonManager;
-    
-    private static String getMailArchiveForList(String address) {
-        int idx = address.indexOf('@');
-        return "http://" + address.substring(idx+1) + "/mail/" + address.substring(0, idx) + "/";
-    }
+    private MailingListArchive mailingListArchive;
     
     public void execute() throws MojoExecutionException, MojoFailureException {
-        VoteThread thread = loadVoteThread();
-        Repository repo = new Repository(null, getMailArchiveForList(thread.getMailingList()));
-        Session session = Session.getDefaultInstance(new Properties());
-        try {
-            Wagon wagon = wagonManager.getWagon(repo);
-            wagon.connect(repo, wagonManager.getProxy(repo.getProtocol()));
-            try {
-                int year = thread.getMonth().getYear();
-                int month = thread.getMonth().getMonth();
-                String mboxName = year + StringUtils.leftPad(String.valueOf(month), 2, '0');
-                File mbox = File.createTempFile(thread.getMailingList(), ".mbox");
-                try {
-                    wagon.get(mboxName, mbox);
-                    Store store = session.getStore(new URLName("mstor:" + mbox));
-                    store.connect();
-                    try {
-                        Folder folder = store.getDefaultFolder();
-                        folder.open(Folder.READ_ONLY);
-                        for (Message msg : folder.getMessages()) {
-                            processMessage(thread, (MimeMessage)msg);
-                        }
-                    } finally {
-                        store.close();
+        final VoteThread thread = loadVoteThread();
+        mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth().getYear(), thread.getMonth().getMonth(),
+                new MimeMessageProcessor() {
+                    public void processMessage(MimeMessage msg) throws MessagingException {
+                        CountMojo.processMessage(thread, msg);
                     }
-                } finally {
-                    mbox.delete();
-                }
-            } finally {
-                wagon.disconnect();
-            }
-        } catch (WagonException ex) {
-            throw new MojoExecutionException("Wagon exception: " + ex.getMessage(), ex);
-        } catch (IOException ex) {
-            throw new MojoExecutionException("Unexpected I/O exception: " + ex.getMessage(), ex);
-        } catch (MessagingException ex) {
-            throw new MojoExecutionException("JavaMail exception: " + ex.getMessage(), ex);
-        }
+                });
     }
     
     private static void processMessage(VoteThread thread, MimeMessage msg) throws MessagingException {

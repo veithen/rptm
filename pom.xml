@@ -133,6 +133,18 @@
                     <bindingDirectory>src/main/bindings</bindingDirectory>
                 </configuration>
             </plugin>
+            <!-- plugin>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-component-metadata</artifactId>
+                <version>1.5.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-metadata</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin -->
             <plugin>
                 <artifactId>maven-docck-plugin</artifactId>
                 <version>1.0</version>

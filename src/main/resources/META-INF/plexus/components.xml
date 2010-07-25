@@ -1,0 +1,18 @@
+<component-set>
+  <components>
+    <component>
+      <role>org.apache.art.vote.MailingListArchive</role>
+      <role-hint>default</role-hint>
+      <implementation>org.apache.art.vote.DefaultMailingListArchive</implementation>
+      <description></description>
+      <isolated-realm>false</isolated-realm>
+      <requirements>
+        <requirement>
+          <role>org.apache.maven.artifact.manager.WagonManager</role>
+          <!-- role-hint>default</role-hint -->
+          <field-name>wagonManager</field-name>
+        </requirement>
+      </requirements>
+    </component>
+  </components>
+</component-set>
