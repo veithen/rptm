@@ -30,7 +30,6 @@ import javax.mail.Store;
 import javax.mail.URLName;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.wagon.Wagon;
 import org.apache.maven.wagon.WagonException;
@@ -50,17 +49,16 @@ public class DefaultMailingListArchive implements MailingListArchive {
         return "http://" + address.substring(idx+1) + "/mail/" + address.substring(0, idx) + "/";
     }
     
-    public void retrieveMessages(String mailingList, int year, int month, MimeMessageProcessor processor) throws MailingListArchiveException {
+    public void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor) throws MailingListArchiveException {
         Repository repo = new Repository(null, getMailArchiveForList(mailingList));
         Session session = Session.getDefaultInstance(new Properties());
         try {
             Wagon wagon = wagonManager.getWagon(repo);
             wagon.connect(repo, wagonManager.getProxy(repo.getProtocol()));
             try {
-                String mboxName = year + StringUtils.leftPad(String.valueOf(month), 2, '0');
                 File mbox = File.createTempFile(mailingList, ".mbox");
                 try {
-                    wagon.get(mboxName, mbox);
+                    wagon.get(month.toSimpleFormat(), mbox);
                     Store store = session.getStore(new URLName("mstor:" + mbox));
                     store.connect();
                     try {

@@ -18,7 +18,6 @@
  */
 package org.apache.art.mailarchive;
 
-
 public interface MailingListArchive {
-    void retrieveMessages(String mailingList, int year, int month, MimeMessageProcessor processor) throws MailingListArchiveException;
+    void retrieveMessages(String mailingList, YearMonth month, MimeMessageProcessor processor) throws MailingListArchiveException;
 }
