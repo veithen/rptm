@@ -46,12 +46,14 @@ import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.wagon.Wagon;
 import org.apache.maven.wagon.WagonException;
 import org.apache.maven.wagon.repository.Repository;
+import org.codehaus.plexus.logging.LogEnabled;
+import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Disposable;
 
 /**
  * @plexus.component
  */
-public class DefaultMailingListArchive implements MailingListArchive, Disposable {
+public class DefaultMailingListArchive implements MailingListArchive, Disposable, LogEnabled {
     private static final byte[] MBOX_MAGIC = { 'F', 'r', 'o', 'm', ' ' };
     
     /**
@@ -59,7 +61,13 @@ public class DefaultMailingListArchive implements MailingListArchive, Disposable
      */
     private WagonManager wagonManager;
     
+    private Logger logger;
+    
     private final Map<MboxKey,File> cache = new HashMap<MboxKey,File>();
+
+    public void enableLogging(Logger logger) {
+        this.logger = logger;
+    }
 
     private static String getMailArchiveForList(String address) {
         int idx = address.indexOf('@');
@@ -83,7 +91,8 @@ public class DefaultMailingListArchive implements MailingListArchive, Disposable
         if (mbox != null) {
             return mbox;
         }
-        Repository repo = new Repository(null, getMailArchiveForList(mailingList));
+        String archiveUrl = getMailArchiveForList(mailingList);
+        Repository repo = new Repository(null, archiveUrl);
         try {
             Set<File> tempFiles = new HashSet<File>();
             Wagon wagon = wagonManager.getWagon(repo);
@@ -91,9 +100,11 @@ public class DefaultMailingListArchive implements MailingListArchive, Disposable
             try {
                 mbox = File.createTempFile(mailingList, ".mbox");
                 tempFiles.add(mbox);
+                logger.debug("Getting " + archiveUrl + month.toSimpleFormat());
                 wagon.get(month.toSimpleFormat(), mbox);
                 eventListener.mboxLoaded(mailingList, month);
                 if (!isMboxFile(mbox)) {
+                    logger.debug(archiveUrl + month.toSimpleFormat() + " appears to be compressed; attempting to uncompress it");
                     File compressedMbox = mbox;
                     mbox = File.createTempFile(mailingList, ".mbox");
                     tempFiles.add(mbox);
