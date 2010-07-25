@@ -16,17 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.metadata;
+package org.apache.art.metadata.aliases;
 
-import java.util.List;
-
-import org.apache.art.metadata.aliases.MailAliasVisitor;
-import org.apache.art.metadata.pmc.CommitteeInfoVisitor;
-import org.apache.art.metadata.pmc.PmcMember;
-import org.apache.art.metadata.pmc.ProjectMatcher;
-
-public interface MetadataProvider {
-    void getCommitteeInfo(CommitteeInfoVisitor visitor) throws MetadataException;
-    List<PmcMember> getPmcMembers(ProjectMatcher matcher) throws MetadataException;
-    void getMailAliases(MailAliasVisitor visitor) throws MetadataException;
+public interface MailAliasVisitor {
+    void visitMailAlias(String primaryAddress, String alias);
 }

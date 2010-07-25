@@ -18,14 +18,17 @@
  */
 package org.apache.art.metadata;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.art.metadata.aliases.MailAliasVisitor;
 import org.apache.art.metadata.pmc.CommitteeInfoParser;
 import org.apache.art.metadata.pmc.CommitteeInfoVisitor;
 import org.apache.art.metadata.pmc.PmcMember;
@@ -107,6 +110,23 @@ public class DefaultMetadataProvider implements MetadataProvider, LogEnabled, Di
         VisitorImpl visitor = new VisitorImpl(matcher);
         getCommitteeInfo(visitor);
         return visitor.getMembers();
+    }
+
+    public void getMailAliases(MailAliasVisitor visitor) throws MetadataException {
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(getFile("committers/MailAlias.txt")), "ASCII"));
+            try {
+                String line;
+                while ((line = in.readLine()) != null) {
+                    int idx = line.indexOf(',');
+                    visitor.visitMailAlias(line.substring(0, idx), line.substring(idx+1));
+                }
+            } finally {
+                in.close();
+            }
+        } catch (IOException ex) {
+            throw new MetadataException("Unexpected I/O exception: " + ex.getMessage(), ex);
+        }
     }
 
     public void dispose() {
