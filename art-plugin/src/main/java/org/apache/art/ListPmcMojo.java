@@ -18,23 +18,17 @@
  */
 package org.apache.art;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
+import org.apache.art.metadata.pmc.MetadataException;
+import org.apache.art.metadata.pmc.MetadataProvider;
 import org.apache.art.metadata.pmc.PmcMember;
 import org.apache.art.metadata.pmc.PmcUtil;
 import org.apache.art.metadata.pmc.ProjectByIdMatcher;
-import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.wagon.Wagon;
-import org.apache.maven.wagon.WagonException;
-import org.apache.maven.wagon.repository.Repository;
 
 /**
  * @goal list-pmc
@@ -49,7 +43,7 @@ public class ListPmcMojo extends AbstractMojo {
     /**
      * @component
      */
-    private WagonManager wagonManager;
+    private MetadataProvider metadataProvider;
     
     public void execute() throws MojoExecutionException, MojoFailureException {
         String projectId = PmcUtil.getProjectIdFromSiteUrl(projectUrl);
@@ -59,29 +53,9 @@ public class ListPmcMojo extends AbstractMojo {
         
         List<PmcMember> members;
         try {
-            Repository repo = new Repository("asf-private", "dav:https://svn.apache.org/repos/private/");
-            Wagon wagon = wagonManager.getWagon(repo);
-            wagon.connect(repo, wagonManager.getAuthenticationInfo(repo.getId()), wagonManager.getProxy(repo.getProtocol()));
-            try {
-                File committeeInfo = File.createTempFile("committee-info", ".txt");
-                try {
-                    wagon.get("committers/board/committee-info.txt", committeeInfo);
-                    InputStream in = new FileInputStream(committeeInfo);
-                    try {
-                        members = PmcUtil.getPmcMembers(in, new ProjectByIdMatcher(projectId));
-                    } finally {
-                        in.close();
-                    }
-                } finally {
-                    committeeInfo.delete();
-                }
-            } finally {
-                wagon.disconnect();
-            }
-        } catch (WagonException ex) {
-            throw new MojoExecutionException("Failed to get PMC info from asf-private repository: " + ex.getMessage(), ex);
-        } catch (IOException ex) {
-            throw new MojoExecutionException("Unexpected I/O exception: " + ex.getMessage(), ex);
+            members = metadataProvider.getPmcMembers(new ProjectByIdMatcher(projectId));
+        } catch (MetadataException ex) {
+            throw new MojoExecutionException("Failed to get PMC info: " + ex.getMessage(), ex);
         }
         
         if (members == null) {
