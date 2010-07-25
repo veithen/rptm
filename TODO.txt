@@ -1,0 +1,1 @@
+* Document server settings in settings.xml required to access the ASF private repository.
