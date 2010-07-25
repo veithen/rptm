@@ -21,6 +21,9 @@ package org.apache.art.vote;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.art.mailarchive.MailingListArchive;
+import org.apache.art.mailarchive.MailingListArchiveException;
+import org.apache.art.mailarchive.MimeMessageProcessor;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -35,12 +38,16 @@ public class CountMojo extends AbstractVoteMojo {
     
     public void execute() throws MojoExecutionException, MojoFailureException {
         final VoteThread thread = loadVoteThread();
-        mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth().getYear(), thread.getMonth().getMonth(),
-                new MimeMessageProcessor() {
-                    public void processMessage(MimeMessage msg) throws MessagingException {
-                        CountMojo.processMessage(thread, msg);
-                    }
-                });
+        try {
+            mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth().getYear(), thread.getMonth().getMonth(),
+                    new MimeMessageProcessor() {
+                        public void processMessage(MimeMessage msg) throws MessagingException {
+                            CountMojo.processMessage(thread, msg);
+                        }
+                    });
+        } catch (MailingListArchiveException ex) {
+            throw new MojoExecutionException("Failed to crawl mailing list archive: " + ex.getMessage(), ex);
+        }
     }
     
     private static void processMessage(VoteThread thread, MimeMessage msg) throws MessagingException {

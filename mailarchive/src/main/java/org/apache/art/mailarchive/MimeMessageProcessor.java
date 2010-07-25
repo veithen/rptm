@@ -16,10 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.vote;
+package org.apache.art.mailarchive;
 
-import org.apache.maven.plugin.MojoExecutionException;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 
-public interface MailingListArchive {
-    void retrieveMessages(String mailingList, int year, int month, MimeMessageProcessor processor) throws MojoExecutionException;
+public interface MimeMessageProcessor {
+    void processMessage(MimeMessage msg) throws MessagingException;
 }

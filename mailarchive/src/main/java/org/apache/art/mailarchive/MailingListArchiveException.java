@@ -16,11 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.vote;
+package org.apache.art.mailarchive;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
+public class MailingListArchiveException extends Exception {
+    private static final long serialVersionUID = -4428248720168818834L;
 
-public interface MimeMessageProcessor {
-    void processMessage(MimeMessage msg) throws MessagingException;
+    public MailingListArchiveException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public MailingListArchiveException(String message) {
+        super(message);
+    }
 }

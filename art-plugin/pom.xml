@@ -64,15 +64,9 @@
             <version>2.5</version>
         </dependency>
         <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>mstor</groupId>
-            <artifactId>mstor</artifactId>
-            <version>0.9.9</version>
-            <scope>runtime</scope>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mailarchive</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
