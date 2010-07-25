@@ -22,51 +22,97 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.art.metadata.pmc.CommitteeInfoParser;
+import org.apache.art.metadata.pmc.CommitteeInfoVisitor;
 import org.apache.art.metadata.pmc.PmcMember;
-import org.apache.art.metadata.pmc.PmcUtil;
 import org.apache.art.metadata.pmc.ProjectMatcher;
 import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.wagon.Wagon;
 import org.apache.maven.wagon.WagonException;
 import org.apache.maven.wagon.repository.Repository;
+import org.codehaus.plexus.logging.LogEnabled;
+import org.codehaus.plexus.logging.Logger;
+import org.codehaus.plexus.personality.plexus.lifecycle.phase.Disposable;
 
 /**
  * @plexus.component
  */
-public class DefaultMetadataProvider implements MetadataProvider {
+public class DefaultMetadataProvider implements MetadataProvider, LogEnabled, Disposable {
     /**
      * @plexus.requirement
      */
     private WagonManager wagonManager;
+    
+    private Logger logger;
+    
+    private final Map<String,File> cache = new HashMap<String,File>();
 
-    public List<PmcMember> getPmcMembers(ProjectMatcher matcher) throws MetadataException {
+    public void enableLogging(Logger logger) {
+        this.logger = logger;
+    }
+
+    private File getFile(String name) throws MetadataException {
+        File file = cache.get(name);
+        if (file != null) {
+            return file;
+        }
         try {
             Repository repo = new Repository("asf-private", "dav:https://svn.apache.org/repos/private/");
             Wagon wagon = wagonManager.getWagon(repo);
             wagon.connect(repo, wagonManager.getAuthenticationInfo(repo.getId()), wagonManager.getProxy(repo.getProtocol()));
             try {
-                File committeeInfo = File.createTempFile("committee-info", ".txt");
                 try {
-                    wagon.get("committers/board/committee-info.txt", committeeInfo);
-                    InputStream in = new FileInputStream(committeeInfo);
-                    try {
-                        return PmcUtil.getPmcMembers(in, matcher);
-                    } finally {
-                        in.close();
-                    }
+                    file = File.createTempFile("asf-metadata", ".txt");
+                } catch (IOException ex) {
+                    throw new MetadataException("Failed to create temporary file", ex);
+                }
+                boolean success = false;
+                try {
+                    logger.info("Fetching " + name);
+                    wagon.get(name, file);
+                    cache.put(name, file);
+                    success = true;
+                    return file;
                 } finally {
-                    committeeInfo.delete();
+                    if (!success) {
+                        file.delete();
+                    }
                 }
             } finally {
                 wagon.disconnect();
             }
         } catch (WagonException ex) {
             throw new MetadataException("Failed to get PMC info from asf-private repository: " + ex.getMessage(), ex);
+        }
+    }
+
+    public void getCommitteeInfo(CommitteeInfoVisitor visitor) throws MetadataException {
+        try {
+            InputStream in = new FileInputStream(getFile("committers/board/committee-info.txt"));
+            try {
+                CommitteeInfoParser.parse(in, visitor);
+            } finally {
+                in.close();
+            }
         } catch (IOException ex) {
             throw new MetadataException("Unexpected I/O exception: " + ex.getMessage(), ex);
         }
     }
 
+    public List<PmcMember> getPmcMembers(ProjectMatcher matcher) throws MetadataException {
+        VisitorImpl visitor = new VisitorImpl(matcher);
+        getCommitteeInfo(visitor);
+        return visitor.getMembers();
+    }
+
+    public void dispose() {
+        for (File file : cache.values()) {
+            file.delete();
+        }
+        cache.clear();
+    }
 }

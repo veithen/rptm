@@ -20,9 +20,11 @@ package org.apache.art.metadata;
 
 import java.util.List;
 
+import org.apache.art.metadata.pmc.CommitteeInfoVisitor;
 import org.apache.art.metadata.pmc.PmcMember;
 import org.apache.art.metadata.pmc.ProjectMatcher;
 
 public interface MetadataProvider {
+    void getCommitteeInfo(CommitteeInfoVisitor visitor) throws MetadataException;
     List<PmcMember> getPmcMembers(ProjectMatcher matcher) throws MetadataException;
 }

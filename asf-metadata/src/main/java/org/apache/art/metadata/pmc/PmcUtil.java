@@ -18,56 +18,10 @@
  */
 package org.apache.art.metadata.pmc;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class PmcUtil {
-    private static class Visitor implements CommitteeInfoVisitor {
-        private final ProjectMatcher matcher;
-        private final List<PmcMember> members = new ArrayList<PmcMember>();
-        private boolean matches;
-        private MatchLevel currentMatchLevel = MatchLevel.NO_MATCH;
-        private boolean ambiguous;
-
-        public Visitor(ProjectMatcher matcher) {
-            this.matcher = matcher;
-        }
-
-        public void startProject(String name) {
-            MatchLevel matchLevel = matcher.matches(name);
-            if (matchLevel != MatchLevel.NO_MATCH) {
-                int c = currentMatchLevel.compareTo(matchLevel);
-                if (c < 0) {
-                    currentMatchLevel = matchLevel;
-                    members.clear();
-                    ambiguous = false;
-                    matches = true;
-                } else if (c == 0) {
-                    members.clear();
-                    ambiguous = true;
-                }
-            }
-        }
-        
-        public void endProject() {
-            matches = false;
-        }
-
-        public void member(String name, String address) {
-            if (matches) {
-                members.add(new PmcMember(name, address));
-            }
-        }
-        
-        public List<PmcMember> getMembers() {
-            return ambiguous || members.isEmpty() ? null : members;
-        }
-    }
-    
     private PmcUtil() {}
     
     public static String getProjectIdFromSiteUrl(String siteUrl) {
@@ -83,11 +37,5 @@ public final class PmcUtil {
         } else {
             return null;
         }
-    }
-    
-    public static List<PmcMember> getPmcMembers(InputStream in, ProjectMatcher matcher) throws IOException {
-        Visitor visitor = new Visitor(matcher);
-        CommitteeInfoParser.parse(in, visitor);
-        return visitor.getMembers();
     }
 }
