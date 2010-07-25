@@ -25,9 +25,9 @@
         <version>SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>mailarchive</artifactId>
+    <artifactId>asf-metadata</artifactId>
     <packaging>jar</packaging>
-    <name>Mailing list archive crawler</name>
+    <name>ASF metadata service</name>
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -36,21 +36,6 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>mstor</groupId>
-            <artifactId>mstor</artifactId>
-            <version>0.9.9</version>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
