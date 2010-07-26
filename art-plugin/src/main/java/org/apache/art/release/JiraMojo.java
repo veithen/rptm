@@ -16,30 +16,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art;
+package org.apache.art.release;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.art.jira.JiraSoapService;
 import org.apache.art.jira.JiraSoapServiceServiceLocator;
 import org.apache.art.jira.RemoteProject;
+import org.apache.art.jira.RemoteVersion;
 import org.apache.axis.AxisFault;
+import org.apache.commons.io.IOUtils;
 import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.model.IssueManagement;
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.wagon.authentication.AuthenticationInfo;
+
+import com.sun.syndication.feed.synd.SyndEntry;
+import com.sun.syndication.feed.synd.SyndFeed;
+import com.sun.syndication.io.SyndFeedInput;
+import com.sun.syndication.io.XmlReader;
 
 /**
  * @goal jira
  * @aggregator true
  */
-public class JiraMojo extends AbstractMojo {
+public class JiraMojo extends AbstractReleaseMojo {
+    private static final Pattern NAME_VERSION = Pattern.compile("(.+) (\\d+(\\.\\d+)*)");
+    
+    /**
+     * @parameter expression="${project.name}"
+     * @readonly
+     */
+    private String projectName;
+    
     /**
      * @parameter expression="${project.issueManagement}"
      * @readonly
@@ -51,7 +67,9 @@ public class JiraMojo extends AbstractMojo {
      */
     private WagonManager wagonManager;
 
+    // TODO: implement proxy handling!
     public void execute() throws MojoExecutionException, MojoFailureException {
+        ReleaseInfo releaseInfo = loadState();
         if (!issueManagement.getSystem().equals("JIRA")) {
             throw new MojoFailureException("Only JIRA is supported at this moment");
         }
@@ -87,15 +105,66 @@ public class JiraMojo extends AbstractMojo {
         } catch (Exception ex) {
             throw new MojoExecutionException("Unable to create SOAP service proxy", ex);
         }
+        RemoteProject project;
+        RemoteVersion version;
         try {
             String token = service.login(authInfo.getUserName(), authInfo.getPassword());
-            RemoteProject project = service.getProjectByKey(token, projectKey);
-            System.out.println("Found project: " + project.getName());
+            project = service.getProjectByKey(token, projectKey);
+            version = selectVersion(service.getVersions(token, projectKey), releaseInfo.getVersion());
+            if (version == null) {
+                throw new MojoExecutionException("No matching version found in JIRA");
+            }
+            getLog().info("Found project '" + project.getName() + "' and version '" + version.getName() + "'");
             service.logout(token);
         } catch (AxisFault fault) {
             throw new MojoFailureException(fault.getFaultString());
         } catch (RemoteException ex) {
             throw new MojoExecutionException("Remote exception", ex);
         }
+        URL searchUrl;
+        try {
+            searchUrl = new URL(jiraUrl, "sr/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?pid="
+                    + project.getId() + "&fixfor=" + version.getId()
+                    + "&status=5&status=6&sorter/field=issuekey&sorter/order=ASC&os_username="
+                    + authInfo.getUserName() + "&os_password=" + authInfo.getPassword());
+        } catch (MalformedURLException ex) {
+            throw new MojoExecutionException("Unexpected exception", ex);
+        }
+        SyndFeedInput input = new SyndFeedInput();
+        SyndFeed feed;
+        try {
+            feed = input.build(new XmlReader(searchUrl));
+        } catch (Exception ex) {
+            throw new MojoExecutionException("Failed to load issue list", ex);
+        }
+        List<Issue> issues = releaseInfo.getIssues();
+        issues.clear();
+        for (SyndEntry entry : (List<SyndEntry>)feed.getEntries()) {
+            String title = entry.getTitle();
+            int idx = title.indexOf(']');
+            Issue issue = new Issue();
+            issue.setKey(title.substring(1, idx));
+            issue.setSummary(title.substring(idx+2));
+            issues.add(issue);
+        }
+        persistState(releaseInfo);
+    }
+    
+    private RemoteVersion selectVersion(RemoteVersion[] versions, String projectVersion) {
+        for (RemoteVersion version : versions) {
+            String name = version.getName();
+            if (name.equals(projectVersion)) {
+                return version;
+            }
+            Matcher m = NAME_VERSION.matcher(name);
+            if (m.matches()) {
+                String prefix = m.group(1);
+                if (m.group(2).equals(projectVersion) &&
+                        (projectName.toUpperCase().contains(prefix.toUpperCase()) || prefix.toUpperCase().contains(projectName.toUpperCase()))) {
+                    return version;
+                }
+            }
+        }
+        return null;
     }
 }
