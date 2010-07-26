@@ -16,21 +16,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.art.vote;
+package org.apache.art.release;
 
 import org.apache.art.AbstractStatefulMojo;
 
-public abstract class AbstractVoteMojo extends AbstractStatefulMojo<VoteThread> {
+public abstract class AbstractReleaseMojo extends AbstractStatefulMojo<ReleaseInfo> {
     /**
-     * @parameter expression="${voteXml}" default-value=".art/vote.xml"
+     * @parameter expression="${releaseInfoXml}" default-value=".art/release-info.xml"
      */
-    private String voteXml;
+    private String releaseInfoXml;
 
-    public AbstractVoteMojo() {
-        super(VoteThread.class);
+    public AbstractReleaseMojo() {
+        super(ReleaseInfo.class);
     }
-    
+
+    @Override
     protected String getFileName() {
-        return voteXml;
+        return releaseInfoXml;
     }
 }

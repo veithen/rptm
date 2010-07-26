@@ -37,7 +37,7 @@ public class CountMojo extends AbstractVoteMojo {
     private MailingListArchive mailingListArchive;
     
     public void execute() throws MojoExecutionException, MojoFailureException {
-        final VoteThread thread = loadVoteThread();
+        final VoteThread thread = loadState();
         try {
             mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth(),
                     new MimeMessageProcessor() {

@@ -83,7 +83,7 @@ public class TrackMojo extends AbstractVoteMojo {
             }
             getLog().info("Message found; creating vote file");
             thread.setMonth(month);
-            persistVoteThread(thread);
+            persistState(thread);
         } catch (MailingListArchiveException ex) {
             throw new MojoExecutionException(ex.getMessage(), ex);
         }
