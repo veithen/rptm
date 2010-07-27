@@ -22,7 +22,7 @@ import com.google.code.rptm.AbstractStatefulMojo;
 
 public abstract class AbstractVoteMojo extends AbstractStatefulMojo<VoteThread> {
     /**
-     * @parameter expression="${voteXml}" default-value=".art/vote.xml"
+     * @parameter expression="${voteXml}" default-value=".rptm/vote.xml"
      */
     private String voteXml;
 

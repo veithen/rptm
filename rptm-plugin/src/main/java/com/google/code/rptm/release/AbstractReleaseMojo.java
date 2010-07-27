@@ -22,7 +22,7 @@ import com.google.code.rptm.AbstractStatefulMojo;
 
 public abstract class AbstractReleaseMojo extends AbstractStatefulMojo<ReleaseInfo> {
     /**
-     * @parameter expression="${releaseInfoXml}" default-value=".art/release-info.xml"
+     * @parameter expression="${releaseInfoXml}" default-value=".rptm/release-info.xml"
      */
     private String releaseInfoXml;
 
