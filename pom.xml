@@ -24,11 +24,11 @@
         <artifactId>apache</artifactId>
         <version>7</version>
     </parent>
-    <groupId>org.apache.art</groupId>
-    <artifactId>art</artifactId>
+    <groupId>com.google.code.rptm</groupId>
+    <artifactId>rptm</artifactId>
     <version>SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Apache Release Tool</name>
+    <name>RPTM</name>
     <properties>
         <maven.version>2.0.9</maven.version>
     </properties>
@@ -72,7 +72,7 @@
         </dependencies>
     </dependencyManagement>
     <modules>
-        <module>art-plugin</module>
+        <module>rptm-plugin</module>
         <module>asf-metadata</module>
         <module>jira-client</module>
         <module>mailarchive</module>

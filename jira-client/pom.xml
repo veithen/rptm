@@ -20,14 +20,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.apache.art</groupId>
-        <artifactId>art</artifactId>
+        <groupId>com.google.code.rptm</groupId>
+        <artifactId>rptm</artifactId>
         <version>SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>jira-client</artifactId>
     <packaging>jar</packaging>
-    <name>JIRA client</name>
+    <name>RPTM :: JIRA client</name>
     <properties>
         <axis.version>1.4</axis.version>
     </properties>
