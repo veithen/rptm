@@ -55,7 +55,7 @@
                     <wsdlFiles> 
                         <wsdlFile>jirasoapservice-v2.wsdl</wsdlFile>
                     </wsdlFiles>
-                    <packageSpace>org.apache.art.jira</packageSpace>
+                    <packageSpace>com.google.code.rptm.jira</packageSpace>
                 </configuration>
                 <executions>
                     <execution>

@@ -17,7 +17,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:art.apache.org:release" xmlns="urn:art.apache.org:release" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:rptm.code.google.com:release" xmlns="urn:rptm.code.google.com:release" elementFormDefault="qualified">
     <xsd:element name="releaseInfo">
         <xsd:complexType>
             <xsd:sequence>

@@ -17,7 +17,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:art.apache.org:vote" xmlns="urn:art.apache.org:vote" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:rptm.code.google.com:vote" xmlns="urn:rptm.code.google.com:vote" elementFormDefault="qualified">
     <xsd:element name="voteThread">
         <xsd:complexType>
             <xsd:sequence>
