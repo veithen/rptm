@@ -76,6 +76,7 @@
         <module>asf-metadata</module>
         <module>jira-client</module>
         <module>mailarchive</module>
+        <module>scmutil</module>
     </modules>
     <build>
         <pluginManagement>

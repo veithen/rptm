@@ -18,15 +18,16 @@
  */
 package com.google.code.rptm;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+
+import com.google.code.rptm.scm.ScmException;
+import com.google.code.rptm.scm.ScmInfo;
+import com.google.code.rptm.scm.ScmUtil;
+import com.google.code.rptm.scm.ScmUtilManager;
 
 /**
  * @goal validate-pom
@@ -76,6 +77,11 @@ public class ValidatePomMojo extends AbstractMojo {
      */
     private String repositoryUUID;
     
+    /**
+     * @component
+     */
+    private ScmUtilManager scmUtilManager;
+    
     private static String mergePaths(String root, String path) {
         StringBuffer buffer = new StringBuffer();
         if (root.charAt(root.length()-1) == '/') {
@@ -98,39 +104,20 @@ public class ValidatePomMojo extends AbstractMojo {
     }
     
     public void execute() throws MojoExecutionException, MojoFailureException {
-        File svndir = new File(basedir, ".svn");
-        if (!svndir.exists()) {
-            getLog().info("Skipping: not an SVN working copy");
+        ScmUtil scmUtil = scmUtilManager.getScmUtil(basedir);
+        if (scmUtil == null) {
+            getLog().info("Skipping: not a working copy");
             return;
         }
-        String wcUrl = null;
-        String wcRepoRoot = null;
-        String wcRepoUUID = null;
+        ScmInfo info;
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(new File(svndir, "entries")), "UTF-8"));
-            try {
-                int i = 0;
-                loop: while (true) {
-                    String line = in.readLine();
-                    if (line == null) {
-                        throw new MojoExecutionException("Unexpected end of file while reading SVN metadata");
-                    }
-                    switch (i++) {
-                        case 4: wcUrl = line; break;
-                        case 5: wcRepoRoot = line; break;
-                        case 26: wcRepoUUID = line; break loop;
-                    }
-                }
-            } finally {
-                in.close();
-            }
-        } catch (IOException ex) {
-            throw new MojoExecutionException("Failed to read SVN metadata", ex);
+            info = scmUtil.getInfo(basedir);
+        } catch (ScmException ex) {
+            throw new MojoExecutionException("Failed to get SCM information from working copy: " + ex.getMessage(), ex);
         }
-        if (!wcUrl.startsWith(wcRepoRoot)) {
-            throw new MojoExecutionException("Unexpected error: mismatch between wcUrl and wcRepoRoot; please report this to the dev team");
-        }
+        String wcUrl = info.getUrl();
+        String wcRepoRoot = info.getRepoRoot();
+        String wcRepoUUID = info.getRepoUUID();
         String path = wcUrl.substring(wcRepoRoot.length());
         if (!wcRepoUUID.equals(repositoryUUID)) {
             getLog().info("Skipping: working copy is not a checkout from repository " + repositoryUUID);
