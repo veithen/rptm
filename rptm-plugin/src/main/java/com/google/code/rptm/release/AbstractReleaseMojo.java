@@ -19,6 +19,7 @@
 package com.google.code.rptm.release;
 
 import com.google.code.rptm.AbstractStatefulMojo;
+import com.google.code.rptm.release.info.ReleaseInfo;
 
 public abstract class AbstractReleaseMojo extends AbstractStatefulMojo<ReleaseInfo> {
     /**

@@ -18,7 +18,7 @@
   ~ under the License.
   -->
 <bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <bindings scd="x-schema::r" xmlns:r="urn:rptm.code.google.com:release">
+    <bindings scd="x-schema::r" xmlns:r="urn:rptm.code.google.com:release:info">
         <bindings scd="r:releaseInfo//r:issue">
             <property name="issues"/>
         </bindings>

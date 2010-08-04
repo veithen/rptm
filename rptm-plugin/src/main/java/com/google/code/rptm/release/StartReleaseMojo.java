@@ -21,6 +21,8 @@ package com.google.code.rptm.release;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
+import com.google.code.rptm.release.info.ReleaseInfo;
+
 /**
  * @goal start-release
  * @aggregator true

@@ -36,6 +36,8 @@ import com.google.code.rptm.jira.JiraSoapService;
 import com.google.code.rptm.jira.JiraSoapServiceServiceLocator;
 import com.google.code.rptm.jira.RemoteProject;
 import com.google.code.rptm.jira.RemoteVersion;
+import com.google.code.rptm.release.info.Issue;
+import com.google.code.rptm.release.info.ReleaseInfo;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.SyndFeedInput;
