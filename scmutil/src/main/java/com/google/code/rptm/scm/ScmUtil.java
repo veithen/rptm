@@ -19,6 +19,7 @@
 package com.google.code.rptm.scm;
 
 import java.io.File;
+import java.util.Set;
 
 /**
  * Provides methods to retrieve information from a working copy checked out from a given SCM
@@ -38,4 +39,13 @@ public interface ScmUtil {
     boolean isWorkingCopy(File dir);
     
     ScmInfo getInfo(File dir) throws ScmException;
+    
+    /**
+     * Get the ignored entries for a given directory.
+     * 
+     * @param dir
+     * @return
+     * @throws ScmException
+     */
+    Set<String> getIgnoredEntries(File dir) throws ScmException;
 }

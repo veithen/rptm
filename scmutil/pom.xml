@@ -28,6 +28,13 @@
     <artifactId>scmutil</artifactId>
     <packaging>jar</packaging>
     <name>RPTM :: SCM utilities</name>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

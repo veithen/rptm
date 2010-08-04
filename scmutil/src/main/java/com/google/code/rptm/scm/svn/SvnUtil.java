@@ -22,7 +22,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.google.code.rptm.scm.ScmException;
 import com.google.code.rptm.scm.ScmInfo;
@@ -72,5 +76,48 @@ public class SvnUtil implements ScmUtil {
             throw new ScmException("Failed to read SVN metadata", ex);
         }
         return new ScmInfo(url, repoRoot, repoUUID);
+    }
+    
+    public Set<String> getIgnoredEntries(File dir) throws ScmException {
+        File dirPropBase = new File(getSvnDir(dir), "dir-prop-base");
+        if (dirPropBase.exists()) {
+            String svnIgnoreProp = null;
+            try {
+                InputStream in = new FileInputStream(dirPropBase);
+                try {
+                    PropFileReader pfr = new PropFileReader(in);
+                    while (pfr.next()) {
+                        if (pfr.getKey().equals("svn:ignore")) {
+                            svnIgnoreProp = pfr.getValue();
+                        }
+                    }
+                } finally {
+                    in.close();
+                }
+            } catch (IOException ex) {
+                throw new ScmException("Unable to read " + dirPropBase, ex);
+            }
+            if (svnIgnoreProp == null) {
+                return Collections.emptySet();
+            } else {
+                Set<String> entries = new HashSet<String>();
+                int pos = 0;
+                while (pos < svnIgnoreProp.length()) {
+                    int start = pos;
+                    pos = svnIgnoreProp.indexOf('\n', pos);
+                    int end;
+                    if (pos == -1) {
+                        pos = end = svnIgnoreProp.length();
+                    } else {
+                        end = pos;
+                        pos++;
+                    }
+                    entries.add(svnIgnoreProp.substring(start, end));
+                }
+                return entries;
+            }
+        } else {
+            return Collections.emptySet();
+        }
     }
 }
