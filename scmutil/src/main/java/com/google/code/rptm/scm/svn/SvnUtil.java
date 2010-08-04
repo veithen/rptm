@@ -80,7 +80,10 @@ public class SvnUtil implements ScmUtil {
     
     public Set<String> getIgnoredEntries(File dir) throws ScmException {
         File dirPropBase = new File(getSvnDir(dir), "dir-prop-base");
-        if (dirPropBase.exists()) {
+        // This condition takes into account that in some cases, the dir-prop-base
+        // file exists, but is empty. This may be the case for example after doing an
+        // svn propdel svn:ignore.
+        if (dirPropBase.exists() && dirPropBase.length() != 0) {
             String svnIgnoreProp = null;
             try {
                 InputStream in = new FileInputStream(dirPropBase);
