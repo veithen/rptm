@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
@@ -38,15 +37,9 @@ import com.google.code.rptm.scm.ScmUtilManager;
 
 /**
  * @goal check-source-dist
- * @requiresProject false
+ * @aggregator true
  */
-public class CheckSourceDistMojo extends AbstractMojo {
-    /**
-     * @parameter expression="${file}"
-     * @required
-     */
-    private File file;
-    
+public class CheckSourceDistMojo extends AbstractSourceDistValidationMojo {
     /**
      * @parameter expression="${basedir}"
      * @readonly
@@ -64,7 +57,7 @@ public class CheckSourceDistMojo extends AbstractMojo {
      */
     private ArchiverManager archiverManager;
 
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    protected void validate(File file) throws MojoExecutionException, MojoFailureException {
         ScmUtil scmUtil = scmUtilManager.getScmUtil(basedir);
         if (scmUtil == null) {
             throw new MojoFailureException("Not a working copy");
