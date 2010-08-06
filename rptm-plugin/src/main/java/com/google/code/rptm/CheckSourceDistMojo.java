@@ -21,7 +21,6 @@ package com.google.code.rptm;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.Set;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -31,6 +30,7 @@ import org.codehaus.plexus.archiver.manager.NoSuchArchiverException;
 import org.codehaus.plexus.components.io.resources.PlexusIoArchivedResourceCollection;
 import org.codehaus.plexus.components.io.resources.PlexusIoResource;
 
+import com.google.code.rptm.scm.FilenameMatcher;
 import com.google.code.rptm.scm.ScmException;
 import com.google.code.rptm.scm.ScmUtil;
 import com.google.code.rptm.scm.ScmUtilManager;
@@ -95,7 +95,7 @@ public class CheckSourceDistMojo extends AbstractSourceDistValidationMojo {
     
     private void check(NamedNode node, ScmUtil scmUtil, File dir) throws MojoExecutionException {
         Log log = getLog();
-        Set<String> ignore;
+        FilenameMatcher ignore;
         try {
             ignore = scmUtil.getIgnoredEntries(dir);
         } catch (ScmException ex) {
@@ -109,8 +109,7 @@ public class CheckSourceDistMojo extends AbstractSourceDistValidationMojo {
         }
         for (NamedNode child : node.getChildren()) {
             File file = new File(dir, child.getName());
-            // TODO: this doesn't take into account globs contained in the ignore list!
-            if (ignore.contains(child.getName())) {
+            if (ignore.matches(child.getName())) {
                 log.error("Source distribution contains entry that is ignored in SCM: " + file);
             } else if (file.isDirectory()) {
                 check(child, scmUtil, file);

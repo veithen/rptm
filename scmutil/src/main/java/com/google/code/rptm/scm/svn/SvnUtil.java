@@ -24,10 +24,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
+import com.google.code.rptm.scm.FilenameMatcher;
 import com.google.code.rptm.scm.ScmException;
 import com.google.code.rptm.scm.ScmInfo;
 import com.google.code.rptm.scm.ScmUtil;
@@ -78,7 +76,7 @@ public class SvnUtil implements ScmUtil {
         return new ScmInfo(url, repoRoot, repoUUID);
     }
     
-    public Set<String> getIgnoredEntries(File dir) throws ScmException {
+    public FilenameMatcher getIgnoredEntries(File dir) throws ScmException {
         File dirPropBase = new File(getSvnDir(dir), "dir-prop-base");
         // This condition takes into account that in some cases, the dir-prop-base
         // file exists, but is empty. This may be the case for example after doing an
@@ -101,9 +99,9 @@ public class SvnUtil implements ScmUtil {
                 throw new ScmException("Unable to read " + dirPropBase, ex);
             }
             if (svnIgnoreProp == null) {
-                return Collections.emptySet();
+                return FilenameMatcher.NONE;
             } else {
-                Set<String> entries = new HashSet<String>();
+                GlobMatcher matcher = new GlobMatcher();
                 int pos = 0;
                 while (pos < svnIgnoreProp.length()) {
                     int start = pos;
@@ -115,12 +113,12 @@ public class SvnUtil implements ScmUtil {
                         end = pos;
                         pos++;
                     }
-                    entries.add(svnIgnoreProp.substring(start, end));
+                    matcher.addGlob(svnIgnoreProp.substring(start, end));
                 }
-                return entries;
+                return matcher;
             }
         } else {
-            return Collections.emptySet();
+            return FilenameMatcher.NONE;
         }
     }
 }

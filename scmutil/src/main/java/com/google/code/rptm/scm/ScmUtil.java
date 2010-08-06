@@ -47,5 +47,5 @@ public interface ScmUtil {
      * @return
      * @throws ScmException
      */
-    Set<String> getIgnoredEntries(File dir) throws ScmException;
+    FilenameMatcher getIgnoredEntries(File dir) throws ScmException;
 }
