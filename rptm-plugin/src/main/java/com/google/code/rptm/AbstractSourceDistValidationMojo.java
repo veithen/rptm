@@ -89,6 +89,8 @@ public abstract class AbstractSourceDistValidationMojo extends AbstractMojo {
             if (dist.getDistributionType().equals(DistributionType.SOURCE)) {
                 Artifact artifact = factory.createArtifactWithClassifier(groupId, dist.getArtifactId(), version, dist.getType(), dist.getClassifier());
                 try {
+                    // TODO: no need to look in remote repositories here
+                    // TODO: first attempt to locate the artifact in the relevant "target" folder
                     resolver.resolve(artifact, remoteRepositories, localRepository);
                 } catch (AbstractArtifactResolutionException ex) {
                     throw new MojoExecutionException(ex.getMessage(), ex);
