@@ -19,6 +19,7 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="version" type="xsd:string"/>
+                <xsd:element name="description"/>
                 <xsd:element name="issue" type="issue" minOccurs="0" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
@@ -28,5 +29,30 @@
             <xsd:element name="key" type="xsd:string"/>
             <xsd:element name="summary" type="xsd:string"/>
         </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="block">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="para" type="inline"/>
+            <xsd:element name="itemizedlist">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="listitem" type="block" minOccurs="1" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:complexType name="inline" mixed="true">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="ulink">
+                <xsd:complexType>
+                    <xsd:complexContent>
+                        <xsd:extension base="inline">
+                            <xsd:attribute name="url" type="xsd:anyURI"/>
+                        </xsd:extension>
+                    </xsd:complexContent>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:choice>
     </xsd:complexType>
 </xsd:schema>

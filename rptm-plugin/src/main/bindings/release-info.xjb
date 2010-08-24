@@ -19,5 +19,9 @@
         <bindings scd="r:releaseInfo//r:issue">
             <property name="issues"/>
         </bindings>
+        <bindings scd="r:releaseInfo//r:description">
+        	<dom/>
+        </bindings>
+        <!-- TODO: need to skip generation of classes for the block and inline types -->
     </bindings>
 </bindings>
