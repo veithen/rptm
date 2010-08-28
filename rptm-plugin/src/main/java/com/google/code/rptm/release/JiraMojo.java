@@ -67,7 +67,7 @@ public class JiraMojo extends AbstractReleaseMojo {
     // TODO: implement proxy handling!
     public void execute() throws MojoExecutionException, MojoFailureException {
         ReleaseInfo releaseInfo = loadState();
-        if (!issueManagement.getSystem().equals("JIRA")) {
+        if (!issueManagement.getSystem().equalsIgnoreCase("JIRA")) {
             throw new MojoFailureException("Only JIRA is supported at this moment");
         }
         Matcher matcher = Pattern.compile("(.+/)browse/([A-Z0-9]+)").matcher(issueManagement.getUrl());
