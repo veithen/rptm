@@ -15,11 +15,11 @@
   ~ limitations under the License.
   -->
 <bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <bindings scd="x-schema::vote" xmlns:vote="urn:rptm.code.google.com:vote">
+    <bindings scd="x-schema::vote" xmlns:vote="urn:rptm.googlecode.com:vote">
         <globalBindings>
             <javaType name="com.google.code.rptm.mailarchive.YearMonth" xmlType="xsd:gYearMonth"
-                      parseMethod="com.google.code.rptm.vote.DatatypeConverter.parseYearMonth"
-                      printMethod="com.google.code.rptm.vote.DatatypeConverter.printYearMonth"/>
+                      parseMethod="com.googlecode.rptm.vote.DatatypeConverter.parseYearMonth"
+                      printMethod="com.googlecode.rptm.vote.DatatypeConverter.printYearMonth"/>
         </globalBindings>
         <bindings scd="vote:voteThread//vote:voter">
             <property name="voters"/>

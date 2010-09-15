@@ -13,21 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.code.rptm.vote;
+package com.googlecode.rptm.vote;
 
-import org.apache.maven.plugin.logging.Log;
+import com.googlecode.rptm.commons.AbstractStatefulMojo;
+import com.googlecode.rptm.vote.VoteThread;
 
-import com.google.code.rptm.mailarchive.MailingListArchiveEventListener;
-import com.google.code.rptm.mailarchive.YearMonth;
+public abstract class AbstractVoteMojo extends AbstractStatefulMojo<VoteThread> {
+    /**
+     * @parameter expression="${voteXml}" default-value=".rptm/vote.xml"
+     */
+    private String voteXml;
 
-public class LoggingMailingListArchiveEventListener implements MailingListArchiveEventListener {
-    private final Log log;
-    
-    public LoggingMailingListArchiveEventListener(Log log) {
-        this.log = log;
+    public AbstractVoteMojo() {
+        super(VoteThread.class);
     }
-
-    public void mboxLoaded(String mailingList, YearMonth month) {
-        log.info("Loaded mbox for mailing list " + mailingList + ", month " + month.toSimpleFormat());
+    
+    protected String getFileName() {
+        return voteXml;
     }
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.code.rptm.vote;
+package com.googlecode.rptm.vote;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -24,6 +24,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import com.google.code.rptm.mailarchive.MailingListArchive;
 import com.google.code.rptm.mailarchive.MailingListArchiveException;
 import com.google.code.rptm.mailarchive.MimeMessageProcessor;
+import com.googlecode.rptm.vote.VoteThread;
 
 /**
  * @goal vote-count

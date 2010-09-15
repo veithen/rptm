@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.code.rptm;
+package com.googlecode.rptm.commons;
 
 import java.io.File;
 
