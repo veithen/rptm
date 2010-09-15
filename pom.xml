@@ -21,7 +21,7 @@
         <artifactId>apache</artifactId>
         <version>7</version>
     </parent>
-    <groupId>com.google.code.rptm</groupId>
+    <groupId>com.googlecode.rptm</groupId>
     <artifactId>rptm</artifactId>
     <version>SNAPSHOT</version>
     <packaging>pom</packaging>
