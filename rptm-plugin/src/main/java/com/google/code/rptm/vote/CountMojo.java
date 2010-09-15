@@ -27,6 +27,7 @@ import com.google.code.rptm.mailarchive.MimeMessageProcessor;
 
 /**
  * @goal vote-count
+ * @aggregator true
  */
 public class CountMojo extends AbstractVoteMojo {
     /**
