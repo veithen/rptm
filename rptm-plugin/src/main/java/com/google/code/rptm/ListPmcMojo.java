@@ -30,6 +30,7 @@ import com.google.code.rptm.metadata.pmc.ProjectByIdMatcher;
 
 /**
  * @goal list-pmc
+ * @aggregator true
  */
 public class ListPmcMojo extends AbstractMojo {
     /**
