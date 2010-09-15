@@ -114,10 +114,18 @@ public class DefaultMetadataProvider implements MetadataProvider, LogEnabled, Di
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(getFile("committers/MailAlias.txt")), "ASCII"));
             try {
+                int i = 0;
                 String line;
                 while ((line = in.readLine()) != null) {
-                    int idx = line.indexOf(',');
-                    visitor.visitMailAlias(line.substring(0, idx), line.substring(idx+1));
+                    i++;
+                    if (line.length() > 0) {
+                        int idx = line.indexOf(',');
+                        if (idx == -1) {
+                            logger.warn("Syntax error at line " + i);
+                        } else {
+                            visitor.visitMailAlias(line.substring(0, idx), line.substring(idx+1));
+                        }
+                    }
                 }
             } finally {
                 in.close();

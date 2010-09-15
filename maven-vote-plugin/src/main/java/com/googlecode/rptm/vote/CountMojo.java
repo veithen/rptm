@@ -16,6 +16,7 @@
 package com.googlecode.rptm.vote;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.apache.maven.plugin.MojoExecutionException;
@@ -24,7 +25,8 @@ import org.apache.maven.plugin.MojoFailureException;
 import com.google.code.rptm.mailarchive.MailingListArchive;
 import com.google.code.rptm.mailarchive.MailingListArchiveException;
 import com.google.code.rptm.mailarchive.MimeMessageProcessor;
-import com.googlecode.rptm.vote.VoteThread;
+import com.google.code.rptm.metadata.MetadataException;
+import com.google.code.rptm.metadata.MetadataProvider;
 
 /**
  * @goal vote-count
@@ -36,13 +38,26 @@ public class CountMojo extends AbstractVoteMojo {
      */
     private MailingListArchive mailingListArchive;
     
+    /**
+     * @component
+     */
+    private MetadataProvider metadataProvider;
+    
     public void execute() throws MojoExecutionException, MojoFailureException {
         final VoteThread thread = loadState();
+        final Aliases aliases;
+        try {
+            AliasesBuilder aliasesBuilder = new AliasesBuilder();
+            metadataProvider.getMailAliases(aliasesBuilder);
+            aliases = aliasesBuilder.getAliases();
+        } catch (MetadataException ex) {
+            throw new MojoExecutionException("Failed to load mail aliases: " + ex.getMessage(), ex);
+        }
         try {
             mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth(),
                     new MimeMessageProcessor() {
                         public boolean processMessage(MimeMessage msg) throws MessagingException {
-                            CountMojo.processMessage(thread, msg);
+                            CountMojo.processMessage(thread, aliases, msg);
                             return true;
                         }
                     }, new LoggingMailingListArchiveEventListener(getLog()));
@@ -51,12 +66,12 @@ public class CountMojo extends AbstractVoteMojo {
         }
     }
     
-    private static void processMessage(VoteThread thread, MimeMessage msg) throws MessagingException {
+    private static void processMessage(VoteThread thread, Aliases aliases, MimeMessage msg) throws MessagingException {
         String messageId = "<" + thread.getMessageId() + ">";
         if (messageId.equals(msg.getMessageID())
                 || references(msg, messageId, "In-Reply-To")
                 || references(msg, messageId, "References")) {
-            System.out.println(msg.getSubject());
+            System.out.println(msg.getSubject() + " " + aliases.resolveAliases(((InternetAddress)msg.getFrom()[0]).getAddress()));
         }
     }
     

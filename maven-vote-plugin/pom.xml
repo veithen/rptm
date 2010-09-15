@@ -23,7 +23,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>maven-vote-plugin</artifactId>
-    <packaging>jar</packaging>
+    <packaging>maven-plugin</packaging>
     <name>RPTM :: Maven vote plugin</name>
     <dependencies>
         <dependency>
