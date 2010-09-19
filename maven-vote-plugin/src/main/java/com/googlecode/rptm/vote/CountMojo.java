@@ -45,7 +45,7 @@ import com.google.code.rptm.metadata.pmc.PmcUtil;
 import com.google.code.rptm.metadata.pmc.ProjectByIdMatcher;
 
 /**
- * @goal vote-count
+ * @goal count
  * @aggregator true
  */
 public class CountMojo extends AbstractVoteMojo {

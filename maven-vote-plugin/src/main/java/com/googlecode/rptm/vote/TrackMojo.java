@@ -27,7 +27,7 @@ import com.google.code.rptm.mailarchive.YearMonth;
 import com.googlecode.rptm.vote.VoteThread;
 
 /**
- * @goal vote-track
+ * @goal track
  * @aggregator true
  */
 public class TrackMojo extends AbstractVoteMojo {
