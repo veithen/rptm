@@ -87,11 +87,11 @@ public class CountMojo extends AbstractVoteMojo {
         }
         try {
             mailingListArchive.retrieveMessages(thread.getMailingList(), thread.getMonth(),
-                    new MimeMessageProcessor() {
+                    new ConversationFilter(new MimeMessageProcessor() {
                         public boolean processMessage(MimeMessage msg) throws MessagingException, IOException {
                             return CountMojo.this.processMessage(thread, members, aliases, msg);
                         }
-                    }, new LoggingMailingListArchiveEventListener(getLog()));
+                    }, thread.getMessageId()), new LoggingMailingListArchiveEventListener(getLog()));
         } catch (MailingListArchiveException ex) {
             throw new MojoExecutionException("Failed to crawl mailing list archive: " + ex.getMessage(), ex);
         }
@@ -104,7 +104,7 @@ public class CountMojo extends AbstractVoteMojo {
             if (messageId.startsWith("<") && messageId.endsWith(">")) {
                 messageId = messageId.substring(1, messageId.length()-1);
             }
-            if (messageBelongsToThread(msg, thread) && !isCounted(thread, messageId)) {
+            if (!isCounted(thread, messageId)) {
                 InternetAddress from = (InternetAddress)msg.getFrom()[0];
                 String fromAddress = from.getAddress().toLowerCase();
                 displayMessageContent(msg, new PrintWriter(new OutputStreamWriter(System.out), true));
@@ -161,29 +161,6 @@ public class CountMojo extends AbstractVoteMojo {
         } catch (PrompterException ex) {
             return false;
         }
-    }
-
-    private static boolean messageBelongsToThread(MimeMessage msg, VoteThread thread) throws MessagingException {
-        String messageId = "<" + thread.getMessageId() + ">";
-        return messageId.equals(msg.getMessageID())
-                || references(msg, messageId, "In-Reply-To")
-                || references(msg, messageId, "References");
-    }
-    
-    private static boolean references(MimeMessage msg, String messageId, String header) throws MessagingException {
-        String[] values = msg.getHeader(header);
-        if (values == null) {
-            return false;
-        }
-        for (String value : values) {
-            String[] references = value.split("\\s+");
-            for (String reference : references) {
-                if (reference.equals(messageId)) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     private static boolean isCounted(VoteThread thread, String messageId) {
