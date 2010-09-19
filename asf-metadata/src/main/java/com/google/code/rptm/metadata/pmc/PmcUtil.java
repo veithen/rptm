@@ -20,19 +20,26 @@ import java.net.URL;
 
 public final class PmcUtil {
     private PmcUtil() {}
-    
-    public static String getProjectIdFromSiteUrl(String siteUrl) {
-        String host;
-        try {
-            host = new URL(siteUrl).getHost();
-        } catch (MalformedURLException ex) {
-            return null;
-        }
-        int idx = host.indexOf('.');
-        if (host.substring(idx+1).equals("apache.org")) {
-            return host.substring(0, idx);
+
+    private static String getProjectIdFromDomain(String domain) {
+        int idx = domain.indexOf('.');
+        if (domain.substring(idx+1).equals("apache.org")) {
+            return domain.substring(0, idx);
         } else {
             return null;
         }
+    }
+    
+    public static String getProjectIdFromSiteUrl(String siteUrl) {
+        try {
+            return getProjectIdFromDomain(new URL(siteUrl).getHost());
+        } catch (MalformedURLException ex) {
+            return null;
+        }
+    }
+    
+    public static String getProjectIdFromMailingList(String mailingListAddress) {
+        int idx = mailingListAddress.indexOf('@');
+        return idx == -1 ? null : getProjectIdFromDomain(mailingListAddress.substring(idx+1));
     }
 }

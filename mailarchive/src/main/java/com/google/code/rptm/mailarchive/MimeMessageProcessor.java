@@ -15,6 +15,8 @@
  */
 package com.google.code.rptm.mailarchive;
 
+import java.io.IOException;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -29,6 +31,7 @@ public interface MimeMessageProcessor {
      *         further messages
      * @throws MessagingException
      *             if one of the methods in {@link MimeMessage} throws a {@link MessagingException}
+     * @throws IOException 
      */
-    boolean processMessage(MimeMessage msg) throws MessagingException;
+    boolean processMessage(MimeMessage msg) throws MessagingException, IOException;
 }

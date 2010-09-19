@@ -37,6 +37,7 @@
     <xsd:complexType name="vote">
         <xsd:sequence>
             <xsd:element name="messageId" type="messageId"/>
+            <xsd:element name="received" type="xsd:dateTime"/>
             <xsd:element name="opinion" type="opinion"/>
         </xsd:sequence>
     </xsd:complexType>

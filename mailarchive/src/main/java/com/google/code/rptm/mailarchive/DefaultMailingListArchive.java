@@ -151,6 +151,8 @@ public class DefaultMailingListArchive implements MailingListArchive, Disposable
             }
         } catch (MessagingException ex) {
             throw new MailingListArchiveException("JavaMail exception: " + ex.getMessage(), ex);
+        } catch (IOException ex) {
+            throw new MailingListArchiveException("I/O exception: " + ex.getMessage(), ex);
         }
     }
     

@@ -15,6 +15,10 @@
  */
 package com.googlecode.rptm.vote;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -42,5 +46,15 @@ public class DatatypeConverter {
         cal.setYear(month.getYear());
         cal.setMonth(month.getMonth());
         return cal.toXMLFormat();
+    }
+    
+    public static Date parseDateTime(String s) {
+        return javax.xml.bind.DatatypeConverter.parseDateTime(s).getTime();
+    }
+    
+    public static String printDateTime(Date date) {
+        GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
+        cal.setTime(date);
+        return javax.xml.bind.DatatypeConverter.printDateTime(cal);
     }
 }

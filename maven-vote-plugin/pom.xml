@@ -60,6 +60,10 @@
             <artifactId>commons</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-interactivity-jline</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -33,5 +33,10 @@
         <bindings scd="~vote:voter//vote:vote">
             <property name="votes"/>
         </bindings>
+        <bindings scd="~vote:vote//vote:received">
+            <javaType name="java.util.Date"
+                      parseMethod="com.googlecode.rptm.vote.DatatypeConverter.parseDateTime"
+                      printMethod="com.googlecode.rptm.vote.DatatypeConverter.printDateTime"/>
+        </bindings>
     </bindings>
 </bindings>

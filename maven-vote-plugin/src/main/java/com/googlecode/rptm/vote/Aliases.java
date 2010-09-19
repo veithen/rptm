@@ -15,17 +15,42 @@
  */
 package com.googlecode.rptm.vote;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-public class Aliases {
-    private final Map<String,String> aliases;
+import com.google.code.rptm.metadata.aliases.MailAliasVisitor;
 
-    public Aliases(Map<String, String> aliases) {
-        this.aliases = aliases;
+public class Aliases implements MailAliasVisitor {
+    private final Map<String,String> primaryAddressMap = new HashMap<String,String>();
+    private final Map<String,Set<String>> aliasMap = new HashMap<String,Set<String>>();
+
+    public void visitMailAlias(String primaryAddress, String alias) {
+        primaryAddress = primaryAddress.toLowerCase();
+        alias = alias.toLowerCase();
+        primaryAddressMap.put(alias, primaryAddress);
+        Set<String> aliases = aliasMap.get(primaryAddress);
+        if (aliases == null) {
+            aliases = new HashSet<String>();
+            aliasMap.put(primaryAddress, aliases);
+        }
+        aliases.add(alias);
     }
 
-    public String resolveAliases(String address) {
-        String primaryAddress = aliases.get(address);
-        return primaryAddress == null ? address : primaryAddress;
+    public String getPrimaryAddress(String address) {
+        address = address.toLowerCase();
+        String primaryAddress = primaryAddressMap.get(address);
+        if (primaryAddress != null) {
+            return primaryAddress;
+        } else if (aliasMap.containsKey(address)) {
+            return address;
+        } else {
+            return null;
+        }
+    }
+    
+    public Set<String> getAliases(String primaryAddress) {
+        return aliasMap.get(primaryAddress.toLowerCase());
     }
 }
