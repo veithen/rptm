@@ -1,0 +1,1 @@
+This project provides a plugin that simplifies the release process of Maven projects. It complements the existing maven-release-plugin and is primarily focused on the ASF release process, although parts of it may be used for non-ASF projects.
